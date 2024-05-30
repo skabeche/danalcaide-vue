@@ -1,0 +1,70 @@
+@import url("assets/fonts.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .anim-underline {
+    @apply transition-all after:block after:relative after:z-10 after:w-0 hover:after:w-full after:h-[1px] after:bg-gray-800 after:transition-all after:duration-300 after:ease-out-back;
+  }
+}
+
+:root {
+  --bgSizeHorizon: 100% 120%;
+}
+
+html {
+  @apply bg-black;
+  scrollbar-gutter: stable;
+  scrollbar-color: black white;
+  /* scrollbar-width: thin; */
+}
+
+body {
+  @apply bg-white text-black font-extralight;
+}
+
+a {
+  @apply inline-block no-underline font-normal anim-underline;
+}
+
+footer {
+  @apply relative mb-16 before:absolute before:bottom-full before:-z-10 before:w-full before:h-[300dvh]
+  before:bg-garden-minimalist
+  lg:before:bg-garden-full
+  before:bg-[position:left_bottom,_right_bottom]
+  lg:before:bg-[position:left_bottom,_-220px_bottom,_right_bottom]
+  max-2xl:before:bg-[length:auto,_auto,_auto_50vw]
+  after:bg-circles after:absolute after:-bottom-[80px] after:w-full after:h-[160px] after:bg-[length:auto_100%] after:bg-repeat-x;
+
+  .anim-underline {
+    @apply after:bg-white;
+  }
+}
+/* No arbitrary values for background-repeat in Tailwind 3. */
+footer::before {
+  background-repeat: repeat-x, no-repeat, no-repeat;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
