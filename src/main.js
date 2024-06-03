@@ -4,10 +4,10 @@ import App from './App.vue'
 import Particles from "@tsparticles/vue3";
 //import { loadFull } from "tsparticles"; // if you are going to use `loadFull`, install the "tsparticles" package too.
 import { loadSlim } from "@tsparticles/slim"; // if you are going to use `loadSlim`, install the "@tsparticles/slim" package too.
-
 import { createI18n } from 'vue-i18n';
 import es from "./locales/es.json"
 import en from "./locales/en.json"
+import { createHead } from 'unhead'
 
 const i18n = createI18n({
   locale: navigator.language,
@@ -15,6 +15,8 @@ const i18n = createI18n({
   messages: { es, en },
   legacy: false
 })
+
+const head = createHead()
 
 createApp(App)
   .use(Particles, {
@@ -24,4 +26,5 @@ createApp(App)
     },
   })
   .use(i18n)
+  .use(head)
   .mount('#app')

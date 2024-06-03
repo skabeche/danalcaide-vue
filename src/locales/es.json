@@ -1,7 +1,12 @@
 {
   "languages": {
+    "code": "es",
     "es": "Español",
     "en": "Inglés"
+  },
+  "meta": {
+    "title": "Desarrollador Web",
+    "description": "Desarrollador Web hipnotizado por la música y la guitarra."
   },
   "preloader": {
     "loading": "cargando"

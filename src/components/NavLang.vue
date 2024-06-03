@@ -1,9 +1,5 @@
 <template>
   <nav>
-    <!-- <ul class="anim-init-nav-lang flex gap-2 text-sm">
-      <li><a href="/" accesskey="1" lang="es" title="Español">ES</a></li>
-      <li><a href="/en" accesskey="2" lang="en" title="English">EN</a></li>
-    </ul> -->
     <ul class="anim-init-nav-lang flex gap-2 text-sm uppercase">
       <li v-for="(locale, index) in $i18n.availableLocales" :key="`locale-${locale}`">
         <a href="#" @click.prevent="$i18n.locale = locale" :title="$t('languages.' + locale)" :lang="locale" :accesskey="index">

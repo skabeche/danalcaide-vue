@@ -1,7 +1,12 @@
 {
   "languages": {
+    "code": "en",
     "es": "Spanish",
     "en": "English"
+  },
+  "meta": {
+    "title": "Web Developer",
+    "description": "Web Developer who loves music and guitar."
   },
   "preloader": {
     "loading": "loading"
