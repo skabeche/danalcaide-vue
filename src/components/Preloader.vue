@@ -2,7 +2,7 @@
   <div class="overlay bg-black text-white absolute z-40 top-0 left-0 w-full h-dvh pt-20 pb-[5dvh] flex flex-col justify-center" :data-loaded="isLoaded">
     <div class="container">
       <slot />
-      <span class="loader text-sm text-white" role="status">loading...</span>
+      <span class="loader text-sm text-white" role="status">{{ $t('preloader.loading') }}...</span>
     </div>
   </div>
 </template>

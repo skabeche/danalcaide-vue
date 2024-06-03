@@ -3,17 +3,17 @@
   <div class="wrapper bg-horizon bg-bottom bg-no-repeat">
     <section class="relative z-10 prose-lg prose-li:m-0 prose-li:p-0 prose-h2:text-xl prose-h2:font-normal prose-ul:pl-4 leading-relaxed mt-12 mb-80 xl:mb-72 2xl:mb-64 text-pretty">
       <div class="container">
-        <h1 class="text-3xl md:text-4xl lg:text-5xl sm:text-balance">Desarrollador Web Full-Stack que se ha topado con el mundo del Diseño Web y Gráfico como freelance o parte de un equipo multidisciplinario.</h1>
+        <h1 class="text-3xl md:text-4xl lg:text-5xl sm:text-balance">{{ $t('yo.title') }}</h1>
         <div class="lg:w-[55%] 3xl:w-3/4">
-          <p>Además de entender los aspectos de usabilidad, accesibilidad, estética, interactividad y comunicación involucrados en el proceso de diseño, soy un músico hipnotizado por la música que lleva rascando la guitarra desde hace más de 25 años.</p>
+          <p>{{ $t('yo.text') }}</p>
           <ul>
-            <li>A los 13 años di <a href="https://youtu.be/VrUvnLQ5-h4" target="_blank">mi primer beso</a>.</li>
-            <li>A los 16 adquirí mi <a href="https://youtu.be/qFfnlYbFEiE" target="_blank">Fender Stratocaster</a>.</li>
-            <li>A los 18 años instalé <a href="https://en.wikipedia.org/wiki/File:Attempted_restoration_of_Ecce_Homo.jpg#/media/File:Attempted_restoration_of_Ecce_Homo.jpg" target="_blank">Photoshop</a>.</li>
-            <li>A los 21 fundé la banda <a href="https://youtu.be/gkLqopaEHpU" target="_blank">Skizophonic</a>.</li>
-            <li>A los 23 conseguí mi primer trabajo como Desarrollador y Diseñador Web.</li>
-            <li>A los 27 años subí <a href="https://web.archive.org/web/20081005040052/http://www.danalcaide.es/" target="_blank">mi primer portfolio</a>.</li>
-            <li>A los 33 me mudé a <a href="https://youtu.be/2jf7FmNt4Tg" target="_blank">Belfast</a> para vivir una aventura.</li>
+            <li>{{ $t('yo.timeline.13.text') }} <a href="https://youtu.be/VrUvnLQ5-h4" target="_blank">{{ $t('yo.timeline.13.linkText') }}</a>.</li>
+            <li>{{ $t('yo.timeline.16.text') }} <a href="https://youtu.be/qFfnlYbFEiE" target="_blank">{{ $t('yo.timeline.16.linkText') }}</a>.</li>
+            <li>{{ $t('yo.timeline.18.text') }} <a href="https://en.wikipedia.org/wiki/File:Attempted_restoration_of_Ecce_Homo.jpg#/media/File:Attempted_restoration_of_Ecce_Homo.jpg" target="_blank">{{ $t('yo.timeline.18.linkText') }}</a>.</li>
+            <li>{{ $t('yo.timeline.21.text') }} <a href="https://youtu.be/gkLqopaEHpU" target="_blank">{{ $t('yo.timeline.21.linkText') }}</a>.</li>
+            <li>{{ $t('yo.timeline.23.text') }}</li>
+            <li>{{ $t('yo.timeline.27.text') }} <a href="https://web.archive.org/web/20081005040052/http://www.danalcaide.es/" target="_blank">{{ $t('yo.timeline.27.linkText') }}</a>.</li>
+            <li>{{ $t('yo.timeline.33.text') }} <a href="https://youtu.be/2jf7FmNt4Tg" target="_blank">{{ $t('yo.timeline.33.linkText') }}</a>.</li>
           </ul>
           <Projects />
           <Skills />
@@ -40,7 +40,7 @@
     const lenis = new Lenis()
 
     lenis.on('scroll', (e) => {
-      console.log(e)
+      // console.log(e)
     })
 
     lenis.on('scroll', ScrollTrigger.update)

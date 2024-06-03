@@ -1,7 +1,6 @@
 <template>
   <div class="clients-projects">
-    <h2>Developed for</h2>
-    <!-- <ul class="flex flex-wrap sm:grid sm:grid-cols-2 xl:grid-cols-3 gap-x-4"> -->
+    <h2>{{ $t('projects.title') }}</h2>
     <ul class="flex sm:flex-row flex-wrap gap-x-4 mt-4 [&_a]:font-light ">
       <li v-for="client in clients" :key="client.name" class="relative [&:not(:last-child)]:after:content-['·'] after:absolute after:ml-1.5 last:not">
         {{ client.name }}
@@ -62,57 +61,3 @@
     { web: 'portal.yuenergy.co.uk' },
   ]
 </script>
-
-<style scoped>
-
-  /* a::before,
-  a::after {
-    display: block;
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    opacity: .8;
-    background-color: transparent;
-    color: transparent;
-    z-index: -1;
-  }
-
-  a:hover::before {
-    color: #0ff;
-    animation: glitch 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
-  }
-
-  a:hover::after {
-    color: #f0f;
-    animation: glitch 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94) reverse both infinite;
-  }
-
-  @keyframes glitch {
-    0% {
-      transform: translate(0);
-    }
-
-    20% {
-      transform: translate(-5px, 5px);
-    }
-
-    40% {
-      transform: translate(-5px, -5px);
-    }
-
-    60% {
-      transform: translate(5px, 5px);
-    }
-
-    80% {
-      transform: translate(5px, -5px);
-    }
-
-    100% {
-      transform: translate(0);
-    }
-  } */
-</style>

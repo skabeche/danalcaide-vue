@@ -1,0 +1,59 @@
+{
+  "languages": {
+    "es": "Español",
+    "en": "Inglés"
+  },
+  "preloader": {
+    "loading": "cargando"
+  },
+  "yo": {
+    "title": "Desarrollador Web Full-Stack que se ha topado con el mundo del Diseño Web y Gráfico como freelance o parte de un equipo multidisciplinario.",
+    "text": "Además de entender los aspectos de usabilidad, accesibilidad, estética, interactividad y comunicación involucrados en el proceso de diseño, soy un músico hipnotizado por la música que lleva rascando la guitarra desde hace más de 25 años.",
+    "timeline": {
+      "13": {
+        "text": "A los 13 años di",
+        "linkText": "mi primer beso"
+      },
+      "16": {
+        "text": "A los 16 adquirí mi",
+        "linkText": "Fender Stratocaster"
+      },
+      "18": {
+        "text": "A los 18 años instalé",
+        "linkText": "Photoshop"
+      },
+      "21": {
+        "text": "A los 21 fundé la banda",
+        "linkText": "Skizophonic"
+      },
+      "23": {
+        "text": "A los 23 conseguí mi primer trabajo como Desarrollador y Diseñador Web.",
+        "linkText": ""
+      },
+      "27": {
+        "text": "A los 27 años subí",
+        "linkText": "mi primer portfolio"
+      },
+      "33": {
+        "text": "A los 33 me mudé a",
+        "linkText": "Belfast"
+      }
+    }
+  },
+  "projects": {
+    "title": "Desarrollado para"
+  },
+  "skills": {
+    "title": "Trabajado con",
+    "list": {
+      "coffee": "Café"
+    }
+  },
+  "footer": {
+    "social": "Dime hola",
+    "text": "Colibrí es un género de aves apodiformes originarias de América y pertenecientes a la subfamilia de los troquilinos (Trochilinae) las cuáles tienen un tamaño que oscila entre 9,5 y 15 cm, y un peso de 4,8 a 8,5 g. Tienen cola amplia, bifurcada o redondeada. El pico es negro y delgado, relativamente largo y curvado, y tienen una larga lengua en forma tubular.",
+    "linkText": "https://es.wikipedia.org/wiki/Colibri",
+    "code": "Código en Github",
+    "ingredients": "Hecho con"
+  }
+}

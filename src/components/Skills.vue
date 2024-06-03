@@ -1,6 +1,6 @@
 <template>
   <div class="skills">
-    <h2>Worked with</h2>
+    <h2>{{ $t('skills.title') }}</h2>
     <ul class="flex flex-wrap gap-x-4">
       <li v-for="skill in skills" :key="skill.name">
         {{ skill.name }}
@@ -10,6 +10,9 @@
 </template>
 
 <script setup>
+  import { useI18n } from "vue-i18n";
+  const { t } = useI18n()
+
   const skills = [
     { name: 'HTML' },
     { name: 'CSS' },
@@ -35,7 +38,7 @@
     { name: 'Flash' },
     { name: 'ActionScript' },
     { name: 'IE6' },
-    { name: 'Café' },
+    { name: t('skills.list.coffee') },
     { name: 'Chocolate' },
     { name: 'Paella' },
     { name: 'Googling' },

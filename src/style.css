@@ -30,7 +30,7 @@ a {
 }
 
 footer {
-  @apply relative mb-16 before:absolute before:bottom-full before:-z-10 before:w-full before:h-[300dvh]
+  @apply before:absolute before:bottom-full before:-z-10 before:w-full before:h-[300dvh]
   before:bg-garden-minimalist
   lg:before:bg-garden-full
   before:bg-[position:left_bottom,_right_bottom]
