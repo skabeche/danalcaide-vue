@@ -18,7 +18,6 @@ html {
   @apply bg-black;
   scrollbar-gutter: stable;
   scrollbar-color: black white;
-  /* scrollbar-width: thin; */
 }
 
 body {

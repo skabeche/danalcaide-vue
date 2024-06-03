@@ -1,7 +1,7 @@
 <template>
   <Header />
   <div class="wrapper bg-horizon bg-bottom bg-no-repeat">
-    <section class="relative z-10 prose-lg prose-li:m-0 prose-li:p-0 prose-h2:text-xl prose-h2:font-normal prose-ul:pl-4 leading-relaxed mt-12 mb-80 xl:mb-72 2xl:mb-64 text-pretty">
+    <section class="relative z-10 prose-lg prose-li:m-0 prose-li:p-0 prose-h2:text-xl prose-h2:font-normal prose-ul:pl-4 leading-relaxed mt-12 mb-80 xl:mb-72 2xl:mb-80 min-[1700px]:mb-72 text-pretty">
       <div class="container">
         <h1 class="text-3xl md:text-4xl lg:text-5xl sm:text-balance">{{ $t('yo.title') }}</h1>
         <div class="lg:w-[55%] 3xl:w-3/4">
