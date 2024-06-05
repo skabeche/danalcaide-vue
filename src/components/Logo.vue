@@ -1,7 +1,9 @@
 <template>
   <div class="text-3xl">
-    <span class="anim-init-logo inline-block mt-8 font-alternateGothic2 uppercase">Dan Alcaide</span>
-    <span class="anim-init-colibri-logo inline-block absolute w-[70px] h-[48px] bg-colibri-anim"></span>
+    <a href="/" accesskey="d" class="after:hidden">
+      <span class="inline-block mt-8 font-alternateGothic2 uppercase">Dan Alcaide</span>
+      <span class="anim-init-colibri-logo inline-block absolute w-[70px] h-[48px] bg-colibri-anim"></span>
+    </a>
   </div>
 </template>
 

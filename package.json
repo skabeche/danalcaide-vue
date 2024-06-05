@@ -15,7 +15,8 @@
     "lucide-vue-next": "^0.383.0",
     "unhead": "^1.9.12",
     "vue": "^3.4.21",
-    "vue-i18n": "^9.13.1"
+    "vue-i18n": "^9.13.1",
+    "vue-router": "^4.3.2"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.13",

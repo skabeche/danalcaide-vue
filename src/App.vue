@@ -3,21 +3,7 @@
   <div class="wrapper bg-horizon bg-bottom bg-no-repeat">
     <section class="relative z-10 prose-lg prose-li:m-0 prose-li:p-0 prose-h2:text-xl prose-h2:font-normal prose-ul:pl-4 leading-relaxed mt-12 mb-80 xl:mb-72 2xl:mb-80 min-[1700px]:mb-72 text-pretty">
       <div class="container">
-        <h1 class="text-3xl md:text-4xl lg:text-5xl sm:text-balance">{{ $t('yo.title') }}</h1>
-        <div class="lg:w-[55%] 3xl:w-3/4">
-          <p>{{ $t('yo.text') }}</p>
-          <ul>
-            <li>{{ $t('yo.timeline.13.text') }} <a href="https://youtu.be/VrUvnLQ5-h4" target="_blank">{{ $t('yo.timeline.13.linkText') }}</a>.</li>
-            <li>{{ $t('yo.timeline.16.text') }} <a href="https://youtu.be/qFfnlYbFEiE" target="_blank">{{ $t('yo.timeline.16.linkText') }}</a>.</li>
-            <li>{{ $t('yo.timeline.18.text') }} <a href="https://en.wikipedia.org/wiki/File:Attempted_restoration_of_Ecce_Homo.jpg#/media/File:Attempted_restoration_of_Ecce_Homo.jpg" target="_blank">{{ $t('yo.timeline.18.linkText') }}</a>.</li>
-            <li>{{ $t('yo.timeline.21.text') }} <a href="https://youtu.be/gkLqopaEHpU" target="_blank">{{ $t('yo.timeline.21.linkText') }}</a>.</li>
-            <li>{{ $t('yo.timeline.23.text') }}</li>
-            <li>{{ $t('yo.timeline.27.text') }} <a href="https://web.archive.org/web/20081005040052/http://www.danalcaide.es/" target="_blank">{{ $t('yo.timeline.27.linkText') }}</a>.</li>
-            <li>{{ $t('yo.timeline.33.text') }} <a href="https://youtu.be/2jf7FmNt4Tg" target="_blank">{{ $t('yo.timeline.33.linkText') }}</a>.</li>
-          </ul>
-          <Projects />
-          <Skills />
-        </div>
+        <RouterView />
       </div>
     </section>
     <Footer />
@@ -29,8 +15,6 @@
   import { useI18n } from "vue-i18n"
   import { useHead } from 'unhead'
   import Header from './components/Header.vue'
-  import Projects from './components/Projects.vue'
-  import Skills from './components/Skills.vue'
   import Footer from './components/Footer.vue'
   import Lenis from 'lenis'
   import { gsap } from "gsap";
@@ -82,7 +66,7 @@
     gsap.ticker.lagSmoothing(10)
 
     gsap.to(".wrapper", {
-      "--bgSizeHorizon": "100% 85%",
+      "--bgSizeHorizon": "auto 80%",
       scrollTrigger: {
         trigger: "main",
         start: "top top",

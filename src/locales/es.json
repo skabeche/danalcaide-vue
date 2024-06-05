@@ -60,5 +60,10 @@
     "linkText": "https://es.wikipedia.org/wiki/Colibri",
     "code": "Código en Github",
     "ingredients": "Hecho con"
+  },
+  "404": {
+    "title": "404 · Página no encontrada",
+    "text": "¡Oh no! La página que estás buscando no existe y se está haciendo de noche",
+    "linkText": "Volver a casa"
   }
 }

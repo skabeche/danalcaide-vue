@@ -55,7 +55,6 @@ export default {
       backgroundImage: {
         'colibri-anim': 'url(/images/colibri_anim.png)',
         'horizon': 'url(/images/horizon.svg)',
-        'circle': 'url(/images/circle.svg)',
         'circles': 'url(/images/circles.svg)',
         'garden-minimalist': "url('/images/grass.png'), url('/images/plants.png')",
         'garden-full': "url('/images/grass.png'), url('/images/plants.png'), url('/images/tree.png')",

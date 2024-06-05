@@ -60,5 +60,10 @@
     "linkText": "https://en.wikipedia.org/wiki/Hummingbird",
     "code": "Code on Github",
     "ingredients": "Made with"
+  },
+  "404": {
+    "title": "404 · Page not found",
+    "text": "Oops! The page you are looking for does not exist and it's getting dark",
+    "linkText": "Go back home"
   }
 }

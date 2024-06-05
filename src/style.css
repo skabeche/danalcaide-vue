@@ -11,7 +11,7 @@
 }
 
 :root {
-  --bgSizeHorizon: 100% 120%;
+  --bgSizeHorizon: auto 90%;
 }
 
 html {
