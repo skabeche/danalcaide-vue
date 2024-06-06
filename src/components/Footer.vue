@@ -1,5 +1,5 @@
 <template>
-  <footer class="relative mb-8 pt-12 pb-32 bg-black border-t border-t-black text-gray-400 prose-lg prose-a:text-white leading-relaxed lg:text-balance">
+  <footer class="relative pt-12 pb-32 bg-black border-t border-t-black text-gray-400 prose-lg prose-a:text-white leading-relaxed lg:text-balance">
     <Flies />
     <div class="container">
       <p>{{ $t('footer.social') }} <a href="mailto:info@danalcaide.com">info@danalcaide.com</a> · <a href="https://github.com/skabeche">Github</a> · <a href="https://www.linkedin.com/in/danalc">Linkedin</a></p>

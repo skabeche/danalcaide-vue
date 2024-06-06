@@ -31,6 +31,10 @@ export default {
       alternateGothic2: ['Alternate-Gothic2', 'sans-serif'],
     },
     extend: {
+      screens: {
+        xs: '425px',
+        '3xl': '1700px',
+      },
       fontFamily: {
         sans: ['TTNorms', 'sans-serif'],
       },
