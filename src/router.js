@@ -3,15 +3,9 @@ import { createWebHistory, createRouter } from 'vue-router'
 import HomePage from './components/HomePage.vue'
 import NotFoundPage from './components/NotFoundPage.vue'
 
-
 const routes = [
   {
-    path: '/',
-    component: HomePage,
-    alias: '/en',
-  },
-  {
-    path: '/es',
+    path: '/:lang(en|es)?',
     component: HomePage,
   },
   {
@@ -25,4 +19,4 @@ const router = createRouter({
   routes,
 })
 
-export default router
+export default router;

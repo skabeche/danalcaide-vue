@@ -17,7 +17,7 @@
   import Header from './components/Header.vue'
   import Footer from './components/Footer.vue'
   import Lenis from 'lenis'
-  import { gsap } from "gsap";
+  import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
 
   gsap.registerPlugin(ScrollTrigger);
@@ -66,7 +66,7 @@
     gsap.ticker.lagSmoothing(10)
 
     gsap.to(".wrapper", {
-      "--bgSizeHorizon": "auto 80%",
+      "--bgSizeHorizon": "auto 75%",
       scrollTrigger: {
         trigger: "main",
         start: "top top",

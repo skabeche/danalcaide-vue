@@ -2,7 +2,7 @@
   <nav>
     <ul class="anim-init-nav-lang flex gap-2 text-sm uppercase">
       <li v-for="(locale, index) in $i18n.availableLocales" :key="`locale-${locale}`">
-        <RouterLink :to="locale" @click="$i18n.locale = locale" :title="$t('languages.' + locale)" :lang="locale" :accesskey="index">
+        <RouterLink :to="locale" :title="$t('languages.' + locale)" :lang="locale" :accesskey="index">
           {{ locale }}
         </RouterLink>
       </li>
