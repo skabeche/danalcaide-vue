@@ -1,6 +1,6 @@
 # Dan Alcaide Portfolio
 
-~~[www.danalcaide.com](https://www.danalcaide.com)~~ (Work in progress)
+[www.danalcaide.com](https://www.danalcaide.com)
 
 Made with Vue.js, Tailwind, CSS animations, Vite, chocolate and coffee.
 
