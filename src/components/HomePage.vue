@@ -1,6 +1,6 @@
 <template>
   <h1 class="text-3xl md:text-4xl lg:text-5xl sm:text-balance">{{ $t('yo.title') }}</h1>
-  <div class="lg:w-[55%] 3xl:w-3/4">
+  <div class="lg:w-[55%]">
     <p>{{ $t('yo.text') }}</p>
     <ul>
       <li>{{ $t('yo.timeline.13.text') }} <a href="https://youtu.be/VrUvnLQ5-h4" target="_blank">{{ $t('yo.timeline.13.linkText') }}</a>.</li>
