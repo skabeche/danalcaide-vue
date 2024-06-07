@@ -11,11 +11,10 @@ const head = createHead();
 router.beforeEach((to, from, next) => {
   const lang = to.params.lang;
 
-  if (!i18n.global.availableLocales.includes(lang)) {
-    return next();
+  if (i18n.global.availableLocales.includes(lang)) {
+    i18n.global.locale.value = lang;
   }
 
-  i18n.global.locale.value = lang;
   return next();
 })
 
