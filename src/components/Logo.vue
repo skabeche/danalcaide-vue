@@ -35,7 +35,7 @@
     }
 
     60% {
-      transform: translateY(0px) translateX(0px);
+      transform: translateY(0) translateX(0);
       rotate: 0;
     }
 

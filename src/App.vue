@@ -1,10 +1,8 @@
 <template>
   <Header />
   <div class="wrapper bg-horizon bg-bottom bg-no-repeat">
-    <section class="relative z-10 prose-lg prose-li:m-0 prose-li:p-0 prose-h2:text-xl prose-h2:font-normal prose-ul:pl-4 leading-relaxed mt-12 mb-[26rem] xs:mb-80 xl:mb-72 2xl:mb-80 3xl:mb-72 text-pretty">
-      <div class="container">
-        <RouterView />
-      </div>
+    <section class="container relative z-10 prose-lg prose-li:m-0 prose-li:p-0 prose-h2:text-xl prose-h2:font-normal prose-ul:pl-4 leading-relaxed mt-12 mb-[28rem] xs:mb-[24rem] sm:mb-80 xl:mb-72 2xl:mb-80 3xl:mb-72 text-pretty">
+      <RouterView />
     </section>
     <Footer />
   </div>
@@ -84,11 +82,6 @@
 </script>
 
 <style>
-
-  /* Page loading */
-  body {
-    overflow: hidden;
-  }
 
   /* Page loaded */
   html[data-page-loaded="true"] {

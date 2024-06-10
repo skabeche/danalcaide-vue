@@ -34,6 +34,7 @@ export default {
       screens: {
         xs: '425px',
         '3xl': '1700px',
+        '4xl': '2000px',
       },
       fontFamily: {
         sans: ['TTNorms', 'sans-serif'],
@@ -60,8 +61,11 @@ export default {
         'colibri-anim': 'url(/images/colibri_anim.png)',
         'horizon': 'url(/images/horizon.svg)',
         'circles': 'url(/images/circles.svg)',
-        'garden-minimalist': "url('/images/grass.png'), url('/images/plants.svg')",
-        'garden-full': "url('/images/grass.png'), url('/images/plants.svg'), url('/images/tree.png')",
+        'plants': "url('/images/plants.svg')",
+        'tree': "url('/images/tree.svg')",
+        'grass': "url('/images/grass.svg')",
+        'grass-plants': "url('/images/grass-plants.svg')",
+        'grass-tree': "url('/images/grass-tree.svg')",
       },
     },
   },
