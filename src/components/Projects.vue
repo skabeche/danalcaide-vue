@@ -1,7 +1,7 @@
 <template>
   <div class="clients-projects">
     <h2>{{ $t('projects.title') }}</h2>
-    <ul class="flex sm:flex-row flex-wrap gap-x-4 mt-4 [&_a]:font-light">
+    <ul class="flex sm:flex-row flex-wrap gap-x-4 mt-4">
       <li v-for="client in clients" :key="client.name" class="relative [&:not(:last-child)]:after:content-['·'] after:absolute after:ml-1.5 last:not">
         {{ client.name }}
       </li>
@@ -33,6 +33,7 @@
     { name: 'Tadoo' },
     { name: 'Zayjia' },
     { name: 'BP' },
+    { name: 'UJI' },
     { name: 'Novio Caballo' },
     { name: 'Casa Azahar' },
     { name: 'Gran Hotel Peñíscola' },

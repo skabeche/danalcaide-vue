@@ -1,5 +1,5 @@
 <template>
-  <div class="garden relative -bottom-0.5 -z-10">
+  <div class="garden relative -bottom-0.5">
     <div class="plants absolute -left-[140px] lg:-left-[220px] bottom-0 w-[550px] h-[200px] bg-plants bg-[100px_bottom] bg-no-repeat">
       <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[120px] bg-[-10px_bottom] bg-no-repeat"></div>
       <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[100px] bg-left-bottom bg-no-repeat"></div>

@@ -1,7 +1,7 @@
 <template>
   <footer class="relative text-gray-400 prose-lg prose-a:text-white leading-relaxed lg:text-balance after:bg-circles after:absolute after:-bottom-[80px] after:w-full after:h-[160px] after:bg-[length:auto_100%] after:bg-repeat-x">
     <Garden />
-    <div class="pt-10 pb-32 bg-black">
+    <div class="pt-10 pb-32 lg:pt-20 lg:pb-44 bg-black">
       <div class="container">
         <p>{{ $t('footer.social') }} <a href="mailto:info@danalcaide.com">info@danalcaide.com</a> · <a href="https://github.com/skabeche">Github</a> · <a href="https://www.linkedin.com/in/danalc">Linkedin</a></p>
         <p>{{ $t('footer.text') }} <a :href="$t('footer.linkText')" target="_blank">Wikipedia</a>.</p>

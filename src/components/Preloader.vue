@@ -9,10 +9,15 @@
 
 <script setup>
   import { ref, onMounted } from 'vue';
+  import { gsap } from "gsap"
+  import { ScrollTrigger } from "gsap/ScrollTrigger"
+
+  gsap.registerPlugin(ScrollTrigger);
 
   const isLoaded = ref(false);
   document.documentElement.dataset.pageLoaded = isLoaded.value;
-  history.scrollRestoration = 'manual';
+  // history.scrollRestoration = 'manual';
+  ScrollTrigger.clearScrollMemory('manual');
 
   onMounted(() => {
     document.onreadystatechange = () => {
@@ -62,8 +67,9 @@
       display: none;
       position: absolute;
       opacity: 0;
-      transform: translateY(.5rem);
+      transform: translateY(.4rem);
       transition: all 0.2s linear;
+      transition-behavior: allow-discrete;
     }
   }
 
