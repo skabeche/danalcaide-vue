@@ -16,6 +16,7 @@
       anim-colibri-wings 150ms steps(4) infinite,
       anim-colibri-fly 5000ms 2500ms infinite;
     opacity: 0;
+    transform-style: preserve-3d;
   }
 
   @keyframes anim-init-colibri-logo {

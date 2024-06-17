@@ -26,6 +26,7 @@
   .grass-tree,
   .grass-plants {
     animation: anim-grassx 7s infinite ease-in-out;
+    transform-style: preserve-3d;
   }
 
   @keyframes anim-grassx {
