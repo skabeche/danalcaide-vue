@@ -7,8 +7,8 @@
       </li>
     </ul>
     <ul class="projects flex flex-col sm:flex-row flex-wrap gap-x-4 mt-4 [&_a]:font-light ">
-      <li v-for="project in projects" :key="project.web" class="relative sm:[&:not(:last-child)]:after:content-['·'] after:absolute after:ml-1.5 last:not">
-        <a :href="`https://${project.web}`" target="_blank" :data-text="project.web">{{ project.web }}</a>
+      <li v-for="project in projects" :key="project.name" class="relative sm:[&:not(:last-child)]:after:content-['·'] after:absolute after:ml-1.5 last:not">
+        <a :href="`https://${project.web}`" target="_blank" :data-text="project.name">{{ project.name }}</a>
       </li>
     </ul>
   </div>
@@ -41,26 +41,27 @@
   ]
 
   const projects = [
-    { web: 'science.sciencemag.org' },
-    { web: 'www.bmj.com' },
-    { web: 'www.pnas.org' },
-    { web: 'www.aappublications.org' },
-    { web: 'www.cmaj.ca' },
-    { web: 'www.lyellcollection.org' },
-    { web: 'www.boojummex.com' },
-    { web: 'www.bullitthotel.com' },
-    // { web: 'www.gilbert-ash.com ' },
-    // { web: 'www.sustainiq.com' },
-    { web: 'www.beannchor.com' },
-    { web: 'www.canyoneurope.com' },
-    { web: 'www.perspectiveeconomics.com' },
-    { web: 'www.theseneschal.com' },
-    { web: 'www.bassettsonline.com' },
-    { web: 'www.thenationalbelfast.com' },
-    { web: 'www.turkington-construction.com' },
-    { web: 'www.holisticpetni.com' },
-    { web: 'www.reservarefugios.com' },
-    { web: 'www.yuenergy.co.uk' },
-    { web: 'portal.yuenergy.co.uk' },
+    { name: 'science.sciencemag.org', web: 'https://science.sciencemag.org' },
+    { name: 'bmj.com', web: 'www.bmj.com' },
+    { name: 'pnas.org', web: 'www.pnas.org' },
+    { name: 'aappublications.org', web: 'www.aappublications.org' },
+    { name: 'cmaj.ca', web: 'www.cmaj.ca' },
+    { name: 'lyellcollection.org', web: 'www.lyellcollection.org' },
+    { name: 'boojummex.com', web: 'www.boojummex.com' },
+    { name: 'bullitthotel.com', web: 'www.bullitthotel.com' },
+    { name: 'beannchor.com', web: 'www.beannchor.com' },
+    { name: 'canyoneurope.com', web: 'www.canyoneurope.com' },
+    { name: 'perspectiveeconomics.com', web: 'www.perspectiveeconomics.com' },
+    { name: 'theseneschal.com', web: 'www.theseneschal.com' },
+    { name: 'bassettsonline.com', web: 'www.bassettsonline.com' },
+    { name: 'thenationalbelfast.com', web: 'www.thenationalbelfast.com' },
+    { name: 'turkington-construction.com', web: 'www.turkington-construction.com' },
+    { name: 'holisticpetni.com', web: 'www.holisticpetni.com' },
+    { name: 'reservarefugios.com', web: 'www.reservarefugios.com' },
+    { name: 'quickpix.online', web: 'www.danalcaide.com/quickpix' },
+    { name: 'yuenergy.co.uk', web: 'www.yuenergy.co.uk' },
+    { name: 'portal.yuenergy.co.uk', web: 'portal.yuenergy.co.uk' },
+    // { name: 'gilbert-ash.com', web: 'www.gilbert-ash.com' },
+    // { name: 'sustainiq.com', web: 'www.sustainiq.com' },
   ]
 </script>
