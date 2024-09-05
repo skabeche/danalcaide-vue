@@ -4,4 +4,28 @@
 
 Made with Vue.js, Tailwind, CSS animations, Vite, chocolate and coffee.
 
-Hecho con Vue.js, Tailwind, animaciones CSS, Vite, chorizo y paella.
+_Hecho con Vue.js, Tailwind, animaciones CSS, Vite, chorizo y paella._
+
+## Overview
+
+The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+
+## Installation
+
+Use `npm` to install all dependencies.
+
+`npm install`
+
+## Development
+
+Run development server.
+
+`npm run dev`
+
+## Deploy
+
+Build before deploying.
+
+`npm run build`
+
+The build is in `dist` folder.
