@@ -26,7 +26,7 @@
 </template>
 
 <script setup>
-  import Garden from "./Garden.vue";
+  import Garden from "@components/Garden.vue";
   import { Music, Coffee, Popcorn } from 'lucide-vue-next';
 
   const currentYear = new Date().getFullYear();

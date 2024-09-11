@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-  import Flies from "./Flies.vue";
+  import Flies from "@components/Flies.vue";
 </script>
 
 <style scoped>

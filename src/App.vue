@@ -12,8 +12,8 @@
   import { onMounted, watchEffect } from 'vue'
   import { useI18n } from "vue-i18n"
   import { useHead } from 'unhead'
-  import Header from './components/Header.vue'
-  import Footer from './components/Footer.vue'
+  import Header from '@components/Header.vue'
+  import Footer from '@components/Footer.vue'
   import Lenis from 'lenis'
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"

@@ -17,6 +17,6 @@
 </template>
 
 <script setup>
-  import Projects from './Projects.vue'
-  import Skills from './Skills.vue'
+  import Projects from '@components/Projects.vue'
+  import Skills from '@components/Skills.vue'
 </script>
