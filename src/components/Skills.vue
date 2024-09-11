@@ -2,8 +2,8 @@
   <div class="skills">
     <h2>{{ $t('skills.title') }}</h2>
     <ul class="flex flex-wrap gap-x-4">
-      <li v-for="skill in skills" :key="skill.name">
-        {{ skill.name }}
+      <li v-for="skill in skills" :key="skill">
+        {{ skill }}
       </li>
     </ul>
   </div>
@@ -11,36 +11,37 @@
 
 <script setup>
   import { useI18n } from "vue-i18n";
-  const { t } = useI18n()
+  const { t } = useI18n();
 
   const skills = [
-    { name: 'HTML' },
-    { name: 'CSS' },
-    { name: 'PHP' },
-    { name: 'JavaScript' },
-    { name: 'Vue.js' },
-    { name: 'React' },
-    { name: 'Next.js' },
-    { name: 'jQuery' },
-    { name: 'Drupal' },
-    { name: 'WordPress/Bedrock' },
-    { name: 'Craft CMS' },
-    { name: 'Tailwind' },
-    { name: 'Bootstrap' },
-    { name: 'SASS' },
-    { name: 'Vite' },
-    { name: 'Git' },
-    { name: 'VS Code' },
-    { name: 'Photoshop' },
-    { name: 'Illustrator' },
-    { name: 'Cubase' },
-    { name: 'Toggl' },
-    { name: 'Flash' },
-    { name: 'ActionScript' },
-    { name: 'IE6' },
-    { name: t('skills.list.coffee') },
-    { name: 'Chocolate' },
-    { name: 'Paella' },
-    { name: 'Googling' },
+    'HTML',
+    'CSS',
+    'PHP',
+    'JavaScript',
+    'Vue.js',
+    'React',
+    'Next.js',
+    'jQuery',
+    'Drupal',
+    'WordPress/Bedrock',
+    'Craft CMS',
+    'Tailwind',
+    'Bootstrap',
+    'SASS',
+    'Vite',
+    'Git',
+    'VS Code',
+    'Lando',
+    'Photoshop',
+    'Illustrator',
+    'Cubase',
+    'Toggl',
+    'Flash',
+    'ActionScript',
+    'IE6',
+    t('skills.list.coffee'),
+    'Chocolate',
+    'Paella',
+    'Googling',
   ]
 </script>

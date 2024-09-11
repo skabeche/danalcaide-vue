@@ -2,8 +2,8 @@
   <div class="clients-projects">
     <h2>{{ $t('projects.title') }}</h2>
     <ul class="flex sm:flex-row flex-wrap gap-x-4 mt-4">
-      <li v-for="client in clients" :key="client.name" class="relative [&:not(:last-child)]:after:content-['·'] after:absolute after:ml-1.5 last:not">
-        {{ client.name }}
+      <li v-for="client in clients" :key="client" class="relative [&:not(:last-child)]:after:content-['·'] after:absolute after:ml-1.5 last:not">
+        {{ client }}
       </li>
     </ul>
     <ul class="projects flex flex-col sm:flex-row flex-wrap gap-x-4 mt-4 [&_a]:font-light ">
@@ -16,32 +16,32 @@
 
 <script setup>
   const clients = [
-    { name: 'Highwire Press' },
-    { name: 'Science' },
-    { name: 'AAP Publications' },
-    { name: 'BMJ' },
-    { name: 'PNAS' },
-    { name: 'The Geological Society' },
-    { name: 'Pale Blue Dot' },
-    { name: 'Boojum' },
-    { name: 'Beannchor' },
-    { name: 'The Robot Exchange' },
-    { name: 'Yü Energy' },
-    { name: 'Turkington Construction' },
-    { name: 'HolisticPet NI' },
-    { name: 'Pere Cervantes' },
-    { name: 'Tadoo' },
-    { name: 'Zayjia' },
-    { name: 'BP' },
-    { name: 'UJI' },
-    { name: 'Novio Caballo' },
-    { name: 'Casa Azahar' },
-    { name: 'Gran Hotel Peñíscola' },
-    { name: '[...]' },
-  ]
+    'Highwire Press',
+    'Science',
+    'AAP Publications',
+    'BMJ',
+    'PNAS',
+    'The Geological Society',
+    'Pale Blue Dot',
+    'Boojum',
+    'Beannchor',
+    'The Robot Exchange',
+    'Yü Energy',
+    'Turkington Construction',
+    'HolisticPet NI',
+    'Pere Cervantes',
+    'Tadoo',
+    'Zayjia',
+    'BP',
+    'UJI',
+    'Novio Caballo',
+    'Casa Azahar',
+    'Gran Hotel Peñíscola',
+    '[...]',
+  ];
 
   const projects = [
-    { name: 'science.sciencemag.org', web: 'https://science.sciencemag.org' },
+    { name: 'science.sciencemag.org', web: 'science.sciencemag.org' },
     { name: 'bmj.com', web: 'www.bmj.com' },
     { name: 'pnas.org', web: 'www.pnas.org' },
     { name: 'aappublications.org', web: 'www.aappublications.org' },
@@ -63,5 +63,5 @@
     { name: 'portal.yuenergy.co.uk', web: 'portal.yuenergy.co.uk' },
     // { name: 'gilbert-ash.com', web: 'www.gilbert-ash.com' },
     // { name: 'sustainiq.com', web: 'www.sustainiq.com' },
-  ]
+  ];
 </script>
