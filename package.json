@@ -10,20 +10,20 @@
   "dependencies": {
     "@tsparticles/slim": "^3.5.0",
     "@tsparticles/vue3": "^3.0.1",
-    "@unhead/vue": "^1.9.16",
+    "@unhead/vue": "^1.11.6",
     "gsap": "^3.12.5",
-    "lenis": "^1.1.9",
+    "lenis": "^1.1.13",
     "lucide-vue-next": "^0.383.0",
     "vue": "^3.4.21",
-    "vue-i18n": "^9.13.1",
-    "vue-router": "^4.4.3"
+    "vue-i18n": "^9.14.0",
+    "vue-router": "^4.4.5"
   },
   "devDependencies": {
-    "@tailwindcss/typography": "^0.5.13",
-    "@vitejs/plugin-vue": "^5.1.2",
+    "@tailwindcss/typography": "^0.5.15",
+    "@vitejs/plugin-vue": "^5.1.4",
     "autoprefixer": "^10.4.20",
-    "postcss": "^8.4.41",
-    "tailwindcss": "^3.4.7",
-    "vite": "^5.3.5"
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.12",
+    "vite": "^5.4.7"
   }
 }
