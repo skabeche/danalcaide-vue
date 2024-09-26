@@ -15,7 +15,7 @@
     "lenis": "^1.1.13",
     "lucide-vue-next": "^0.383.0",
     "vue": "^3.4.21",
-    "vue-i18n": "^9.14.0",
+    "vue-i18n": "^9.14.1",
     "vue-router": "^4.4.5"
   },
   "devDependencies": {
@@ -23,7 +23,7 @@
     "@vitejs/plugin-vue": "^5.1.4",
     "autoprefixer": "^10.4.20",
     "postcss": "^8.4.47",
-    "tailwindcss": "^3.4.12",
-    "vite": "^5.4.7"
+    "tailwindcss": "^3.4.13",
+    "vite": "^5.4.8"
   }
 }
