@@ -58,7 +58,7 @@
     { name: 'turkington-construction.com', web: 'www.turkington-construction.com' },
     { name: 'holisticpetni.com', web: 'www.holisticpetni.com' },
     { name: 'reservarefugios.com', web: 'www.reservarefugios.com' },
-    { name: 'quickpix.online', web: 'www.danalcaide.com/quickpix' },
+    { name: 'quickpix.online', web: 'quickpix.vercel.app' },
     { name: 'yuenergy.co.uk', web: 'www.yuenergy.co.uk' },
     { name: 'portal.yuenergy.co.uk', web: 'portal.yuenergy.co.uk' },
     // { name: 'gilbert-ash.com', web: 'www.gilbert-ash.com' },
