@@ -21,7 +21,7 @@ html {
 }
 
 body {
-  @apply overflow-hidden bg-white text-black font-extralight;
+  @apply overflow-hidden bg-white text-black font-light;
 }
 
 a {

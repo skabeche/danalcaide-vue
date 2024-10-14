@@ -37,7 +37,7 @@ export default {
         '4xl': '2000px',
       },
       fontFamily: {
-        sans: ['TTNorms', 'sans-serif'],
+        sans: ['Open Sans', 'sans-serif'],
       },
       colors: {
         gray: {
