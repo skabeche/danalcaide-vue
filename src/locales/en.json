@@ -6,14 +6,16 @@
   },
   "meta": {
     "title": "Web Developer",
-    "description": "Web Developer who loves music, movies and guitar."
+    "description": "Web Developer who loves music and movies."
   },
   "preloader": {
     "loading": "loading"
   },
   "yo": {
-    "title": "Full-Stack Developer who has worked as a Web and Graphic Designer on several projects being a freelance or part of a multidisciplinary team.",
-    "text": "Knowledge and supervision of the usability, accessibility, aesthetic, interactivity and communication in the design process. A musician who loves music and has been making noise with a guitar for over 25 years.",
+    "title": "Full-Stack Developer<br> who loves music & cinema.",
+    "text1": "Web Developer who has worked as a Web and Graphic Designer on several projects being a freelance or part of a multidisciplinary team.",
+    "text2": "Knowledge and supervision of the usability, accessibility, aesthetic, interactivity and communication in the design process.",
+    "text3": "A musician who loves music and has been making noise with a guitar for over 25 years.",
     "timeline": {
       "13": {
         "text": "When I was 13 I had",
@@ -41,7 +43,8 @@
       },
       "33": {
         "text": "When I was 33 I moved to",
-        "linkText": "Belfast"
+        "linkText": "Belfast",
+        "text2": "to live an adventure"
       }
     }
   },

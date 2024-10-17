@@ -1,12 +1,12 @@
 <template>
   <div class="clients-projects">
     <h2>{{ $t('projects.title') }}</h2>
-    <ul class="flex sm:flex-row flex-wrap gap-x-4 mt-4">
+    <ul class="clients flex sm:flex-row flex-wrap gap-x-4">
       <li v-for="client in clients" :key="client" class="relative [&:not(:last-child)]:after:content-['·'] after:absolute after:ml-1.5 last:not">
         {{ client }}
       </li>
     </ul>
-    <ul class="projects flex flex-col sm:flex-row flex-wrap gap-x-4 mt-4 [&_a]:font-light ">
+    <ul class="projects flex flex-col sm:flex-row flex-wrap gap-x-4 [&_a]:font-light ">
       <li v-for="project in projects" :key="project.name" class="relative sm:[&:not(:last-child)]:after:content-['·'] after:absolute after:ml-1.5 last:not">
         <a :href="`https://${project.web}`" target="_blank" :data-text="project.name">{{ project.name }}</a>
       </li>

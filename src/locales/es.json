@@ -6,14 +6,16 @@
   },
   "meta": {
     "title": "Desarrollador Web",
-    "description": "Desarrollador Web hipnotizado por la música, el cine y la guitarra."
+    "description": "Desarrollador Web fascinado por la música y el cine."
   },
   "preloader": {
     "loading": "cargando"
   },
   "yo": {
-    "title": "Desarrollador Web Full-Stack que se ha topado con el mundo del Diseño Web y Gráfico como freelance o parte de un equipo multidisciplinario.",
-    "text": "Además de entender los aspectos de usabilidad, accesibilidad, estética, interactividad y comunicación involucrados en el proceso de diseño, soy un músico hipnotizado por la música que lleva rascando la guitarra desde hace más de 25 años.",
+    "title": "Desarrollador Web Full-Stack<br> fascinado por la música y el cine.",
+    "text1": "Desarrollador Web que se ha topado con el mundo del Diseño Web y Gráfico como freelance o parte de un equipo multidisciplinario.",
+    "text2": "Entendimiento de los aspectos de usabilidad, accesibilidad, estética, interactividad y comunicación involucrados en el proceso de diseño.",
+    "text3": "Músico hipnotizado por la música que lleva rascando la guitarra desde hace más de 25 años.",
     "timeline": {
       "13": {
         "text": "A los 13 años di",
@@ -41,7 +43,8 @@
       },
       "33": {
         "text": "A los 33 me mudé a",
-        "linkText": "Belfast"
+        "linkText": "Belfast",
+        "text2": "para vivir una aventura"
       }
     }
   },

@@ -4,7 +4,7 @@
       <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[120px] bg-[-10px_bottom] bg-no-repeat"></div>
       <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[100px] bg-left-bottom bg-no-repeat"></div>
     </div>
-    <div class="tree hidden lg:block absolute right-0 bottom-0 w-[45vw] h-screen 4xl:h-[75vh] bg-tree bg-bottom bg-no-repeat">
+    <div class="tree hidden lg:block absolute right-0 bottom-0 w-[45vw] h-screen 4xl:h-[65vh] bg-tree bg-bottom bg-no-repeat">
       <div class="grass-tree absolute right-0 bottom-0 bg-grass-tree w-full h-[130px] bg-bottom bg-no-repeat"></div>
       <div class="grass-tree absolute right-0 bottom-0 bg-grass-tree w-full h-[105px] bg-bottom bg-no-repeat"></div>
     </div>
