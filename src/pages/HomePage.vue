@@ -18,7 +18,7 @@
   </section>
   <section>
     <Garden />
-    <div class="info border-circles pt-8 pb-40 text-white bg-black prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-5xl prose-ul:pl-0">
+    <div class="info border-circles pt-8 pb-40 text-white bg-black prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-4xl lg:prose-h2:text-5xl prose-h2:font-alternateGothic2 prose-h2:uppercase prose-ul:pl-0">
       <div class="container grid lg:grid-cols-2 gap-x-32">
         <AnimationTimeline>
           <Projects />
