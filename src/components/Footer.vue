@@ -1,6 +1,6 @@
 <template>
   <footer ref="refFooter" class="leading-normal lg:text-balance prose-xl prose-li:m-0 prose-li:p-0 prose-h2:text-5xl prose-ul:pl-0 bg-circles bg-repeat-x bg-[length:auto_20%]">
-    <div ref="refWrapper" class="wrapper pt-80 sm:pt-48 pb-16 bg-circles bg-repeat-x bg-[length:auto_30%]">
+    <div ref="refWrapper" class="wrapper pt-48 pb-16 bg-circles bg-repeat-x bg-[length:auto_20%] sm:bg-[length:auto_30%]">
       <AnimationTimeline>
         <div class="container">
           <p>{{ $t('footer.social') }} <a href="mailto:info@danalcaide.com">info@danalcaide.com</a> · <a href="https://github.com/skabeche">Github</a> · <a href="https://www.linkedin.com/in/danalc">Linkedin</a></p>
@@ -41,21 +41,21 @@
 
   onMounted(() => {
     gsap.to(footer.value, {
-      "--bgPositionFooter1": "30% 30px",
+      "--bgPositionFooter1": "30% 60px",
       scrollTrigger: {
         trigger: "main",
         start: "top top",
         end: "bottom top",
-        scrub: true
+        scrub: 2
       }
     });
     gsap.to(wrapper.value, {
       "--bgPositionFooter2": "50% 40px",
       scrollTrigger: {
         trigger: "main",
-        start: "top top",
+        start: "center top",
         end: "bottom top",
-        scrub: true
+        scrub: 1
       }
     });
   });
