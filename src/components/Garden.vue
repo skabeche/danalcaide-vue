@@ -3,7 +3,7 @@
     <div ref="refColibri" v-show="showHummingbird" class="cursor-colibri fixed z-30 top-0 left-0 scale-50 origin-top-left pointer-events-none">
       <Hummingbird />
     </div>
-    <div @mousemove="gardenMove($event)" @mouseenter="gardenEnter()" @mouseout="gardenOut()" id="plants" class="plants cursor-none absolute z-30 -left-[140px] lg:-left-[220px] bottom-0 w-[550px] sm:w-full h-[240px] bg-plants bg-[length:auto_200px] bg-[100px_bottom] bg-no-repeat">
+    <div @mousemove="gardenMove($event)" @mouseenter="gardenEnter()" @mouseout="gardenOut()" @touchmove="gardenMove($event)" id="plants" class="plants cursor-none absolute z-30 -left-[140px] lg:-left-[220px] bottom-0 w-[550px] sm:w-full h-[240px] bg-plants bg-[length:auto_200px] bg-[100px_bottom] bg-no-repeat">
       <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[120px] bg-[-10px_bottom] bg-no-repeat pointer-events-none"></div>
       <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[100px] bg-left-bottom bg-no-repeat pointer-events-none"></div>
     </div>
@@ -30,24 +30,34 @@
   const colibri = useTemplateRef('refColibri');
   const lastDirectionAxis = { x: null, y: null };
   let hoveredElement;
+  let axisX, axisY;
 
   onMounted(() => {
-    // Hummingbird hides when the user starts touching out of the interacting element.
-    window.ontouchstart = function (e) {
-      if (e.type === 'touchstart' || e.type === 'touchmove') {
-        hoveredElement = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
-        hoveredElement.id !== 'plants' ? gardenOut() : gardenEnter();
-      }
-    }
+    // Hummingbird hides when the user touches out of the interacting element.
+    document.addEventListener('touchstart', (e) => {
+      hoveredElement = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
+      hoveredElement.id !== 'plants' ? gardenOut() : gardenEnter();
+    },
+      { passive: true }
+    );
   })
 
   const gardenMove = (e) => {
-    // Get mouse direction.
-    const directionAxisX = e.clientX > lastDirectionAxis.x ? 'right' : e.clientX < lastDirectionAxis.x ? 'left' : 'none';
-    // const directionAxisY = e.clientY > lastDirectionAxis.y ? 'down' : e.clientY < lastDirectionAxis.y ? 'up' : 'none';
+    // Get mouse or touch coordinates.
+    if (e.type === 'mousemove') {
+      axisX = e.clientX;
+      axisY = e.clientY;
+    } else if (e.type === 'touchmove') {
+      axisX = e.touches[0].clientX;
+      axisY = e.touches[0].clientY;
+    }
 
-    lastDirectionAxis.x = e.clientX;
-    // lastDirectionAxis.y = e.clientY;
+    // Get direction.
+    const directionAxisX = axisX > lastDirectionAxis.x ? 'right' : axisX < lastDirectionAxis.x ? 'left' : 'none';
+    // const directionAxisY = axisY > lastDirectionAxis.y ? 'down' : axisY < lastDirectionAxis.y ? 'up' : 'none';
+
+    lastDirectionAxis.x = axisX;
+    // lastDirectionAxis.y = axisY;
 
     gsap.fromTo(colibri.value,
       {
@@ -61,8 +71,8 @@
         opacity: 1,
         scaleY: .5,
         rotate: 0,
-        x: e.clientX,
-        y: e.clientY,
+        x: axisX,
+        y: axisY,
         duration: .8,
         ease: "power3"
       }
