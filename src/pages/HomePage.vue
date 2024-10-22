@@ -1,7 +1,7 @@
 <template>
   <section ref="refAbout" class="about container">
-    <div class="lg:w-[60%] prose-xl prose-li:m-0 prose-li:p-0 prose-ul:pl-0 leading-relaxed mt-12 mb-[24rem] xs:mb-[24rem] sm:mb-80 xl:mb-72 2xl:mb-80 3xl:mb-72 text-balance">
-      <h1 class="mb-0 text-5xl md:text-6xl lg:text-[5rem] font-alternateGothic2 uppercase" v-html="$t('yo.title')"></h1>
+    <div class="lg:w-[60%] prose-xl prose-li:m-0 prose-li:p-0 prose-ul:pl-0 leading-relaxed mt-12 mb-[26rem] sm:mb-[22rem] lg:mb-[23rem] xl:mb-[21rem] 3xl:mb-[22rem] text-balance">
+      <h1 class="mb-0 text-5xl md:text-6xl lg:text-[4rem] 2xl:text-[5rem] font-alternateGothic2 uppercase" v-html="$t('yo.title')"></h1>
       <p>{{ $t('yo.text1') }}</p>
       <p>{{ $t('yo.text2') }}</p>
       <p>{{ $t('yo.text3') }}</p>
