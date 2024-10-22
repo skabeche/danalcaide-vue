@@ -100,13 +100,13 @@
   @keyframes anim-init-main {
     0% {
       opacity: 0;
-      transform: translateY(-4vh);
+      margin-top: -4vh;
       background-size: auto 90%;
     }
 
     100% {
       opacity: 1;
-      transform: translateY(0vh);
+      margin-top: 0;
       background-size: var(--bgSizeHorizon);
     }
   }

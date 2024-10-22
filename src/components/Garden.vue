@@ -1,8 +1,11 @@
 <template>
-  <div class="garden relative -bottom-0.5">
-    <div class="plants absolute -left-[140px] lg:-left-[220px] bottom-0 w-[550px] h-[200px] bg-plants bg-[100px_bottom] bg-no-repeat">
-      <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[120px] bg-[-10px_bottom] bg-no-repeat"></div>
-      <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[100px] bg-left-bottom bg-no-repeat"></div>
+  <div class="garden relative -z-10 -bottom-0.5">
+    <div ref="refColibri" v-show="showHummingbird" class="cursor-colibri fixed z-0 top-0 left-0 scale-50 origin-top-left pointer-events-none">
+      <Hummingbird />
+    </div>
+    <div @mousemove="gardenMouseMove($event)" @mouseenter="gardenMouseEnter" @mouseout="gardenMouseOut" class="plants cursor-none absolute z-30 -left-[140px] lg:-left-[220px] bottom-0 w-full h-[240px] bg-plants bg-[length:auto_200px] bg-[100px_bottom] bg-no-repeat">
+      <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[120px] bg-[-10px_bottom] bg-no-repeat pointer-events-none"></div>
+      <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[100px] bg-left-bottom bg-no-repeat pointer-events-none"></div>
     </div>
     <div class="tree hidden lg:block absolute right-0 bottom-0 w-[45vw] h-screen 4xl:h-[65vh] bg-tree bg-bottom bg-no-repeat">
       <div class="grass-tree absolute right-0 bottom-0 bg-grass-tree w-full h-[130px] bg-bottom bg-no-repeat"></div>
@@ -18,10 +21,72 @@
 </template>
 
 <script setup>
+  import { ref, useTemplateRef } from "vue";
   import Flies from "@components/Flies.vue";
+  import Hummingbird from "@components/Hummingbird.vue";
+  import { gsap } from "gsap";
+
+  const showHummingbird = ref(false);
+  const colibri = useTemplateRef('refColibri');
+  const lastDirectionAxis = { x: null, y: null };
+
+  const gardenMouseMove = (e) => {
+    // Get mouse direction.
+    const directionAxisX = e.clientX > lastDirectionAxis.x ? 'right' : e.clientX < lastDirectionAxis.x ? 'left' : 'none';
+    // const directionAxisY = e.clientY > lastDirectionAxis.y ? 'down' : e.clientY < lastDirectionAxis.y ? 'up' : 'none';
+
+    lastDirectionAxis.x = e.clientX;
+    // lastDirectionAxis.y = e.clientY;
+
+    gsap.fromTo(colibri.value,
+      {
+        opacity: 1,
+        scaleY: .42,
+        rotate: directionAxisX === 'left' ? '+=-2' : '+=3',
+        duration: .8,
+        ease: "power3"
+      },
+      {
+        opacity: 1,
+        scaleY: .5,
+        rotate: 0,
+        x: e.clientX,
+        y: e.clientY,
+        duration: .8,
+        ease: "power3"
+      }
+    );
+  }
+
+  const gardenMouseEnter = () => {
+    gsap.to(colibri.value, {
+      "--blurColibri": "0",
+      opacity: 1,
+      duration: .4,
+      ease: "power3",
+      onStart: () => showHummingbird.value = true
+    });
+  }
+
+  const gardenMouseOut = () => {
+    gsap.to(colibri.value, {
+      "--blurColibri": "8px",
+      opacity: 0,
+      duration: .3,
+      ease: "power3",
+      onComplete: () => showHummingbird.value = false
+    });
+  }
 </script>
 
 <style scoped>
+  :root {
+    --blurColibri: 0;
+  }
+
+  .cursor-colibri {
+    filter: blur(var(--blurColibri));
+  }
 
   .grass-tree,
   .grass-plants {
