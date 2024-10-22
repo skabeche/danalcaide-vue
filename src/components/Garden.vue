@@ -3,7 +3,7 @@
     <div ref="refColibri" v-show="showHummingbird" class="cursor-colibri fixed z-0 top-0 left-0 scale-50 origin-top-left pointer-events-none">
       <Hummingbird />
     </div>
-    <div @mousemove="gardenMouseMove($event)" @mouseenter="gardenMouseEnter" @mouseout="gardenMouseOut" class="plants cursor-none absolute z-30 -left-[140px] lg:-left-[220px] bottom-0 w-[550px] lg:w-full h-[240px] bg-plants bg-[length:auto_200px] bg-[100px_bottom] bg-no-repeat">
+    <div @mousemove="gardenMove($event)" @mouseenter="gardenEnter()" @mouseout="gardenOut()" id="plants" class="plants cursor-none absolute z-30 -left-[140px] lg:-left-[220px] bottom-0 w-[550px] sm:w-full h-[240px] bg-plants bg-[length:auto_200px] bg-[100px_bottom] bg-no-repeat">
       <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[120px] bg-[-10px_bottom] bg-no-repeat pointer-events-none"></div>
       <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[100px] bg-left-bottom bg-no-repeat pointer-events-none"></div>
     </div>
@@ -21,7 +21,7 @@
 </template>
 
 <script setup>
-  import { ref, useTemplateRef } from "vue";
+  import { onMounted, ref, useTemplateRef } from "vue";
   import Flies from "@components/Flies.vue";
   import Hummingbird from "@components/Hummingbird.vue";
   import { gsap } from "gsap";
@@ -29,8 +29,19 @@
   const showHummingbird = ref(false);
   const colibri = useTemplateRef('refColibri');
   const lastDirectionAxis = { x: null, y: null };
+  let hoveredElement;
 
-  const gardenMouseMove = (e) => {
+  onMounted(() => {
+    // Colibri hides when user is starting touch on devices.
+    window.ontouchstart = function (e) {
+      if (e.type === 'touchstart' || e.type === 'touchmove') {
+        hoveredElement = document.elementFromPoint(e.touches[0].clientX, e.touches[0].clientY);
+        hoveredElement.id !== 'plants' ? gardenOut() : gardenEnter();
+      }
+    }
+  })
+
+  const gardenMove = (e) => {
     // Get mouse direction.
     const directionAxisX = e.clientX > lastDirectionAxis.x ? 'right' : e.clientX < lastDirectionAxis.x ? 'left' : 'none';
     // const directionAxisY = e.clientY > lastDirectionAxis.y ? 'down' : e.clientY < lastDirectionAxis.y ? 'up' : 'none';
@@ -58,7 +69,7 @@
     );
   }
 
-  const gardenMouseEnter = () => {
+  function gardenEnter() {
     gsap.to(colibri.value, {
       "--blurColibri": "0",
       opacity: 1,
@@ -68,7 +79,7 @@
     });
   }
 
-  const gardenMouseOut = () => {
+  const gardenOut = () => {
     gsap.to(colibri.value, {
       "--blurColibri": "8px",
       opacity: 0,
