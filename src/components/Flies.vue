@@ -1,6 +1,6 @@
 <template>
-  <div class="flies absolute -z-30 left-0 bottom-0 w-full before:absolute before:z-10 before:w-full before:h-full before:bg-gray-50 before:[mask-image:linear-gradient(black,_transparent_30%)]">
-    <vue-particles class="w-full h-[300px] lg:h-[230px]" id="tsparticles" @particles-loaded="particlesLoaded" :options="options" />
+  <div class="flies absolute z-10 left-0 bottom-0 w-full before:absolute before:z-10 before:w-full before:h-full before:bg-gray-50 before:[mask-image:linear-gradient(black,_transparent_30%)]">
+    <vue-particles class="w-full h-[330px] lg:h-[230px]" id="tsparticles" @particles-loaded="particlesLoaded" :options="options" />
   </div>
 </template>
 
@@ -12,9 +12,9 @@
     },
     particles: {
       number: {
-        value: 300,
+        value: 100,
         density: {
-          enable: true,
+          enable: false,
           width: 1920,
           height: 1080
         },
@@ -86,14 +86,14 @@
       }
     },
     interactivity: {
-      detectsOn: "canvas",
+      detectOn: "canvas",
       events: {
         onHover: {
-          enable: false,
+          enable: true,
           mode: "repulse"
         },
         onClick: {
-          enable: false,
+          enable: true,
           mode: "push"
         },
         resize: true
@@ -113,7 +113,7 @@
           speed: 3
         },
         repulse: {
-          distance: 200,
+          distance: 60,
           duration: 0.4
         },
         push: {
