@@ -2,10 +2,16 @@
   <div class="text-3xl">
     <a href="/" accesskey="d" class="after:hidden">
       <span class="inline-block mt-8 font-alternateGothic2 uppercase">Dan Alcaide</span>
-      <span class="anim-init-colibri-logo inline-block absolute w-[70px] h-[48px] bg-colibri-anim"></span>
+      <span class="anim-init-colibri-logo absolute">
+        <Hummingbird />
+      </span>
     </a>
   </div>
 </template>
+
+<script setup>
+  import Hummingbird from "@components/Hummingbird.vue";
+</script>
 
 <style scoped>
 
@@ -13,7 +19,6 @@
   .overlay[data-loaded="true"] .anim-init-colibri-logo {
     animation:
       anim-init-colibri-logo 500ms 2000ms forwards,
-      anim-colibri-wings 150ms steps(4) infinite,
       anim-colibri-fly 5000ms 2500ms infinite;
     opacity: 0;
     transform-style: preserve-3d;
@@ -45,16 +50,6 @@
     }
   }
 
-  @keyframes anim-colibri-wings {
-    0% {
-      background-position: 0 0;
-    }
-
-    100% {
-      background-position: 280px 0;
-    }
-  }
-
   @keyframes anim-colibri-fly {
     0% {
       transform: translateY(0) translateX(0);
@@ -74,15 +69,16 @@
 
     30% {
       transform: translateY(-10px) translateX(10px);
+      rotate: 0deg;
     }
 
     44% {
-      transform: translateY(10px) translateX(10px);
-      rotate: 0deg;
+      transform: translateY(10px) translateX(15px);
+      rotate: 10deg;
       filter: blur(0);
     }
 
-    47% {
+    46% {
       rotate: 20deg;
       filter: blur(3px);
     }
