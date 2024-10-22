@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <main ref="refMain" class="bg-horizon bg-bottom bg-no-repeat">
+  <main class="bg-horizon bg-bottom bg-no-repeat">
     <RouterView />
   </main>
   <Footer />
@@ -19,7 +19,6 @@
   gsap.registerPlugin(ScrollTrigger);
 
   const { t } = useI18n()
-  const main = useTemplateRef('refMain');
 
   watchEffect(() => {
     // A watcher doesn't seem to be the best practice for unhead library,
@@ -62,16 +61,6 @@
     })
 
     gsap.ticker.lagSmoothing(0)
-
-    gsap.to(main.value, {
-      "--bgSizeHorizon": "auto 100%",
-      scrollTrigger: {
-        trigger: main.value,
-        start: "top top",
-        end: "bottom top",
-        scrub: true
-      }
-    });
   });
 </script>
 
@@ -107,7 +96,7 @@
     100% {
       opacity: 1;
       margin-top: 0;
-      background-size: var(--bgSizeHorizon);
+      background-size: auto 95%;
     }
   }
 </style>
