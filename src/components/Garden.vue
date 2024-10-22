@@ -28,9 +28,9 @@
 
   const showHummingbird = ref(false);
   const colibri = useTemplateRef('refColibri');
-  const lastDirectionAxis = { x: null, y: null };
+  const lastCoordinatesAxis = { x: null, y: null };
+  const currentCoordinatesAxis = { x: null, y: null };
   let hoveredElement;
-  let axisX, axisY;
 
   onMounted(() => {
     // Hummingbird hides when the user touches out of the interacting element.
@@ -45,19 +45,19 @@
   const gardenMove = (e) => {
     // Get mouse or touch coordinates.
     if (e.type === 'mousemove') {
-      axisX = e.clientX;
-      axisY = e.clientY;
+      currentCoordinatesAxis.x = e.clientX;
+      currentCoordinatesAxis.y = e.clientY;
     } else if (e.type === 'touchmove') {
-      axisX = e.touches[0].clientX;
-      axisY = e.touches[0].clientY;
+      currentCoordinatesAxis.x = e.touches[0].clientX;
+      currentCoordinatesAxis.y = e.touches[0].clientY;
     }
 
     // Get direction.
-    const directionAxisX = axisX > lastDirectionAxis.x ? 'right' : axisX < lastDirectionAxis.x ? 'left' : 'none';
-    // const directionAxisY = axisY > lastDirectionAxis.y ? 'down' : axisY < lastDirectionAxis.y ? 'up' : 'none';
+    const directionAxisX = currentCoordinatesAxis.x > lastCoordinatesAxis.x ? 'right' : currentCoordinatesAxis.x < lastCoordinatesAxis.x ? 'left' : 'none';
+    // const directionAxisY = currentCoordinatesAxis.y > lastCoordinatesAxis.y ? 'down' : currentCoordinatesAxis.y < lastCoordinatesAxis.y ? 'up' : 'none';
 
-    lastDirectionAxis.x = axisX;
-    // lastDirectionAxis.y = axisY;
+    lastCoordinatesAxis.x = currentCoordinatesAxis.x;
+    // lastCoordinatesAxis.y = currentCoordinatesAxis.y;
 
     gsap.fromTo(colibri.value,
       {
@@ -71,8 +71,8 @@
         opacity: 1,
         scaleY: .5,
         rotate: 0,
-        x: axisX,
-        y: axisY,
+        x: currentCoordinatesAxis.x,
+        y: currentCoordinatesAxis.y,
         duration: .8,
         ease: "power3"
       }
