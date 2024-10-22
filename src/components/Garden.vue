@@ -3,7 +3,7 @@
     <div ref="refColibri" v-show="showHummingbird" class="cursor-colibri fixed z-0 top-0 left-0 scale-50 origin-top-left pointer-events-none">
       <Hummingbird />
     </div>
-    <div @mousemove="gardenMouseMove($event)" @mouseenter="gardenMouseEnter" @mouseout="gardenMouseOut" class="plants cursor-none absolute z-30 -left-[140px] lg:-left-[220px] bottom-0 w-full h-[240px] bg-plants bg-[length:auto_200px] bg-[100px_bottom] bg-no-repeat">
+    <div @mousemove="gardenMouseMove($event)" @mouseenter="gardenMouseEnter" @mouseout="gardenMouseOut" class="plants cursor-none absolute z-30 -left-[140px] lg:-left-[220px] bottom-0 w-[550px] lg:w-full h-[240px] bg-plants bg-[length:auto_200px] bg-[100px_bottom] bg-no-repeat">
       <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[120px] bg-[-10px_bottom] bg-no-repeat pointer-events-none"></div>
       <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[100px] bg-left-bottom bg-no-repeat pointer-events-none"></div>
     </div>
