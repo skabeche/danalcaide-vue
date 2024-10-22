@@ -1,9 +1,11 @@
+// Not needed anymore, kept it just as a reference
+
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger);
 
-export const useAnimationTimeline = (element, type = 'fade-down', delay = .3) => {
+export const useAnimationScroll = (element, type = 'fade-down', stagger = .3, delay = .3) => {
 
   const optionsAnimation = {
     'fade': {
@@ -28,6 +30,7 @@ export const useAnimationTimeline = (element, type = 'fade-down', delay = .3) =>
   }
 
   optionsAnimation[type].opacity = 0;
+  optionsAnimation[type].stagger = stagger;
   // Remove delay on low resolutions.
   optionsAnimation[type].delay = window.matchMedia('(max-width: 1024px)').matches ? 0 : delay;
 

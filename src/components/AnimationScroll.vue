@@ -1,3 +1,5 @@
+<!-- Not needed anymore, kept it just as a reference -->
+
 <template>
   <div ref="refContainer">
     <slot />
@@ -6,7 +8,7 @@
 
 <script setup>
   import { onMounted, useTemplateRef } from 'vue'
-  import { useAnimationTimeline } from "@/composables/useAnimationTimeline";
+  import { useAnimationScroll } from "@/composables/useAnimationScroll";
 
   const props = defineProps({
     type: {
@@ -22,6 +24,6 @@
   const container = useTemplateRef('refContainer')
 
   onMounted(() => {
-    useAnimationTimeline(container.value, props.type, props.delay);
+    useAnimationScroll(container.value, props.type, props.delay);
   });
 </script>

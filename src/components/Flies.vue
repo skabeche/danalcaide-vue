@@ -12,9 +12,9 @@
     },
     particles: {
       number: {
-        value: 100,
+        value: 300,
         density: {
-          enable: false,
+          enable: true,
           width: 1920,
           height: 1080
         },

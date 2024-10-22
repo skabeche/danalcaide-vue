@@ -20,12 +20,8 @@
     <Garden />
     <div class="info border-circles pt-8 pb-40 text-white bg-black prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-4xl lg:prose-h2:text-5xl prose-h2:font-alternateGothic2 prose-h2:uppercase prose-ul:pl-0">
       <div class="container grid lg:grid-cols-2 gap-x-32">
-        <AnimationTimeline>
-          <Projects />
-        </AnimationTimeline>
-        <AnimationTimeline :delay=".5">
-          <Skills />
-        </AnimationTimeline>
+        <Projects class="anim-info" />
+        <Skills class="anim-info" />
       </div>
     </div>
   </section>
@@ -36,7 +32,6 @@
   import Garden from "@components/Garden.vue";
   import Projects from '@components/Projects.vue'
   import Skills from '@components/Skills.vue'
-  import AnimationTimeline from "@components/AnimationTimeline.vue";
 
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -53,6 +48,19 @@
         start: "top top",
         end: "bottom top",
         scrub: true
+      }
+    });
+
+    gsap.from('.anim-info', {
+      opacity: 0,
+      y: -40,
+      duration: .3,
+      delay: .3,
+      stagger: .3,
+      scrollTrigger: {
+        trigger: '.anim-info',
+        toggleActions: "restart none none none",
+        start: "top bottom",
       }
     });
   });
