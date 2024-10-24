@@ -1,7 +1,12 @@
 <template>
-  <footer ref="refFooter" class="leading-normal lg:text-balance prose-xl prose-li:m-0 prose-li:p-0 prose-h2:text-5xl prose-ul:pl-0 bg-circles bg-repeat-x bg-[length:auto_20%]">
-    <div ref="refWrapper" class="wrapper pt-48 pb-16 bg-circles bg-repeat-x bg-[length:auto_20%] sm:bg-[length:auto_30%]">
-      <div ref="refFooterContent" class="anim-footer container">
+  <footer ref="refFooter" class="relative leading-normal prose-lg">
+
+    <div class="rotate-180">
+      <Grass />
+    </div>
+
+    <div class="container">
+      <div ref="refFooterContent" class="anim-footer relative z-10 lg:w-1/2 py-40">
         <p>{{ $t('footer.social') }} <a href="mailto:info@danalcaide.com">info@danalcaide.com</a> · <a href="https://github.com/skabeche">Github</a> · <a href="https://www.linkedin.com/in/danalc">Linkedin</a></p>
         <p>{{ $t('footer.text') }} <a :href="$t('footer.linkText')" target="_blank">Wikipedia</a>.</p>
         <p>
@@ -21,11 +26,26 @@
         </p>
       </div>
     </div>
+
+    <div class="roots hidden lg:block absolute top-0 right-0 w-full h-[400px] lg:h-[700px]">
+      <div class="root root1 absolute top-0 right-0 w-[60%] xl:w-[50%] h-full">
+        <img src="/images/root1.svg" alt="root">
+      </div>
+      <div class="root root2 absolute top-0 right-0 w-[42%] xl:w-[35%] h-full">
+        <img src="/images/root2.svg" alt="root">
+      </div>
+    </div>
+
+    <div class="lines container flex flex-wrap justify-around gap-x-4 h-[60px] lg:h-[200px]">
+      <div v-for="n in 75" class="w-[1px] inline-flex h-full bg-black opacity-30 hover:opacity-100 transition-all"></div>
+    </div>
+
   </footer>
 </template>
 
 <script setup>
   import { onMounted, useTemplateRef } from "vue";
+  import Grass from "@components/Grass.vue";
   import { Music, Coffee, Popcorn } from 'lucide-vue-next';
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -34,50 +54,25 @@
 
   const currentYear = new Date().getFullYear();
   const footer = useTemplateRef('refFooter');
-  const wrapper = useTemplateRef('refWrapper');
   const footerContent = useTemplateRef('refFooterContent');
 
   onMounted(() => {
-    gsap.to(footer.value, {
-      "--bgPositionFooter1": "30% 60px",
-      scrollTrigger: {
-        trigger: "main",
-        start: "top top",
-        end: "bottom top",
-        scrub: 2
-      }
+    gsap.to('.root1', {
+      yPercent: -1,
+      scaleX: .97,
+      duration: 3.4,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
     });
 
-    gsap.to(wrapper.value, {
-      "--bgPositionFooter2": "50% 40px",
-      scrollTrigger: {
-        trigger: "main",
-        start: "center top",
-        end: "bottom top",
-        scrub: 1
-      }
-    });
-
-    gsap.from(footerContent.value, {
-      opacity: 0,
-      y: -40,
-      duration: .3,
-      delay: .3,
-      scrollTrigger: {
-        trigger: footerContent.value,
-        toggleActions: "restart none none none",
-        start: "top bottom",
-      }
+    gsap.to('.root2', {
+      yPercent: 1,
+      scaleY: 1.02,
+      duration: 2.5,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
     });
   });
 </script>
-
-<style scoped>
-  footer {
-    background-position: var(--bgPositionFooter1);
-  }
-
-  footer .wrapper {
-    background-position: var(--bgPositionFooter2);
-  }
-</style>

@@ -14,11 +14,6 @@
   }
 }
 
-:root {
-  --bgPositionFooter1: 30% -300px;
-  --bgPositionFooter2: 50% -200px;
-}
-
 html {
   @apply bg-black;
   scrollbar-gutter: stable;

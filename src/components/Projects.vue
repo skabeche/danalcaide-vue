@@ -6,7 +6,7 @@
         {{ client }}
       </li>
     </ul>
-    <ul class="projects flex flex-col sm:flex-row flex-wrap gap-x-4 [&_a]:font-light ">
+    <ul class="projects flex flex-col sm:flex-row flex-wrap gap-x-4 [&_a]:font-light">
       <li v-for="project in projects" :key="project.name" class="relative sm:[&:not(:last-child)]:after:content-['·'] after:absolute after:ml-1.5 last:not">
         <a :href="`https://${project.web}`" target="_blank" :data-text="project.name">{{ project.name }}</a>
       </li>

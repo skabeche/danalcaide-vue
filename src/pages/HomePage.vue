@@ -1,7 +1,7 @@
 <template>
   <section ref="refAbout" class="about container">
-    <div class="lg:w-[60%] prose-xl prose-li:m-0 prose-li:p-0 prose-ul:pl-0 leading-relaxed mt-12 mb-[26rem] sm:mb-[22rem] lg:mb-[23rem] xl:mb-[21rem] 3xl:mb-[21rem] text-balance">
-      <h1 class="mb-0 text-5xl md:text-6xl lg:text-[4rem] 2xl:text-[5rem] font-alternateGothic2 uppercase" v-html="$t('yo.title')"></h1>
+    <div class="lg:w-[60%] prose-lg md:prose-xl prose-h1:mb-0 prose-li:m-0 prose-li:p-0 prose-ul:pl-0 leading-relaxed mt-12 mb-[26rem] sm:mb-[22rem] lg:mb-[23rem] xl:mb-[21rem] 3xl:mb-[21rem] text-balance">
+      <h1 class="main-title text-5xl md:text-6xl lg:text-[4rem] 2xl:text-[5rem] font-alternateGothic2 uppercase" v-html="$t('yo.title')"></h1>
       <p>{{ $t('yo.text1') }}</p>
       <p>{{ $t('yo.text2') }}</p>
       <p>{{ $t('yo.text3') }}</p>
@@ -16,12 +16,21 @@
       </ul>
     </div>
   </section>
+
   <section>
     <Garden />
-    <div class="info border-circles pt-8 pb-40 text-white bg-black prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-4xl lg:prose-h2:text-5xl prose-h2:font-alternateGothic2 prose-h2:uppercase prose-ul:pl-0">
-      <div class="container grid lg:grid-cols-2 gap-x-32">
-        <Projects class="anim-info" />
-        <Skills class="anim-info" />
+    <div class="info min-h-dvh py-8 md:py-40 text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] bg-black prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-4xl lg:prose-h2:text-6xl prose-h2:my-8 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:tracking-wider prose-ul:pl-0">
+      <video ref="refVideo" class="video hidden md:block absolute top-0 right-0 -z-1 w-3/4 h-auto opacity-20 mix-blend-hard-light" preload="auto" disableRemotePlayback playsinline muted>
+        <source src="/videos/flowers_large.mp4" type="video/mp4" media="(min-width: 1536px)">
+        <source src="/videos/flowers_medium.mp4" type="video/mp4" media="(min-width: 1024px)">
+        <source src="/videos/flowers_small.mp4" type="video/mp4" media="(min-width: 768px)">
+        <!-- <source src="/videos/flowers_small.mp4" type="video/mp4"> -->
+      </video>
+      <div class="container anim-info h-full">
+        <div class="flex flex-col justify-start md:justify-evenly md:w-[75%] lg:w-[60%] 4xl:w-1/2 h-full">
+          <Projects />
+          <Skills />
+        </div>
       </div>
     </div>
   </section>
@@ -33,14 +42,85 @@
   import Projects from '@components/Projects.vue'
   import Skills from '@components/Skills.vue'
 
+  import SplitType from "split-type";
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
 
   gsap.registerPlugin(ScrollTrigger);
 
   const about = useTemplateRef('refAbout')
+  const video = useTemplateRef('refVideo')
 
   onMounted(() => {
+    const mainTitle = new SplitType('.main-title', { types: 'words' })
+    gsap.fromTo(
+      mainTitle.words,
+      {
+        x: 60,
+        opacity: 0,
+        filter: "blur(6px)",
+      },
+      {
+        x: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        stagger: 0.05,
+        duration: .5,
+        ease: 'power4.out',
+        delay: 2.2
+      },
+    )
+
+    const h2 = new SplitType('h2', { types: 'chars' })
+    gsap.fromTo(
+      h2.chars,
+      {
+        x: 60,
+        opacity: 0,
+        filter: "blur(6px)",
+      },
+      {
+        x: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        stagger: 0.05,
+        duration: 1,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: ".info",
+          start: "top top",
+          // end: "+=100%",
+          scrub: true,
+          // markers: true
+        }
+      },
+    )
+
+    const ul = new SplitType('.info ul', { types: 'words' })
+    gsap.fromTo(
+      ul.words,
+      {
+        opacity: 0,
+        filter: "blur(6px)",
+        x: 60,
+      },
+      {
+        opacity: 1,
+        filter: "blur(0px)",
+        x: 0,
+        stagger: 0.05,
+        duration: 3,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: ".info",
+          start: "top top",
+          // end: "+=100%",
+          scrub: true,
+          // markers: true
+        }
+      },
+    )
+
     gsap.to(about.value, {
       yPercent: 40,
       scrollTrigger: {
@@ -51,17 +131,34 @@
       }
     });
 
-    gsap.from('.anim-info', {
-      opacity: 0,
-      y: -40,
-      duration: .3,
-      delay: .3,
-      stagger: .3,
+    gsap.to(video.value, {
+      yPercent: 2,
+      duration: 2,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
+
+    let tl = gsap.timeline({
+      defaults: { duration: 1 },
       scrollTrigger: {
-        trigger: '.anim-info',
-        toggleActions: "restart none none none",
-        start: "top bottom",
+        trigger: ".info",
+        start: "top top",
+        // end: "+=100%",
+        scrub: true,
+        // pin: window.matchMedia('(min-width: 1024px)').matches ? true : false,
+        pin: true,
+        // markers: true
       }
     });
+
+    tl.fromTo(video.value,
+      {
+        currentTime: 0
+      },
+      {
+        currentTime: video.value.duration || 4.2
+      }
+    );
   });
 </script>
