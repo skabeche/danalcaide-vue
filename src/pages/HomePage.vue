@@ -152,6 +152,10 @@
       }
     });
 
+    // The video encoding is the most important step to enable frame-by-frame scrubbing.
+    // Must use one of the following conversion commands.
+    // ffmpeg -i input.mp4 -movflags faststart -vcodec libx264 -crf 23 -g 1 -pix_fmt yuv420p output.mp4
+    // ffmpeg -i input.mp4 -vf scale=960:-1 -movflags faststart -vcodec libx264 -crf 20 -g 1 -pix_fmt yuv420p output.mp4
     tl.fromTo(video.value,
       {
         currentTime: 0
