@@ -18,22 +18,30 @@
   </section>
 
   <section>
+
     <Garden />
-    <div class="info min-h-dvh py-8 md:py-40 text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] bg-black prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-4xl lg:prose-h2:text-6xl prose-h2:my-8 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:tracking-wider prose-ul:pl-0">
-      <video ref="refVideo" class="video hidden md:block absolute top-0 right-0 -z-1 w-3/4 h-auto opacity-20 mix-blend-hard-light" preload="auto" disableRemotePlayback playsinline muted>
+
+    <div class="info min-h-dvh py-8 md:py-40 text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] bg-black prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-4xl lg:prose-h2:text-4xl prose-h2:my-8 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:tracking-wider prose-ul:pl-0">
+      <video ref="refVideo" class="video hidden md:block absolute top-0 left-0 -z-1 w-3/4 h-auto opacity-20 mix-blend-hard-light" preload="auto" disableRemotePlayback playsinline muted>
         <source src="/videos/flowers_large.mp4" type="video/mp4" media="(min-width: 1536px)">
         <source src="/videos/flowers_medium.mp4" type="video/mp4" media="(min-width: 1024px)">
         <source src="/videos/flowers_small.mp4" type="video/mp4" media="(min-width: 768px)">
         <!-- <source src="/videos/flowers_small.mp4" type="video/mp4"> -->
       </video>
       <div class="container anim-info h-full">
-        <div class="flex flex-col justify-start md:justify-evenly md:w-[75%] lg:w-[60%] 4xl:w-1/2 h-full">
+        <div class="flex flex-col justify-start md:justify-evenly md:w-[75%] lg:w-[60%] 4xl:w-1/2 h-full ml-auto">
           <Projects />
-          <Skills />
+          <Skills class="lg:w-2/3" />
         </div>
       </div>
     </div>
+
+    <div class="relative z-10 rotate-180">
+      <Grass />
+    </div>
+
   </section>
+
 </template>
 
 <script setup>
@@ -41,6 +49,7 @@
   import Garden from "@components/Garden.vue";
   import Projects from '@components/Projects.vue'
   import Skills from '@components/Skills.vue'
+  import Grass from "@components/Grass.vue";
 
   import SplitType from "split-type";
   import { gsap } from "gsap"
@@ -71,9 +80,9 @@
       },
     )
 
-    const h2 = new SplitType('h2', { types: 'chars' })
+    const infoh2 = new SplitType('.info h2', { types: 'chars' })
     gsap.fromTo(
-      h2.chars,
+      infoh2.chars,
       {
         x: 60,
         opacity: 0,
@@ -89,25 +98,97 @@
         scrollTrigger: {
           trigger: ".info",
           start: "top top",
-          // end: "+=100%",
+          // end: "+=100vh",
           scrub: true,
           // markers: true
         }
       },
     )
 
+
+    // const info2h2 = new SplitType('.info2 h2', { types: 'chars' })
+    // gsap.fromTo(info2h2.chars,
+    //   {
+    //     opacity: 0,
+    //     yPercent: -150,
+    //     filter: "blur(6px)",
+    //   },
+    //   {
+    //     opacity: 1,
+    //     yPercent: 0,
+    //     filter: "blur(0px)",
+    //     duration: 1,
+    //     ease: "power2",
+    //     stagger: {
+    //       each: 0.05,
+    //       from: "random"
+    //     },
+    //     scrollTrigger: {
+    //       trigger: ".info2",
+    //       start: "bottom+=110% bottom",
+    //       scrub: true,
+    //       // markers: true
+    //     }
+    //   }, 0.2);
+
+    // const info2ul = new SplitType('.info2 ul', { types: 'words' })
+    // gsap.fromTo(info2ul.words,
+    //   {
+    //     opacity: 0,
+    //     // yPercent: 150,
+    //     filter: "blur(6px)",
+    //   },
+    //   {
+    //     opacity: 1,
+    //     // yPercent: 0,
+    //     filter: "blur(0px)",
+    //     duration: 1,
+    //     ease: "power2",
+    //     stagger: {
+    //       each: 0.05,
+    //       // from: "random"
+    //     },
+    //     scrollTrigger: {
+    //       trigger: ".info2",
+    //       start: "bottom+=110% bottom",
+    //       scrub: true,
+    //       // markers: true
+    //     }
+    //   }, 0.2);
+
+    // gsap.fromTo('.roots-container',
+    //   {
+    //     y: -20,
+    //     scaleY: 1.1,
+    //     // filter: "blur(6px)",
+    //   },
+    //   {
+    //     y: 0,
+    //     scaleY: 1,
+    //     // filter: "blur(0px)",
+    //     duration: 1,
+    //     ease: "power2",
+    //     scrollTrigger: {
+    //       trigger: ".info2",
+    //       start: "bottom+=110% bottom",
+    //       scrub: true,
+    //       // markers: true
+    //     }
+    //   }, 0.2);
+
+
     const ul = new SplitType('.info ul', { types: 'words' })
     gsap.fromTo(
       ul.words,
       {
         opacity: 0,
-        filter: "blur(6px)",
         x: 60,
+        filter: "blur(6px)",
       },
       {
         opacity: 1,
-        filter: "blur(0px)",
         x: 0,
+        filter: "blur(0px)",
         stagger: 0.05,
         duration: 3,
         ease: 'power4.out',
@@ -145,6 +226,8 @@
         trigger: ".info",
         start: "top top",
         // end: "+=100%",
+        // end: () => `top+=${window.innerHeight} top`,
+        // end: () => `top+=${window.visualViewport.height} top`,
         scrub: true,
         // pin: window.matchMedia('(min-width: 1024px)').matches ? true : false,
         pin: true,

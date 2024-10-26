@@ -60,6 +60,7 @@ export default {
       backgroundImage: {
         'colibri-anim': 'url(/images/colibri_anim.png)',
         'horizon': 'url(/images/horizon.svg)',
+        'horizon-down': 'url(/images/horizon_down.svg)',
         'circles': 'url(/images/circles.svg)',
         'plants': "url('/images/plants.svg')",
         'tree': "url('/images/tree.svg')",
@@ -70,4 +71,3 @@ export default {
     },
   },
 }
-
