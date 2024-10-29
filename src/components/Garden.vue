@@ -37,6 +37,15 @@
     },
       { passive: true }
     );
+
+    let tlHummingbird = gsap.timeline();
+    tlHummingbird.to(colibri.value, {
+      yPercent: 10,
+      duration: 1,
+      repeat: -1,
+      yoyo: true,
+      ease: 'sine.inOut'
+    });
   })
 
   const gardenMove = (e) => {
