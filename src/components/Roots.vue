@@ -7,10 +7,10 @@
     <div class="root root1 absolute top-0 left-0 w-full h-full">
       <img src="/images/root1.svg" alt="root">
     </div>
-    <div class="root root2 absolute top-0 left-[22%] w-full h-full [filter:_blur(1.4px)]">
+    <div class="root root2 absolute top-0 left-[22%] w-full h-full opacity-70 [filter:_blur(1.4px)]">
       <img src="/images/root2.svg" alt="root">
     </div>
-    <div class="root root3 absolute top-0 left-[36%] w-1/2 h-full [filter:_blur(2px)]">
+    <div class="root root3 absolute top-0 left-[36%] w-1/2 h-full opacity-60 [filter:_blur(2px)]">
       <img src="/images/root2.svg" alt="root">
     </div>
   </div>

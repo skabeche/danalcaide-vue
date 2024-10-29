@@ -1,5 +1,5 @@
 <template>
-  <div class="clients-projects lg:grid grid-cols-3">
+  <div class="clients-projects lg:grid grid-cols-3 gap-8">
     <h2>{{ $t('projects.title') }}</h2>
     <div class="col-span-2">
       <ul class="clients flex sm:flex-row flex-wrap gap-x-4">

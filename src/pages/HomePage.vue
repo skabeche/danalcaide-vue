@@ -21,7 +21,7 @@
 
     <Garden />
 
-    <div class="info min-h-dvh py-8 md:py-40 text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] bg-black prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-4xl lg:prose-h2:text-4xl prose-h2:my-8 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:tracking-wider prose-ul:pl-0">
+    <div ref="refInfo" class="info min-h-dvh py-8 md:py-40 text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] bg-black prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-4xl lg:prose-h2:text-4xl prose-h2:my-8 prose-h2:font-alternateGothic2x prose-h2:uppercasex prose-h2:font-normal prose-h2:tracking-wider prose-ul:pl-0">
       <video ref="refVideo" class="video hidden md:block absolute top-0 left-0 -z-1 w-3/4 h-auto opacity-20 mix-blend-hard-light" preload="auto" disableRemotePlayback playsinline muted>
         <source src="/videos/flowers_large.mp4" type="video/mp4" media="(min-width: 1536px)">
         <source src="/videos/flowers_medium.mp4" type="video/mp4" media="(min-width: 1024px)">
@@ -59,6 +59,7 @@
 
   const about = useTemplateRef('refAbout')
   const video = useTemplateRef('refVideo')
+  const info = useTemplateRef('refInfo')
 
   onMounted(() => {
     const mainTitle = new SplitType('.main-title', { types: 'words' })
@@ -80,128 +81,6 @@
       },
     )
 
-    const infoh2 = new SplitType('.info h2', { types: 'chars' })
-    gsap.fromTo(
-      infoh2.chars,
-      {
-        x: 60,
-        opacity: 0,
-        filter: "blur(6px)",
-      },
-      {
-        x: 0,
-        opacity: 1,
-        filter: "blur(0px)",
-        stagger: 0.05,
-        duration: 1,
-        ease: 'power4.out',
-        scrollTrigger: {
-          trigger: ".info",
-          start: "top top",
-          // end: "+=100vh",
-          scrub: true,
-          // markers: true
-        }
-      },
-    )
-
-
-    // const info2h2 = new SplitType('.info2 h2', { types: 'chars' })
-    // gsap.fromTo(info2h2.chars,
-    //   {
-    //     opacity: 0,
-    //     yPercent: -150,
-    //     filter: "blur(6px)",
-    //   },
-    //   {
-    //     opacity: 1,
-    //     yPercent: 0,
-    //     filter: "blur(0px)",
-    //     duration: 1,
-    //     ease: "power2",
-    //     stagger: {
-    //       each: 0.05,
-    //       from: "random"
-    //     },
-    //     scrollTrigger: {
-    //       trigger: ".info2",
-    //       start: "bottom+=110% bottom",
-    //       scrub: true,
-    //       // markers: true
-    //     }
-    //   }, 0.2);
-
-    // const info2ul = new SplitType('.info2 ul', { types: 'words' })
-    // gsap.fromTo(info2ul.words,
-    //   {
-    //     opacity: 0,
-    //     // yPercent: 150,
-    //     filter: "blur(6px)",
-    //   },
-    //   {
-    //     opacity: 1,
-    //     // yPercent: 0,
-    //     filter: "blur(0px)",
-    //     duration: 1,
-    //     ease: "power2",
-    //     stagger: {
-    //       each: 0.05,
-    //       // from: "random"
-    //     },
-    //     scrollTrigger: {
-    //       trigger: ".info2",
-    //       start: "bottom+=110% bottom",
-    //       scrub: true,
-    //       // markers: true
-    //     }
-    //   }, 0.2);
-
-    // gsap.fromTo('.roots-container',
-    //   {
-    //     y: -20,
-    //     scaleY: 1.1,
-    //     // filter: "blur(6px)",
-    //   },
-    //   {
-    //     y: 0,
-    //     scaleY: 1,
-    //     // filter: "blur(0px)",
-    //     duration: 1,
-    //     ease: "power2",
-    //     scrollTrigger: {
-    //       trigger: ".info2",
-    //       start: "bottom+=110% bottom",
-    //       scrub: true,
-    //       // markers: true
-    //     }
-    //   }, 0.2);
-
-
-    const ul = new SplitType('.info ul', { types: 'words' })
-    gsap.fromTo(
-      ul.words,
-      {
-        opacity: 0,
-        x: 60,
-        filter: "blur(6px)",
-      },
-      {
-        opacity: 1,
-        x: 0,
-        filter: "blur(0px)",
-        stagger: 0.05,
-        duration: 3,
-        ease: 'power4.out',
-        scrollTrigger: {
-          trigger: ".info",
-          start: "top top",
-          // end: "+=100%",
-          scrub: true,
-          // markers: true
-        }
-      },
-    )
-
     gsap.to(about.value, {
       yPercent: 40,
       scrollTrigger: {
@@ -220,26 +99,24 @@
       ease: 'sine.inOut'
     });
 
-    let tl = gsap.timeline({
+    let tlInfo = gsap.timeline({
       defaults: { duration: 1 },
       scrollTrigger: {
-        trigger: ".info",
+        trigger: info.value,
         start: "top top",
-        // end: "+=100%",
-        // end: () => `top+=${window.innerHeight} top`,
-        // end: () => `top+=${window.visualViewport.height} top`,
+        end: "+=100%",
         scrub: true,
         // pin: window.matchMedia('(min-width: 1024px)').matches ? true : false,
         pin: true,
         // markers: true
-      }
+      },
     });
 
     // The video encoding is the most important step to enable frame-by-frame scrubbing.
     // Must use one of the following conversion commands.
     // ffmpeg -i input.mp4 -movflags faststart -vcodec libx264 -crf 23 -g 1 -pix_fmt yuv420p output.mp4
     // ffmpeg -i input.mp4 -vf scale=960:-1 -movflags faststart -vcodec libx264 -crf 20 -g 1 -pix_fmt yuv420p output.mp4
-    tl.fromTo(video.value,
+    tlInfo.fromTo(video.value,
       {
         currentTime: 0
       },
@@ -247,5 +124,57 @@
         currentTime: video.value.duration || 4.2
       }
     );
+
+    // Not included in the timeline for better performance with the video.
+    const infoh2 = new SplitType('.info h2', { types: 'chars' })
+    gsap.fromTo(
+      infoh2.chars,
+      {
+        x: 60,
+        opacity: 0,
+        filter: "blur(6px)",
+      },
+      {
+        x: 0,
+        opacity: 1,
+        filter: "blur(0px)",
+        stagger: 0.05,
+        duration: 1,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: info.value,
+          start: "top top",
+          end: "+=100%",
+          scrub: true,
+          // markers: true
+        }
+      },
+    )
+
+    // Not included in the timeline for better performance with the video.
+    const infoUl = new SplitType('.info ul', { types: 'words' })
+    gsap.fromTo(
+      infoUl.words,
+      {
+        opacity: 0,
+        x: 60,
+        filter: "blur(6px)",
+      },
+      {
+        opacity: 1,
+        x: 0,
+        filter: "blur(0px)",
+        stagger: 0.05,
+        duration: 3,
+        ease: 'power4.out',
+        scrollTrigger: {
+          trigger: info.value,
+          start: "top top",
+          end: "+=100%",
+          scrub: true,
+          // markers: true
+        }
+      },
+    )
   });
 </script>
