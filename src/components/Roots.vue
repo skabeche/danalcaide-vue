@@ -16,39 +16,7 @@
   </div>
 </template>
 
-<script setup>
-  import { onMounted } from "vue";
-  import { gsap } from "gsap"
-  import { ScrollTrigger } from "gsap/ScrollTrigger"
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  onMounted(() => {
-
-
-    gsap.fromTo('.roots',
-      {
-        y: -50,
-        scaleY: 1.1,
-      },
-      {
-        y: 0,
-        scaleY: 1,
-        duration: 2,
-        ease: "power2",
-        scrollTrigger: {
-          trigger: ".roots",
-          // start: "top center",
-          start: () => `top+=${window.visualViewport.height} center`,
-          scrub: 1,
-          // markers: true,
-        }
-      });
-
-  });
-</script>
-
-<style>
+<style scoped>
   .root1 {
     animation: anim-root1 5000ms infinite ease-in-out;
   }

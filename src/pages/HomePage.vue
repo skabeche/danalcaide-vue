@@ -148,13 +148,35 @@
           scrub: true,
           // markers: true
         }
-      },
+      }
     )
 
     // Not included in the timeline for better performance with the video.
-    const infoUl = new SplitType('.info ul', { types: 'words' })
+    // const infoUl = new SplitType('.info ul', { types: 'words' })
+    // gsap.fromTo(
+    //   infoUl.words,
+    //   {
+    //     opacity: 0,
+    //     x: 60,
+    //     filter: "blur(6px)",
+    //   },
+    //   {
+    //     opacity: 1,
+    //     x: 0,
+    //     filter: "blur(0px)",
+    //     stagger: 0.05,
+    //     duration: 3,
+    //     ease: 'power4.out',
+    //     scrollTrigger: {
+    //       trigger: info.value,
+    //       start: "top top",
+    //       end: "+=100%",
+    //       scrub: true,
+    //       // markers: true
+    //     }
+    //   },
     gsap.fromTo(
-      infoUl.words,
+      '.info ul',
       {
         opacity: 0,
         x: 60,
@@ -164,8 +186,8 @@
         opacity: 1,
         x: 0,
         filter: "blur(0px)",
-        stagger: 0.05,
-        duration: 3,
+        stagger: 0.1,
+        duration: 1,
         ease: 'power4.out',
         scrollTrigger: {
           trigger: info.value,
@@ -174,7 +196,7 @@
           scrub: true,
           // markers: true
         }
-      },
+      }
     )
   });
 </script>
