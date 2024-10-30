@@ -62,24 +62,30 @@
   const info = useTemplateRef('refInfo')
 
   onMounted(() => {
-    const mainTitle = new SplitType('.main-title', { types: 'words' })
-    gsap.fromTo(
-      mainTitle.words,
-      {
-        x: 60,
-        opacity: 0,
-        filter: "blur(6px)",
-      },
-      {
-        x: 0,
-        opacity: 1,
-        filter: "blur(0px)",
-        stagger: 0.05,
-        duration: .5,
-        ease: 'power4.out',
-        delay: 2.2
-      },
-    )
+
+    let mm = gsap.matchMedia();
+
+    // Only desktop.
+    mm.add("(min-width: 768px)", () => {
+      const mainTitle = new SplitType('.main-title', { types: 'words' })
+      gsap.fromTo(
+        mainTitle.words,
+        {
+          x: 60,
+          opacity: 0,
+          filter: "blur(6px)",
+        },
+        {
+          x: 0,
+          opacity: 1,
+          filter: "blur(0px)",
+          stagger: 0.05,
+          duration: .5,
+          ease: 'power4.out',
+          delay: 2.2
+        },
+      )
+    });
 
     gsap.to(about.value, {
       yPercent: 40,

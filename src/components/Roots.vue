@@ -5,13 +5,13 @@
       <div class="grass-roots absolute right-0 bottom-0 bg-grass-tree w-full h-[105px] bg-bottom bg-no-repeat"></div>
     </div>
     <div class="root root1 absolute top-0 left-0 w-full h-full">
-      <img width="100%" height="100%" src="/images/root1.svg" alt="root">
+      <img width="100%" height="100%" src="/images/root1.svg" alt="root" loading="lazy">
     </div>
     <div class="root root2 absolute top-0 left-[22%] w-full h-full opacity-70 [filter:_blur(1.4px)]">
-      <img width="100%" height="100%" src="/images/root2.svg" alt="root">
+      <img width="100%" height="100%" src="/images/root2.svg" alt="root" loading="lazy">
     </div>
     <div class="root root3 absolute top-0 left-[36%] w-1/2 h-full opacity-60 [filter:_blur(2px)]">
-      <img width="100%" height="100%" src="/images/root2.svg" alt="root">
+      <img width="100%" height="100%" src="/images/root2.svg" alt="root" loading="lazy">
     </div>
   </div>
 </template>

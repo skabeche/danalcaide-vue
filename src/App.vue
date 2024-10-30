@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-  import { onMounted, watchEffect, useTemplateRef } from 'vue'
+  import { onMounted, watchEffect } from 'vue'
   import { useI18n } from "vue-i18n"
   import { useHead } from 'unhead'
   import Header from '@components/Header.vue'
