@@ -83,6 +83,7 @@
 
   main {
     opacity: 0;
+    will-change: opacity, margin-top;
     animation: anim-init-main 500ms 1900ms forwards;
   }
 

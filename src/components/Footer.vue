@@ -47,17 +47,15 @@
   const roots = useTemplateRef('refRoots');
 
   onMounted(() => {
-    gsap.from(roots.value,
-      {
-        y: -50,
-        scaleY: 1.1,
-        scrollTrigger: {
-          trigger: roots.value,
-          start: () => `top+=${window.visualViewport.height} center`,
-          scrub: 2,
-          // markers: true,
-        }
-      });
-
+    gsap.from(roots.value, {
+      y: -50,
+      scaleY: 1.1,
+      scrollTrigger: {
+        trigger: roots.value,
+        start: () => `top+=${window.visualViewport.height} center`,
+        scrub: 2,
+        // markers: true,
+      }
+    });
   });
 </script>
