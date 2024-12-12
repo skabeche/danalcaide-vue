@@ -27,7 +27,7 @@
     'Craft CMS',
     'Tailwind',
     'Bootstrap',
-    'SASS',
+    'SCSS',
     'Vite',
     'Git',
     'VS Code',
