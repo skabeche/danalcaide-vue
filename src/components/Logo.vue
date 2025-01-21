@@ -63,7 +63,7 @@
     }
 
     22% {
-      transform: translateY(10px) translateX(0px);
+      transform: translateY(10px) translateX(0);
       rotate: 0deg;
     }
 

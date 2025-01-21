@@ -113,7 +113,7 @@
         start: "top top",
         end: "+=100%",
         scrub: true,
-        // pin: window.matchMedia('(min-width: 1024px)').matches ? true : false,
+        // pin: window.matchMedia('(min-width: 768px)').matches ? true : false,
         pin: true,
         // markers: true
         onEnter: () => tlVideo.pause(0),

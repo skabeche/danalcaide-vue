@@ -124,7 +124,7 @@
         }
       }
     },
-    detectRetina: true
+    detectRetina: false, // true, makes Firefox laggy
   };
 
   const particlesLoaded = async container => {
