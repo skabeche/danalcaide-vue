@@ -18,38 +18,30 @@
   </section>
 
   <section>
-
-    <Garden />
-
-    <div ref="refInfo" class="info min-h-dvh py-8 md:py-40 text-white [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)] bg-black prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-4xl lg:prose-h2:text-5xl prose-h2:my-8 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:font-normal prose-h2:tracking-wider prose-ul:pl-0">
-      <video ref="refVideo" class="video hidden md:block absolute top-0 left-0 -z-1 w-3/4 h-auto opacity-20 mix-blend-hard-light" preload="auto" disableRemotePlayback playsinline muted>
-        <source src="/videos/flowers_large.mp4" type="video/mp4" media="(min-width: 1536px)">
-        <source src="/videos/flowers_medium.mp4" type="video/mp4" media="(min-width: 1024px)">
-        <source src="/videos/flowers_small.mp4" type="video/mp4" media="(min-width: 768px)">
-        <!-- <source src="/videos/flowers_small.mp4" type="video/mp4"> -->
-      </video>
-      <div class="container anim-info h-full">
-        <div class="flex flex-col justify-start md:justify-evenly md:w-[75%] lg:w-[70%] xl:w-[60%] 4xl:w-1/2 h-full ml-auto">
-          <Projects />
-          <Skills class="lg:w-2/3" />
+    <Garden>
+      <div ref="refInfo" class="info min-h-dvh py-8 md:py-40 [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]  prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-4xl lg:prose-h2:text-5xl prose-h2:my-8 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:font-normal prose-h2:tracking-wider prose-ul:pl-0">
+        <video ref="refVideo" class="video hidden md:block absolute top-0 left-0 -z-1 w-3/4 h-auto opacity-20 mix-blend-hard-light" preload="auto" disableRemotePlayback playsinline muted>
+          <source src="/videos/flowers_large.mp4" type="video/mp4" media="(min-width: 1536px)">
+          <source src="/videos/flowers_medium.mp4" type="video/mp4" media="(min-width: 1024px)">
+          <source src="/videos/flowers_small.mp4" type="video/mp4" media="(min-width: 768px)">
+          <!-- <source src="/videos/flowers_small.mp4" type="video/mp4"> -->
+        </video>
+        <div class="container anim-info h-full">
+          <div class="flex flex-col justify-start md:justify-evenly md:w-[75%] lg:w-[70%] xl:w-[60%] 4xl:w-1/2 h-full ml-auto">
+            <Projects />
+            <Skills class="lg:w-2/3" />
+          </div>
         </div>
       </div>
-    </div>
-
-    <div class="relative z-10 rotate-180">
-      <Grass />
-    </div>
-
+    </Garden>
   </section>
-
 </template>
 
 <script setup>
   import { onMounted, useTemplateRef } from "vue";
-  import Garden from "@components/Garden.vue";
-  import Projects from '@components/Projects.vue'
-  import Skills from '@components/Skills.vue'
-  import Grass from "@components/Grass.vue";
+  import Garden from "@/components/Garden.vue";
+  import Projects from '@/components/Projects.vue'
+  import Skills from '@/components/Skills.vue'
 
   import SplitType from "split-type";
   import { gsap } from "gsap"

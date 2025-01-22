@@ -1,5 +1,5 @@
 <template>
-  <div class="flies absolute z-10 left-0 bottom-0 w-full before:absolute before:z-10 before:w-full before:h-full before:bg-gray-50 before:[mask-image:linear-gradient(black,_transparent_30%)]">
+  <div class="flies absolute -z-10 left-0 bottom-0 w-full before:absolute before:w-full before:h-full before:bg-gray-50 before:[mask-image:linear-gradient(black,_transparent_30%)]">
     <vue-particles class="w-full h-[330px] lg:h-[230px]" id="tsparticles" @particles-loaded="particlesLoaded" :options="options" />
   </div>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="garden relative -z-10 -bottom-0.5">
+  <div class="garden relative -bottom-0.5">
     <div ref="refColibri" v-show="showHummingbird" class="cursor-colibri fixed z-30 top-0 left-0 scale-50 origin-top-left pointer-events-none">
       <Hummingbird />
     </div>
@@ -14,13 +14,18 @@
     <Grass />
     <Flies />
   </div>
+
+  <div class="garden-content bg-black text-white">
+    <slot />
+  </div>
+
 </template>
 
 <script setup>
   import { onMounted, ref, useTemplateRef } from "vue";
-  import Grass from "@components/Grass.vue";
-  import Flies from "@components/Flies.vue";
-  import Hummingbird from "@components/Hummingbird.vue";
+  import Grass from "@/components/Grass.vue";
+  import Flies from "@/components/Flies.vue";
+  import Hummingbird from "@/components/Hummingbird.vue";
   import { gsap } from "gsap";
 
   const showHummingbird = ref(false);

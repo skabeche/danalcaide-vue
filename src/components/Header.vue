@@ -1,5 +1,5 @@
 <template>
-  <header class="pt-28">
+  <header>
     <div class="container">
       <Preloader>
         <Logo />
@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-  import Preloader from '@components/Preloader.vue'
-  import Logo from '@components/Logo.vue'
-  import NavLang from '@components/NavLang.vue'
+  import Preloader from '@/components/Preloader.vue'
+  import Logo from '@/components/Logo.vue'
+  import NavLang from '@/components/NavLang.vue'
 </script>

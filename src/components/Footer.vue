@@ -5,6 +5,10 @@
       <Roots />
     </div>
 
+    <div class="absolute top-0 z-10 w-full rotate-180">
+      <Grass />
+    </div>
+
     <div class="container">
       <div class="relative z-10 lg:w-1/2 py-20 lg:py-40">
         <p>{{ $t('footer.social') }} <a href="mailto:info@danalcaide.com" aria-label="Say hi via email">info@danalcaide.com</a> · <a href="https://github.com/skabeche" aria-label="Check my Github profile">Github</a> · <a href="https://www.linkedin.com/in/danalc" aria-label="Check my Linkedin profile">Linkedin</a></p>
@@ -37,7 +41,8 @@
 <script setup>
   import { onMounted, useTemplateRef } from "vue";
   import { Music, Coffee, Popcorn } from 'lucide-vue-next';
-  import Roots from "@components/Roots.vue";
+  import Roots from "@/components/Roots.vue";
+  import Grass from "@/components/Grass.vue";
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
 
@@ -52,7 +57,8 @@
       scaleY: 1.1,
       scrollTrigger: {
         trigger: roots.value,
-        start: () => `top+=${window.visualViewport.height} center`,
+        // start: () => `top+=${window.visualViewport.height} center`,
+        start: "top center",
         scrub: 2,
         // markers: true,
       }

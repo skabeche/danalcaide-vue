@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-  import Hummingbird from "@components/Hummingbird.vue";
+  import Hummingbird from "@/components/Hummingbird.vue";
 </script>
 
 <style scoped>
