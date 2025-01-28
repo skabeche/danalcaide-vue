@@ -64,6 +64,7 @@ export default {
         'circles': 'url(/images/circles.svg)',
         'plants': "url('/images/plants.svg')",
         'tree': "url('/images/tree.svg')",
+        'tree-windy': "url('/images/tree-windy.svg')",
         'grass': "url('/images/grass.svg')",
         'grass-plants': "url('/images/grass-plants.svg')",
         'grass-tree': "url('/images/grass-tree.svg')",
