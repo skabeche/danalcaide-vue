@@ -69,7 +69,7 @@
 
     30% {
       transform: translateY(-10px) translateX(10px);
-      rotate: 0deg;
+      rotate: -5deg;
     }
 
     44% {
@@ -94,6 +94,7 @@
 
     72% {
       transform: translateY(10px) translateX(0);
+      rotate: -5deg;
     }
 
     80% {
@@ -101,7 +102,7 @@
     }
 
     89% {
-      rotate: 0deg;
+      rotate: 5deg;
       filter: blur(0);
     }
 
