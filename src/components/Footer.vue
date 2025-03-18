@@ -1,5 +1,5 @@
 <template>
-  <footer class="relative h-dvh prose-lg leading-normal">
+  <footer class="relative h-dvh prose-lg leading-normal bg-gray-50">
 
     <div ref="refRoots" class="hidden lg:block absolute top-[30px] right-0 w-[50%]">
       <Roots />

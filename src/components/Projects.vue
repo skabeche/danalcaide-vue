@@ -1,7 +1,7 @@
 <template>
-  <div class="clients-projects lg:grid grid-cols-3 gap-8">
+  <div class="clients-projects lg:grid grid-cols-2 gap-8">
     <h2>{{ $t('projects.title') }}</h2>
-    <div class="col-span-2">
+    <div>
       <ul class="clients flex sm:flex-row flex-wrap gap-x-4">
         <li v-for="client in clients" :key="client" class="relative [&:not(:last-child)]:after:content-['·'] after:absolute after:ml-1.5 last:not">
           {{ client }}
