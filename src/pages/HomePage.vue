@@ -15,7 +15,6 @@
           <li>{{ $t('yo.timeline.27.text') }} <a href="https://web.archive.org/web/20081005040052/http://www.danalcaide.es/" target="_blank" aria-label="See more about this timeline point">{{ $t('yo.timeline.27.linkText') }}</a>.</li>
           <li>{{ $t('yo.timeline.33.text') }} <a href="https://youtu.be/2jf7FmNt4Tg" target="_blank" aria-label="See more about this timeline point">{{ $t('yo.timeline.33.linkText') }}</a> {{ $t('yo.timeline.33.text2') }}.</li>
         </ul>
-
       </div>
     </div>
   </section>
@@ -23,7 +22,7 @@
   <section class="prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-5xl md:prose-h2:text-7xl prose-h2:my-8 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:font-normal prose-h2:tracking-wider prose-ul:pl-0">
     <Garden>
       <div ref="refInfo" class="info relative min-h-dvh py-8 md:py-40 [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
-        <video ref="refVideo" class="video hidden sm:block absolute top-0 left-0 -z-1 w-full lg:w-3/4 4xl:w-[85%] h-auto opacity-20 mix-blend-hard-light" preload="auto" disableRemotePlayback playsinline muted>
+        <video ref="refVideo" class="video hidden sm:block absolute top-0 left-0 w-full lg:w-3/4 4xl:w-[85%] h-auto opacity-20 mix-blend-hard-light" preload="auto" disableRemotePlayback playsinline muted>
           <source src="/videos/flowers_large.mp4" type="video/mp4" media="(min-width: 1536px)">
           <source src="/videos/flowers_medium.mp4" type="video/mp4" media="(min-width: 1024px)">
           <source src="/videos/flowers_small.mp4" type="video/mp4" media="(min-width: 640px)">
@@ -64,7 +63,7 @@
 
   onMounted(() => {
 
-    let mm = gsap.matchMedia();
+    const mm = gsap.matchMedia();
 
     // Only desktop.
     mm.add("(min-width: 768px)", () => {
@@ -135,72 +134,52 @@
       }
     );
 
-    // Not included in the timeline for better performance with the video.
     const infoh2 = new SplitType('.info h2', { types: 'words' })
-    gsap.from(infoh2.words, {
+    tlInfo.from(infoh2.words, {
       x: 60,
       opacity: 0,
       filter: "blur(6px)",
-      stagger: 0.05,
-      ease: 'power4.out',
-      scrollTrigger: {
-        trigger: info.value,
-        start: "top top",
-        end: "+=100%",
-        // toggleActions: "play none none reverse",
-        scrub: true,
-        // markers: true
-      },
-    });
+      stagger: 0.2,
+    },
+      '<'
+    ).from('.info ul', {
+      x: 60,
+      opacity: 0,
+      filter: "blur(6px)",
+      stagger: 0.2,
+    },
+      '<'
+    );
 
-    // Not included in the timeline for better performance with the video.
-    gsap.from('.info ul', {
-      opacity: 0,
-      x: 60,
-      filter: "blur(6px)",
-      stagger: 0.1,
-      ease: 'power4.out',
-      scrollTrigger: {
-        trigger: info.value,
-        start: "top top",
-        end: "+=100%",
-        // toggleActions: "play none none reverse",
-        scrub: true,
-        // markers: true
-      }
-    });
 
     const info2h2 = new SplitType('.info2 h2', { types: 'words' })
     gsap.from(info2h2.words, {
-      skewY: 4,
       y: -60,
       opacity: 0,
       filter: "blur(6px)",
+      skewY: 4,
       stagger: 0.1,
-      duration: 0.7,
-      ease: 'power4.out',
+      duration: 0.4,
       scrollTrigger: {
         trigger: info2.value,
         start: "-=25% center",
-        // start: "top center",
-        // end: "+=100%",
+        end: "+=100%",
         toggleActions: "play none none reverse",
         // markers: true
       },
     });
 
     gsap.from('.info2 ul', {
-      skewY: 4,
-      opacity: 0,
       y: 60,
+      opacity: 0,
       filter: "blur(6px)",
+      skewY: 4,
       stagger: 0.1,
-      duration: 0.7,
-      ease: 'power4.out',
+      duration: 0.4,
       scrollTrigger: {
         trigger: info2.value,
         start: "top center",
-        // end: "+=100%",
+        end: "+=100%",
         toggleActions: "play none none reverse",
         // markers: true
       },
