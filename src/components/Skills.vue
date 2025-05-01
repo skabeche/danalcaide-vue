@@ -1,6 +1,6 @@
 <template>
   <div ref="skillsRef" class="skills">
-    <h2>{{ $t('skills.title') }}</h2>
+    <h2>{{ translatedHeading }}</h2>
     <ul class="flex flex-wrap gap-x-4">
       <li v-for="skill in skills" :key="skill">
         {{ skill }}
@@ -10,11 +10,10 @@
 </template>
 
 <script setup>
-  import { onMounted, useTemplateRef } from "vue";
+  import { onMounted, useTemplateRef, watch, computed, nextTick } from "vue";
 
   import { useSkills } from "@/data/skills";
   import { useI18n } from "vue-i18n";
-  const { t } = useI18n();
 
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -22,10 +21,14 @@
 
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
+  const { t, locale } = useI18n();
   const skills = useSkills()
   const skillsRef = useTemplateRef('skillsRef')
 
-  onMounted(() => {
+  // Dynamic translation, ensure text is reactive and localized to trigger split animation.
+  const translatedHeading = computed(() => t('skills.title'))
+
+  const animateSplitHeading = () => {
     const skillsh2 = SplitText.create('.skills h2', { type: 'words' })
     gsap.from(skillsh2.words, {
       y: -60,
@@ -42,6 +45,16 @@
         // markers: true
       },
     });
+  }
+
+  watch(locale, () => {
+    nextTick(() => {
+      animateSplitHeading()
+    })
+  })
+
+  onMounted(() => {
+    animateSplitHeading()
 
     gsap.from('.skills ul', {
       y: 60,

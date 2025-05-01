@@ -9,7 +9,7 @@
     <div class="container">
       <div class="flex flex-col justify-start md:justify-evenly xl:w-[75vw] h-full ml-auto">
         <div class="clients-projects lg:grid grid-cols-2 gap-8">
-          <h2 ref="headingRef">{{ $t('projects.title') }}</h2>
+          <h2>{{ translatedHeading }}</h2>
           <div>
             <ul class="clients flex sm:flex-row flex-wrap gap-x-4">
               <li v-for="client in clients" :key="client" class="relative not-last:after:content-['·'] after:absolute after:ml-1.5 last:not">
@@ -29,19 +29,34 @@
 </template>
 
 <script setup>
-  import { onMounted, useTemplateRef } from "vue"
+  import { onMounted, useTemplateRef, watch, computed, nextTick } from "vue";
 
   import clients from "@/data/clients"
   import projects from "@/data/projects"
 
+  import { useI18n } from "vue-i18n";
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
   import { SplitText } from "gsap/SplitText";
 
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
+  const { t, locale } = useI18n();
   const video = useTemplateRef('videoRef')
   const info = useTemplateRef('infoRef')
+
+  // Dynamic translation, ensure text is reactive and localized to trigger split animation.
+  const translatedHeading = computed(() => t('projects.title'))
+
+  const animateSplitHeading = () => {
+    const infoh2 = SplitText.create('.info h2', { type: 'words' })
+    return gsap.from(infoh2.words, {
+      x: 60,
+      opacity: 0,
+      filter: "blur(6px)",
+      stagger: 0.2,
+    })
+  }
 
   onMounted(() => {
     gsap.to(video.value, {
@@ -89,22 +104,19 @@
       }
     );
 
-    const infoh2 = SplitText.create('.info h2', { type: 'words' })
-    tlInfo.from(infoh2.words, {
-      x: 60,
-      opacity: 0,
-      filter: "blur(6px)",
-      stagger: 0.2,
-    },
-      '<'
-    ).from('.info ul', {
-      x: 60,
-      opacity: 0,
-      filter: "blur(6px)",
-      stagger: 0.2,
-    },
-      '<'
-    );
+    tlInfo.add(animateSplitHeading(), '<');
 
+    tlInfo.from('.info ul', {
+      x: 60,
+      opacity: 0,
+      filter: "blur(6px)",
+      stagger: 0.2,
+    }, '<');
+
+    watch(locale, () => {
+      nextTick(() => {
+        tlInfo.add(animateSplitHeading(), '<');
+      })
+    })
   })
 </script>
