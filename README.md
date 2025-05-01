@@ -2,9 +2,9 @@
 
 [www.danalcaide.com](https://www.danalcaide.com)
 
-Made with Vue.js, Tailwind, CSS animations, Vite, chocolate and coffee.
+Made with Vue.js, Tailwind, GSAP, CSS animations, Vite, chocolate and coffee.
 
-_Hecho con Vue.js, Tailwind, animaciones CSS, Vite, chorizo y paella._
+_Hecho con Vue.js, Tailwind, GSAP, animaciones CSS, Vite, chorizo y paella._
 
 ## Overview
 
