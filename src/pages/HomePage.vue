@@ -49,11 +49,11 @@
   import Projects from '@/components/Projects.vue'
   import Skills from '@/components/Skills.vue'
 
-  import SplitType from "split-type";
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
+  import { SplitText } from "gsap/SplitText";
 
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, SplitText);
 
   const title = useTemplateRef('refTitle')
   const about = useTemplateRef('refAbout')
@@ -67,7 +67,7 @@
 
     // Only desktop.
     mm.add("(min-width: 768px)", () => {
-      const mainTitle = new SplitType(title.value, { types: 'words' })
+      const mainTitle = SplitText.create(title.value, { type: 'words' })
       gsap.from(mainTitle.words, {
         x: 60,
         opacity: 0,
@@ -134,7 +134,7 @@
       }
     );
 
-    const infoh2 = new SplitType('.info h2', { types: 'words' })
+    const infoh2 = SplitText.create('.info h2', { type: 'words' })
     tlInfo.from(infoh2.words, {
       x: 60,
       opacity: 0,
@@ -152,7 +152,7 @@
     );
 
 
-    const info2h2 = new SplitType('.info2 h2', { types: 'words' })
+    const info2h2 = SplitText.create('.info2 h2', { type: 'words' })
     gsap.from(info2h2.words, {
       y: -60,
       opacity: 0,
