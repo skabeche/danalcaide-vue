@@ -53,7 +53,9 @@
     })
   })
 
-  onMounted(() => {
+  onMounted(async () => {
+    await document.fonts.ready
+
     animateSplitHeading()
 
     gsap.from('.skills ul', {

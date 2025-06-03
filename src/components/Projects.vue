@@ -58,7 +58,9 @@
     })
   }
 
-  onMounted(() => {
+  onMounted(async () => {
+    await document.fonts.ready
+
     gsap.to(video.value, {
       yPercent: 2,
       duration: 2,

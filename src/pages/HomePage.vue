@@ -46,7 +46,8 @@
   const title = useTemplateRef('titleRef')
   const about = useTemplateRef('aboutRef')
 
-  onMounted(() => {
+  onMounted(async () => {
+    await document.fonts.ready
 
     const mm = gsap.matchMedia();
 
