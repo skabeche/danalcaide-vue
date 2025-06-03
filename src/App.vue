@@ -15,14 +15,15 @@
   const { t } = useI18n()
 
   watchEffect(() => {
+    // Note: watchEffect is needed because `t()` doesn't trigger reactivity in useHead()
     // A watcher doesn't seem to be the best practice for unhead library,
     // but I've not found any other effective method to make it reactive for translations
-    // @see https://unhead.unjs.io/setup/vue/best-practices
+    // @see https://v1.unhead.unjs.io/setup/vue/best-practices
     useHead({
       htmlAttrs: {
         lang: t('languages.code'),
       },
-      title: 'Dan Alcaide · ' + t('meta.title'),
+      title: `Dan Alcaide · ${t('meta.title')}`,
       meta: [
         {
           name: 'description',
@@ -30,7 +31,7 @@
         },
         {
           property: 'og:title',
-          content: 'Dan Alcaide · ' + t('meta.title'),
+          content: `Dan Alcaide · ${t('meta.title')}`,
         },
         {
           property: 'og:description',
