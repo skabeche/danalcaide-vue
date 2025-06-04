@@ -1,18 +1,20 @@
 <template>
+  <VueLenis root ref="lenisRef" :options="{ autoRaf: false }" />
   <RouterView />
 </template>
 
 <script setup>
-  import { onMounted, watchEffect } from 'vue'
+  import { watchEffect, ref } from 'vue'
   import { useI18n } from "vue-i18n"
   import { useHead } from 'unhead'
-  import Lenis from 'lenis'
+  import { VueLenis, useLenis } from 'lenis/vue'
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
 
   gsap.registerPlugin(ScrollTrigger);
 
   const { t } = useI18n()
+  const lenisRef = ref()
 
   watchEffect(() => {
     // Note: watchEffect is needed because `t()` doesn't trigger reactivity in useHead()
@@ -41,24 +43,30 @@
     });
   });
 
-  onMounted(async () => {
-    await document.fonts.ready
+  // GSAP/Lenis integration.
+  // @see https://github.com/darkroomengineering/lenis/blob/main/packages/vue/README.md
+  watchEffect((onInvalidate) => {
+    if (!lenisRef.value?.lenis) return
 
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      infinite: false,
-      smoothTouch: false
-    });
+    //  if using GSAP ScrollTrigger, update ScrollTrigger on scroll
+    lenisRef.value.lenis.on('scroll', ScrollTrigger.update)
 
-    lenis.on('scroll', ScrollTrigger.update)
+    // add the Lenis requestAnimationFrame (raf) method to GSAP's ticker
+    // this ensures Lenis's smooth scroll animation updates on each GSAP tick
+    function update(time) {
+      lenisRef.value.lenis.raf(time * 1000)
+    }
+    gsap.ticker.add(update)
 
-    gsap.ticker.add((time) => {
-      lenis.raf(time * 800)
-    })
-
+    // disable lag smoothing in GSAP to prevent any delay in scroll animations
     gsap.ticker.lagSmoothing(0)
-  });
+
+    // clean up GSAP's ticker from the previous execution of watchEffect, or when the effect is stopped
+    onInvalidate(() => {
+      gsap.ticker.remove(update)
+    })
+  })
+
 </script>
 
 <style>

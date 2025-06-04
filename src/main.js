@@ -6,6 +6,7 @@ import i18n from './i18n'
 import { createHead } from '@unhead/vue'
 import Particles from "@tsparticles/vue3"
 import { loadSlim } from "@tsparticles/slim"
+import LenisVue from 'lenis/vue'
 
 const head = createHead();
 router.beforeEach((to, from, next) => {
@@ -22,6 +23,7 @@ createApp(App)
   .use(router)
   .use(i18n)
   .use(head)
+  .use(LenisVue)
   .use(Particles, {
     init: async engine => {
       await loadSlim(engine);
