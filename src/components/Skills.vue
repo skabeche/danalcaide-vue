@@ -48,6 +48,7 @@
   }
 
   watch(locale, () => {
+    // Reassign to ensure the split animation is reactive when the locale changes.
     nextTick(() => {
       animateSplitHeading()
     })

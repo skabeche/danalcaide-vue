@@ -83,7 +83,7 @@
       scrollTrigger: {
         trigger: info.value,
         start: "top top",
-        end: "+=100%",
+        end: window.matchMedia('(min-width: 768px)').matches ? "+=170%" : "+=100%",
         scrub: true,
         // pin: window.matchMedia('(min-width: 768px)').matches ? true : false,
         pin: true,
@@ -116,6 +116,7 @@
     }, '<');
 
     watch(locale, () => {
+      // Reassign the timeline to ensure the split text animation is reactive when the locale changes.
       nextTick(() => {
         tlInfo.add(animateSplitHeading(), '<');
       })
