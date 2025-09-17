@@ -16,7 +16,7 @@ const projects = [
   { name: 'turkington-construction.com', web: 'www.turkington-construction.com' },
   { name: 'perecervantes.es', web: 'www.perecervantes.es' },
   { name: 'holisticpetni.com', web: 'www.holisticpetni.com' },
-  { name: 'skizophonic.com', web: 'skizophonic.vercel.app' },
+  { name: 'skizophonic.com', web: 'www.skizophonic.com' },
   { name: 'quickpix.online', web: 'quickpix.vercel.app' },
   { name: 'reservarefugios.com', web: 'www.reservarefugios.com' },
   { name: 'yuenergy.co.uk', web: 'www.yuenergy.co.uk' },
