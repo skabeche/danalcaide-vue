@@ -1,7 +1,7 @@
 <template>
   <div class="text-3xl">
     <a href="/" accesskey="d" class="after:hidden">
-      <span class="inline-block mt-8 font-alternateGothic2 uppercase">Dan Alcaide</span>
+      <span class="inline-block mt-9 font-alternateGothic2 uppercase">Dan Alcaide</span>
       <span class="anim-init-colibri-logo absolute">
         <Hummingbird />
       </span>
@@ -64,17 +64,16 @@
 
     22% {
       transform: translateY(10px) translateX(0);
-      rotate: 0deg;
+      rotate: 5deg;
     }
 
     30% {
-      transform: translateY(-10px) translateX(10px);
-      rotate: -5deg;
+      transform: translateY(0) translateX(10px);
+      rotate: 10deg;
     }
 
     44% {
       transform: translateY(10px) translateX(15px);
-      rotate: 10deg;
       filter: blur(0);
     }
 
@@ -89,6 +88,7 @@
     }
 
     58% {
+      rotate: 5deg;
       transform: translateY(0) translateX(20px);
     }
 

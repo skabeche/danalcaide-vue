@@ -79,7 +79,7 @@
       {
         opacity: 1,
         scaleY: .42,
-        rotate: directionAxisX === 'left' ? '+=-2' : '+=3',
+        rotate: directionAxisX === 'left' ? '+=-1.3' : '+=2.3',
         duration: .8,
         ease: "power3"
       },

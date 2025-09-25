@@ -28,7 +28,7 @@
   --color-gray-800: #424242;
   --color-gray-900: #212121;
 
-  --background-image-colibri-anim: url("/images/colibri_anim.png");
+  --background-image-colibri-frames: url("/images/colibri_frames.svg");
   --background-image-horizon: url("/images/horizon.svg");
   --background-image-horizon-down: url("/images/horizon_down.svg");
   --background-image-circles: url("/images/circles.svg");
