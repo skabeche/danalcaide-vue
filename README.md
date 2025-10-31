@@ -5,6 +5,15 @@
 Made with Vue.js, Tailwind, GSAP, CSS animations, Vite, chocolate and coffee.
 _Hecho con Vue.js, Tailwind, GSAP, animaciones CSS, Vite, chorizo y paella._
 
+## License
+
+- **Code:** Licensed under the [MIT License](./LICENSE). See `LICENSE` file.
+  You’re free to use, modify, and distribute the source code.
+
+- **Design, content, and branding:** Licensed under the [Creative Commons
+  Attribution–NonCommercial–NoDerivatives 4.0 International License (CC BY-NC-ND 4.0)](./LICENSE-DESIGN). See `LICENSE-DESIGN` file.
+  These materials may not be used commercially or modified without permission.
+
 ## Overview
 
 The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
