@@ -8,6 +8,11 @@
     "title": "Web Developer",
     "description": "Web Developer who loves music and movies."
   },
+  "aria": {
+    "awwwardsLink": "Go to the Skizophonic candidature on Awwwards",
+    "skizophonicLink": "Go to the Skizophonic website",
+    "timelineLink": "See more about this timeline point"
+  },
   "preloader": {
     "loading": "loading"
   },
@@ -16,6 +21,7 @@
     "text1": "Web Developer who has worked as a Web and Graphic Designer on several projects being a freelance or part of a multidisciplinary team.",
     "text2": "Knowledge and supervision of the usability, accessibility, aesthetic, interactivity and communication in the design process.",
     "text3": "A musician who loves music and has been making noise with a guitar for over 25 years.",
+    "text4": "Received an Honorable Mention on {0} for the {1} website.",
     "timeline": {
       "13": {
         "text": "When I was 13 I had",

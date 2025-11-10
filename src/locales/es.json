@@ -8,6 +8,11 @@
     "title": "Desarrollador Web",
     "description": "Desarrollador Web fascinado por la música y el cine."
   },
+  "aria": {
+    "awwwardsLink": "Ir a la candidatura de Skizophonic en Awwwards",
+    "skizophonicLink": "Ir al sitio web de Skizophonic",
+    "timelineLink": "Ver más sobre este punto de la linea de tiempo"
+  },
   "preloader": {
     "loading": "cargando"
   },
@@ -16,6 +21,7 @@
     "text1": "Desarrollador Web que se ha topado con el mundo del Diseño Web y Gráfico como freelance o parte de un equipo multidisciplinario.",
     "text2": "Entendimiento de los aspectos de usabilidad, accesibilidad, estética, interactividad y comunicación involucrados en el proceso de diseño.",
     "text3": "Músico hipnotizado por la música que lleva rascando la guitarra desde hace más de 25 años.",
+    "text4": "Recibida una Mención Honorífica en {0} por el sitio web de {1}.",
     "timeline": {
       "13": {
         "text": "A los 13 años di",
