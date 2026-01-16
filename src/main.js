@@ -3,7 +3,7 @@ import App from './App.vue'
 import './style.css'
 import router from './router'
 import i18n from './i18n'
-import { createHead } from '@unhead/vue'
+import { createHead } from '@unhead/vue/client'
 import Particles from "@tsparticles/vue3"
 import { loadSlim } from "@tsparticles/slim"
 import LenisVue from 'lenis/vue'

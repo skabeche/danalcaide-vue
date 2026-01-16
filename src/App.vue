@@ -4,9 +4,9 @@
 </template>
 
 <script setup>
-  import { watchEffect, ref } from 'vue'
+  import { watchEffect, ref, computed } from 'vue'
   import { useI18n } from "vue-i18n"
-  import { useHead } from 'unhead'
+  import { useHead } from '@unhead/vue'
   import { VueLenis, useLenis } from 'lenis/vue'
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
@@ -16,32 +16,26 @@
   const { t } = useI18n()
   const lenisRef = ref()
 
-  watchEffect(() => {
-    // Note: watchEffect is needed because `t()` doesn't trigger reactivity in useHead()
-    // A watcher doesn't seem to be the best practice for unhead library,
-    // but I've not found any other effective method to make it reactive for translations
-    // @see https://v1.unhead.unjs.io/setup/vue/best-practices
-    useHead({
-      htmlAttrs: {
-        lang: t('languages.code'),
+  useHead({
+    htmlAttrs: {
+      lang: computed(() => t('languages.code')),
+    },
+    title: computed(() => `Dan Alcaide · ${t('meta.title')}`),
+    meta: [
+      {
+        name: 'description',
+        content: computed(() => t('meta.description')),
       },
-      title: `Dan Alcaide · ${t('meta.title')}`,
-      meta: [
-        {
-          name: 'description',
-          content: t('meta.description')
-        },
-        {
-          property: 'og:title',
-          content: `Dan Alcaide · ${t('meta.title')}`,
-        },
-        {
-          property: 'og:description',
-          content: t('meta.description'),
-        },
-      ],
-    });
-  });
+      {
+        property: 'og:title',
+        content: computed(() => `Dan Alcaide · ${t('meta.title')}`),
+      },
+      {
+        property: 'og:description',
+        content: computed(() => t('meta.description')),
+      },
+    ],
+  })
 
   // GSAP/Lenis integration.
   // @see https://github.com/darkroomengineering/lenis/blob/main/packages/vue/README.md
