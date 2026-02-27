@@ -3,9 +3,9 @@
     <div ref="refColibri" v-show="showHummingbird" class="cursor-colibri fixed z-30 top-0 left-0 scale-50 origin-top-left pointer-events-none">
       <Hummingbird />
     </div>
-    <div @mousemove="gardenMove($event)" @mouseenter="gardenEnter($event)" @mouseleave="gardenOut($event)" @wheel="gardenOut($event)" @touchstart="gardenEnter($event)" @touchmove="gardenMove($event)" id="plants" class="plants cursor-none absolute z-30 -left-[140px] lg:-left-[220px] bottom-0 w-[550px] sm:w-[calc(100%+550px)] h-[240px] bg-plants bg-[length:auto_200px] bg-[100px_bottom] bg-no-repeat">
-      <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[120px] bg-[-10px_bottom] bg-no-repeat pointer-events-none"></div>
-      <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[100px] bg-left-bottom bg-no-repeat pointer-events-none"></div>
+    <div @mousemove="gardenMove($event)" @mouseenter="gardenEnter($event)" @mouseleave="gardenOut($event)" @wheel="gardenOut($event)" @touchstart="gardenEnter($event)" @touchmove="gardenMove($event)" id="plants" class="plants cursor-none absolute z-30 -left-[140px] lg:-left-[220px] bottom-0 w-[550px] sm:w-[calc(100%+550px)] h-[240px] bg-plants bg-size-[auto_200px] bg-position-[100px_bottom] bg-no-repeat">
+      <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[120px] bg-position-[-10px_bottom] bg-no-repeat pointer-events-none"></div>
+      <div class="grass-plants absolute bottom-0 bg-grass-plants w-full h-[100px] bg-bottom-left bg-no-repeat pointer-events-none"></div>
     </div>
     <div class="tree hidden lg:block absolute z-20 right-0 bottom-0 w-[45vw] h-screen 4xl:h-[65vh] bg-tree-windy bg-bottom bg-no-repeat">
       <div class="grass-tree absolute right-0 bottom-0 bg-grass-tree w-full h-[130px] bg-bottom bg-no-repeat"></div>

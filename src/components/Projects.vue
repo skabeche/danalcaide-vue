@@ -1,5 +1,5 @@
 <template>
-  <div ref="infoRef" class="info relative min-h-dvh py-8 md:py-40 [text-shadow:_0_1px_0_rgb(0_0_0_/_40%)]">
+  <div ref="infoRef" class="info relative min-h-dvh py-8 md:py-40 [text-shadow:0_1px_0_rgb(0_0_0/40%)]">
     <video ref="videoRef" class="video hidden sm:block absolute top-0 left-0 w-full lg:w-3/4 4xl:w-[85%] h-auto opacity-20 mix-blend-hard-light" preload="auto" disableRemotePlayback playsinline muted>
       <source src="/videos/flowers_large.mp4" type="video/mp4" media="(min-width: 1536px)">
       <source src="/videos/flowers_medium.mp4" type="video/mp4" media="(min-width: 1024px)">
