@@ -1,5 +1,5 @@
 <template>
-  <div ref="infoRef" class="info relative min-h-dvh py-8 md:py-40 [text-shadow:0_1px_0_rgb(0_0_0/40%)]">
+  <div ref="infoRef" class="projects-info relative min-h-dvh py-8 md:py-40 [text-shadow:0_1px_0_rgb(0_0_0/40%)]">
     <video ref="videoRef" class="video hidden sm:block absolute top-0 left-0 w-full lg:w-3/4 4xl:w-[85%] h-auto opacity-20 mix-blend-hard-light" preload="auto" disableRemotePlayback playsinline muted>
       <source src="/videos/flowers_large.mp4" type="video/mp4" media="(min-width: 1536px)">
       <source src="/videos/flowers_medium.mp4" type="video/mp4" media="(min-width: 1024px)">
@@ -16,8 +16,8 @@
                 {{ client }}
               </li>
             </ul>
-            <ul class="projects flex flex-col sm:flex-row flex-wrap gap-x-4 [&_a]:font-light">
-              <li v-for="project in projects" :key="project.name" class="relative sm:not-last:after:content-['·'] after:absolute after:ml-1.5 last:not">
+            <ul class="projects flex sm:flex-row flex-wrap gap-x-4 [&_a]:font-light">
+              <li v-for="project in projects" :key="project.name" class="relative not-last:after:content-['·'] after:absolute after:ml-1.5 last:not">
                 <a :href="`https://${project.web}`" target="_blank" :data-text="project.name" :aria-label="`Go to the website ${project.name}`">{{ project.name }}</a>
               </li>
             </ul>
@@ -42,26 +42,29 @@
   gsap.registerPlugin(ScrollTrigger, SplitText);
 
   const { t, locale } = useI18n();
-  const video = useTemplateRef('videoRef')
-  const info = useTemplateRef('infoRef')
+  const videoRef = useTemplateRef('videoRef')
+  const infoRef = useTemplateRef('infoRef')
 
   // Dynamic translation, ensure text is reactive and localized to trigger split animation.
   const translatedHeading = computed(() => t('projects.title'))
 
   const animateSplitHeading = () => {
-    const infoh2 = SplitText.create('.info h2', { type: 'words' })
+    // const infoh2 = SplitText.create('.projects-info h2', { type: 'words' })
+    const infoh2 = SplitText.create(infoRef.value.querySelectorAll('h2'), { type: 'words' })
+
     return gsap.from(infoh2.words, {
       x: 60,
       opacity: 0,
       filter: "blur(6px)",
-      stagger: 0.2,
+      stagger: 0.5,
+      duration: 4,
     })
   }
 
   onMounted(async () => {
     await document.fonts.ready
 
-    gsap.to(video.value, {
+    gsap.to(videoRef.value, {
       yPercent: 2,
       duration: 2,
       repeat: -1,
@@ -70,7 +73,7 @@
     });
 
     let tlVideo = gsap.timeline();
-    tlVideo.to(video.value, {
+    tlVideo.to(videoRef.value, {
       opacity: .6,
       duration: 1.4,
       repeat: -1,
@@ -79,16 +82,22 @@
     });
 
     let tlInfo = gsap.timeline({
-      defaults: { duration: 1 },
+      defaults: {
+        duration: 4,
+      },
       scrollTrigger: {
-        trigger: info.value,
+        trigger: infoRef.value,
         start: "top top",
-        end: window.matchMedia('(min-width: 768px)').matches ? "+=170%" : "+=100%",
+        end: window.matchMedia('(min-width: 768px)').matches ? "+=300%" : "+=100%",
         scrub: true,
         // pin: window.matchMedia('(min-width: 768px)').matches ? true : false,
         pin: true,
+        pinSpacing: false,
         // markers: true,
-        onEnter: () => tlVideo.pause(0),
+        onEnter: () => {
+          gsap.set(infoRef.value, { zIndex: 20 });
+          tlVideo.pause(0)
+        },
         onLeaveBack: () => tlVideo.play(),
       },
     });
@@ -97,28 +106,33 @@
     // Must use one of the following conversion commands.
     // ffmpeg -i input.mp4 -movflags faststart -vcodec libx264 -crf 23 -g 1 -pix_fmt yuv420p output.mp4
     // ffmpeg -i input.mp4 -vf scale=960:-1 -movflags faststart -vcodec libx264 -crf 20 -g 1 -pix_fmt yuv420p output.mp4
-    tlInfo.fromTo(video.value,
-      {
-        currentTime: 0
-      },
-      {
-        currentTime: video.value.duration || 4.2
-      }
-    );
-
-    tlInfo.add(animateSplitHeading(), '<');
-
-    tlInfo.from('.info ul', {
+    tlInfo
+      .fromTo(videoRef.value,
+        {
+          currentTime: 0
+        },
+        {
+          currentTime: videoRef.value.duration || 4.2,
+          duration: 8,
+          ease: 'none',
+        },
+      )
+    .add(animateSplitHeading(), '<')
+    .from(infoRef.value.querySelectorAll('ul'), {
       x: 60,
       opacity: 0,
       filter: "blur(6px)",
-      stagger: 0.2,
-    }, '<');
+      stagger: 0.5,
+    }, '<')
+    // Add an empty tween to extend the timeline duration to overlap with next animation.
+    tlInfo.to(infoRef.value, {
+      duration: window.matchMedia('(min-width: 768px)').matches ? 10 : 0,
+    });
 
     watch(locale, () => {
       // Reassign the timeline to ensure the split text animation is reactive when the locale changes.
       nextTick(() => {
-        tlInfo.add(animateSplitHeading(), '<');
+        tlInfo.add(animateSplitHeading(), 0);
       })
     })
   })

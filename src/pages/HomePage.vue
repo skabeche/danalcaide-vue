@@ -23,14 +23,10 @@
     </div>
   </section>
 
-  <section class="prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-5xl md:prose-h2:text-7xl prose-h2:my-8 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:font-normal prose-h2:tracking-wider prose-ul:pl-0">
+  <section class="prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-[clamp(3rem,10vw,5.2rem)] prose-h2:my-8 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:font-normal prose-h2:tracking-wider prose-ul:pl-0">
     <Garden>
       <Projects />
-      <div class="container relative py-8 md:pb-52">
-        <div class="md:w-[70%] xl:w-[55%] 2xl:w-[40%] 4xl:w-1/2">
-          <Skills />
-        </div>
-      </div>
+      <Skills />
     </Garden>
   </section>
 </template>
