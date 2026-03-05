@@ -15,7 +15,7 @@
         <path d="M180 100H3180" stroke="#ccc" stroke-width="200" stroke-miterlimit="3.8637" stroke-linecap="round" />
       </svg>
 
-      <svg width="3360" height="300" viewBox="0 0 3360 300" fill="none">
+      <svg width="3360" height="300" viewBox="0 0 3360 300" fill="none" aria-hidden="true" role="img">
         <path d="M180 150H3180" stroke="#666" stroke-width="300" stroke-miterlimit="3.8637" stroke-linecap="round" />
       </svg>
       <svg width="3360" height="700" viewBox="0 0 3360 700" fill="none" class="absolute z-10 top-0 left-0 w-full" aria-hidden="true" role="img">
