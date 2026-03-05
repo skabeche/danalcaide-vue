@@ -85,6 +85,19 @@
   }
 }
 
+/* Firefox gets a weird scroll behaviour when setting position fixed and overflow hidden in html tag (bug?) */
+html.scroll-lock {
+  overscroll-behavior: none !important;
+  touch-action: none !important;
+}
+body.scroll-lock {
+  position: fixed !important;
+  overflow: hidden !important;
+  overscroll-behavior: none !important;
+  touch-action: none !important;
+  width: 100% !important;
+}
+
 /* Lenis */
 html.lenis,
 html.lenis body {

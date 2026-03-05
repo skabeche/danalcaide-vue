@@ -1,5 +1,5 @@
 <template>
-  <div class="overlay absolute z-40 inset-0 w-full h-dvh pt-20 pb-[5dvh] flex flex-col justify-center bg-black" :data-loaded="isLoaded">
+  <div ref="overlayRef" class="overlay absolute inset-0 w-full h-dvh pt-20 pb-[5dvh] flex flex-col justify-center bg-black" :data-loaded="isLoaded">
     <div class="container">
       <slot />
       <span class="loader absolute text-sm text-white" role="status">{{ $t('preloader.loading') }}...</span>
@@ -8,22 +8,34 @@
 </template>
 
 <script setup>
-  import { ref, onMounted } from 'vue';
+  import { ref, onMounted, useTemplateRef } from 'vue';
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
 
   gsap.registerPlugin(ScrollTrigger);
 
   const isLoaded = ref(false);
+  const overlayRef = useTemplateRef('overlayRef');
+
   document.documentElement.dataset.pageLoaded = isLoaded.value;
   // history.scrollRestoration = 'manual';
   ScrollTrigger.clearScrollMemory('manual');
 
   onMounted(() => {
+    // Lock scroll during page loading.
+    document.querySelector('html').classList.add('scroll-lock');
+    document.querySelector('body').classList.add('scroll-lock');
+
     window.addEventListener('load', () => {
       isLoaded.value = true
       document.documentElement.dataset.pageLoaded = isLoaded.value
     })
+
+    overlayRef.value.addEventListener('animationend', () => {
+      // Unlock scroll after the loading animation ends.
+      document.querySelector('html').classList.remove('scroll-lock');
+      document.querySelector('body').classList.remove('scroll-lock');
+    });
   });
 </script>
 
