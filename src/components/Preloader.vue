@@ -1,8 +1,8 @@
 <template>
-  <div class="overlay bg-black text-white absolute z-40 top-0 left-0 w-full h-dvh pt-20 pb-[5dvh] flex flex-col justify-center" :data-loaded="isLoaded">
+  <div class="overlay absolute z-40 inset-0 w-full h-dvh pt-20 pb-[5dvh] flex flex-col justify-center bg-black" :data-loaded="isLoaded">
     <div class="container">
       <slot />
-      <span class="loader text-sm text-white" role="status">{{ $t('preloader.loading') }}...</span>
+      <span class="loader absolute text-sm text-white" role="status">{{ $t('preloader.loading') }}...</span>
     </div>
   </div>
 </template>
@@ -20,21 +20,20 @@
   ScrollTrigger.clearScrollMemory('manual');
 
   onMounted(() => {
-    document.onreadystatechange = () => {
-      if (document.readyState == "complete") {
-        isLoaded.value = true;
-        document.documentElement.dataset.pageLoaded = isLoaded.value;
-      }
-    }
+    window.addEventListener('load', () => {
+      isLoaded.value = true
+      document.documentElement.dataset.pageLoaded = isLoaded.value
+    })
   });
 </script>
 
 <style scoped>
 
   /* Page loading */
-  .overlay[data-loaded="false"] .loader {
-    position: absolute;
-    animation: anim-loader 500ms infinite;
+  .overlay[data-loaded="false"] {
+    .loader {
+      animation: anim-loader 500ms infinite;
+    }
   }
 
   @keyframes anim-loader {
@@ -64,8 +63,8 @@
     animation: anim-loaded 900ms 1200ms forwards;
 
     .loader {
+      animation: none;
       display: none;
-      position: absolute;
       opacity: 0;
       transform: translateY(.4rem);
       transition: all 0.2s linear;
@@ -84,9 +83,7 @@
 
     100% {
       height: 0;
-      background-color: transparent;
-      color: #000;
+      background-color: #fff;
     }
   }
-
 </style>

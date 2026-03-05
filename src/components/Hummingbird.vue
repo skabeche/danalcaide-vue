@@ -1,5 +1,5 @@
 <template>
-  <span class="colibri inline-block w-[70px] h-[60px] bg-colibri-frames"></span>
+  <span class="colibri inline-block w-[70px] h-[60px] bg-colibri-frames" aria-hidden="true" tabindex="-1"></span>
 </template>
 
 <style scoped>
