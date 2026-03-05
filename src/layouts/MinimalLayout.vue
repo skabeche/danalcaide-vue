@@ -10,3 +10,9 @@
   import Header from '@/components/Header.vue'
   import Garden from "@/components/Garden.vue";
 </script>
+
+<style scoped>
+  :deep(.garden .tree) {
+    height: 82vh;
+  }
+</style>

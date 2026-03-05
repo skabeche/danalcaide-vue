@@ -1,5 +1,5 @@
 <template>
-  <div ref="overlayRef" class="overlay absolute inset-0 w-full h-dvh pt-20 pb-[5dvh] flex flex-col justify-center bg-black" :data-loaded="isLoaded">
+  <div ref="overlayRef" class="overlay absolute z-40 inset-0 w-full h-dvh pt-20 pb-[5dvh] flex flex-col justify-center bg-black" :data-loaded="isLoaded">
     <div class="container">
       <slot />
       <span class="loader absolute text-sm text-white" role="status">{{ $t('preloader.loading') }}...</span>
