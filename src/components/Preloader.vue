@@ -1,48 +1,105 @@
 <template>
-  <div ref="overlayRef" class="overlay absolute z-40 inset-0 w-full h-dvh pt-20 pb-[5dvh] flex flex-col justify-center bg-black" :data-loaded="isLoaded">
+  <div ref="overlayRef" class="overlay absolute z-40 inset-0 w-full h-[105dvh] pt-20 pb-[5dvh] flex flex-col justify-center bg-black text-white">
     <div class="container">
       <slot />
-      <span class="loader absolute text-sm text-white" role="status">{{ $t('preloader.loading') }}...</span>
+      <span ref="loaderRef" class="loader absolute -mt-1.5 text-sm" role="status">
+        {{ $t('preloader.loading') }}...
+      </span>
     </div>
   </div>
 </template>
 
 <script setup>
-  import { ref, onMounted, useTemplateRef } from 'vue';
-  import { gsap } from "gsap"
-  import { ScrollTrigger } from "gsap/ScrollTrigger"
+  import { ref, onMounted, useTemplateRef } from "vue";
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
   gsap.registerPlugin(ScrollTrigger);
 
   const isLoaded = ref(false);
-  const overlayRef = useTemplateRef('overlayRef');
+
+  const overlayRef = useTemplateRef("overlayRef");
+  const loaderRef = useTemplateRef("loaderRef");
 
   document.documentElement.dataset.pageLoaded = isLoaded.value;
-  // history.scrollRestoration = 'manual';
-  ScrollTrigger.clearScrollMemory('manual');
+  ScrollTrigger.clearScrollMemory("manual");
 
   onMounted(() => {
+    const html = document.documentElement;
+    const body = document.body;
+    const logo = overlayRef.value.querySelector('.logo');
+    const svgPaths = overlayRef.value.querySelectorAll('.logo svg path');
+
     // Lock scroll during page loading.
-    document.querySelector('html').classList.add('scroll-lock');
-    document.querySelector('body').classList.add('scroll-lock');
+    html.classList.add("scroll-lock");
+    body.classList.add("scroll-lock");
 
-    window.addEventListener('load', () => {
-      isLoaded.value = true
-      document.documentElement.dataset.pageLoaded = isLoaded.value
+    window.addEventListener("load", () => {
+      isLoaded.value = true;
+      document.documentElement.dataset.pageLoaded = isLoaded.value;
+
+      const tl = gsap.timeline({
+        paused: true,
+        onComplete: () => {
+          console.log('Complete')
+          // Unlock scroll after the loading animation ends.
+          html.classList.remove("scroll-lock")
+          body.classList.remove("scroll-lock")
+        }
+      });
+
+      tl
+        .to(loaderRef.value, {
+          opacity: 0,
+          y: 8,
+          duration: 0.3,
+        })
+        .set(loaderRef.value, { display: "none" })
+        .to(logo, {
+          y: 30,
+          // delay: 0.4,
+          duration: 0.7,
+          ease: "power4.inOut",
+        }, '0.4')
+        .to(svgPaths, {
+          y: 10,
+          stagger: {
+            each: 0.02,
+            from: "center"
+          },
+          duration: 0.3,
+          ease: "power4.in",
+        }, '<')
+        .to(overlayRef.value, {
+          height: 0,
+          color: '#000000',
+          backgroundColor: "transparent",
+          duration: 0.6,
+          ease: "power4.in",
+        })
+        .to(svgPaths, {
+          y: 0,
+          stagger: {
+            each: 0.025,
+            from: "edges"
+          },
+          duration: 0.3,
+          ease: "power4.in",
+        }, '<')
+        .to(logo, {
+          y: 0,
+          duration: 0.1,
+          ease: "power4.out",
+        })
+        .play();
     })
-
-    overlayRef.value.addEventListener('animationend', () => {
-      // Unlock scroll after the loading animation ends.
-      document.querySelector('html').classList.remove('scroll-lock');
-      document.querySelector('body').classList.remove('scroll-lock');
-    });
-  });
+  })
 </script>
 
 <style scoped>
 
   /* Page loading */
-  .overlay[data-loaded="false"] {
+  html[data-page-loaded="false"] {
     .loader {
       animation: anim-loader 500ms infinite;
     }
@@ -71,31 +128,9 @@
   }
 
   /* Page loaded */
-  .overlay[data-loaded="true"] {
-    animation: anim-loaded 900ms 1200ms forwards;
-
+  html[data-page-loaded="true"] {
     .loader {
       animation: none;
-      display: none;
-      opacity: 0;
-      transform: translateY(.4rem);
-      transition: all 0.2s linear;
-      transition-behavior: allow-discrete;
-    }
-  }
-
-  @keyframes anim-loaded {
-    0% {
-      height: 100vh;
-    }
-
-    50% {
-      height: 105vh;
-    }
-
-    100% {
-      height: 0;
-      background-color: #fff;
     }
   }
 </style>

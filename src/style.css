@@ -70,14 +70,14 @@
 
 @layer base {
   html {
-    @apply bg-black;
+    @apply overflow-x-hidden bg-black;
     scrollbar-gutter: stable;
     scrollbar-width: thin;
     scrollbar-color: gray black;
   }
 
   body {
-    @apply overflow-hidden bg-white text-black font-light;
+    @apply relative overflow-hidden bg-white text-black font-light;
   }
 
   a {

@@ -1,8 +1,8 @@
 <template>
   <a href="/" class="inline-block after:hidden">
     <span class="sr-only">Dan Alcaide</span>
-    <span class="logo inline-block w-30 mt-11 ml-px text-white mix-blend-difference" aria-hidden="true">
-      <svg viewBox="0 0 283.5 53.02" fill="currentColor" aria-hidden="true" focusable="false">
+    <span class="logo inline-block w-30 mt-11 ml-px" aria-hidden="true">
+      <svg viewBox="0 0 283.5 63.02" fill="currentColor" aria-hidden="true" focusable="false">
         <path d="M0,51.93V1.09h11.14c4.31,0,7.51,1.14,9.58,3.41,2.07,2.27,3.11,5.79,3.11,10.55v22.71c0,4.95-.98,8.54-2.95,10.79s-5.1,3.38-9.39,3.38H0ZM7.77,44.44h3.97c1.38,0,2.41-.43,3.08-1.3.67-.87,1-2.21,1-4.04V14.62c0-2.09-.5-3.62-1.51-4.59-1.01-.97-2.59-1.46-4.75-1.46h-1.79v35.86Z" />
         <path d="M27.35,51.93L35.72,1.09h10.23l8.33,50.84h-8.05l-1.58-11h-7.91l-1.69,11h-7.7ZM37.72,33.71h5.98l-2.67-21.23h-.49l-2.81,21.23Z" />
         <path d="M58.78,51.93V1.09h7.03l9.95,30.38c.19.59.42,1.36.69,2.32.27.96.54,1.99.83,3.09-.26-1.48-.47-2.84-.63-4.1-.16-1.25-.25-2.17-.25-2.76V1.09h7.35v50.84h-7.35l-9.56-28.09c-.05-.12-.11-.29-.18-.53-.66-1.92-1.15-3.59-1.48-4.99.28,1.78.5,3.26.65,4.45.15,1.18.23,2.04.23,2.58v26.58h-7.28Z" />
@@ -28,12 +28,14 @@
 <style scoped>
 
   /* Page loaded */
-  .overlay[data-loaded="true"] .anim-init-colibri-logo {
-    animation:
-      anim-init-colibri-logo 500ms 2000ms forwards,
-      anim-colibri-fly 5000ms 2500ms infinite;
-    opacity: 0;
-    transform-style: preserve-3d;
+  html[data-page-loaded="true"] {
+    .anim-init-colibri-logo {
+      animation:
+        anim-init-colibri-logo 500ms 2000ms forwards,
+        anim-colibri-fly 5000ms 2500ms infinite;
+      opacity: 0;
+      transform-style: preserve-3d;
+    }
   }
 
   @keyframes anim-init-colibri-logo {

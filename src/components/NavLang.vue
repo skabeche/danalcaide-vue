@@ -1,6 +1,6 @@
 <template>
   <nav aria-label="Language switcher">
-    <ul class="anim-init-nav-lang flex gap-2 text-sm uppercase">
+    <ul class="anim-init-nav-lang flex gap-2 -mt-1.25 text-sm uppercase">
       <li v-for="(locale, index) in $i18n.availableLocales" :key="`locale-${locale}`">
         <RouterLink :to="locale" :title="$t('languages.' + locale)" :lang="locale" :aria-label="$t('languages.' + locale)">
           {{ locale }}
@@ -19,8 +19,10 @@
   }
 
   /* Page loaded */
-  .overlay[data-loaded="true"] .anim-init-nav-lang {
-    animation: anim-init-nav-lang 500ms 1800ms forwards;
+  html[data-page-loaded="true"] {
+    .anim-init-nav-lang {
+      animation: anim-init-nav-lang 500ms 1800ms forwards;
+    }
   }
 
   @keyframes anim-init-nav-lang {

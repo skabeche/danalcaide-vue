@@ -1,34 +1,36 @@
 <template>
-  <section ref="aboutRef" class="about container">
-    <div class="prose-lg md:prose-xl prose-h1:mb-0 prose-li:m-0 prose-li:p-0 prose-ul:pl-0 leading-relaxed mt-12 mb-[26rem] sm:mb-[22rem] lg:mb-[23rem] xl:mb-[21rem] 3xl:mb-[21rem] text-balance">
-      <h1 ref="titleRef" class="text-5xl sm:text-6xl md:text-7xl 2xl:text-8xl font-alternateGothic2 uppercase text-pretty" v-html="$t('yo.title')"></h1>
-      <div class="lg:w-[60%]">
-        <p>{{ $t('yo.text1') }}</p>
-        <p>{{ $t('yo.text2') }}</p>
-        <p>{{ $t('yo.text3') }}</p>
-        <i18n-t keypath="yo.text4" tag="p">
-          <a href="https://www.awwwards.com/sites/skizophonic" target="_blank" :aria-label="$t('aria.awwwardsLink')">Awwwards</a>
-          <a href="https://www.skizophonic.com" target="_blank" :aria-label="$t('aria.skizophonicLink')">Skizophonic</a>
-        </i18n-t>
-        <ul>
-          <li>{{ $t('yo.timeline.13.text') }} <a href="https://youtu.be/VrUvnLQ5-h4" target="_blank" :aria-label="$t('aria.timelineLink')">{{ $t('yo.timeline.13.linkText') }}</a>.</li>
-          <li>{{ $t('yo.timeline.16.text') }} <a href="https://youtu.be/qFfnlYbFEiE" target="_blank" :aria-label="$t('aria.timelineLink')">{{ $t('yo.timeline.16.linkText') }}</a>.</li>
-          <li>{{ $t('yo.timeline.18.text') }} <a href="https://en.wikipedia.org/wiki/File:Attempted_restoration_of_Ecce_Homo.jpg#/media/File:Attempted_restoration_of_Ecce_Homo.jpg" target="_blank" :aria-label="$t('aria.timelineLink')">{{ $t('yo.timeline.18.linkText') }}</a>.</li>
-          <li>{{ $t('yo.timeline.21.text') }} <a href="https://youtu.be/gkLqopaEHpU" target="_blank" :aria-label="$t('aria.timelineLink')">{{ $t('yo.timeline.21.linkText') }}</a>.</li>
-          <li>{{ $t('yo.timeline.23.text') }}</li>
-          <li>{{ $t('yo.timeline.27.text') }} <a href="https://web.archive.org/web/20081005040052/http://www.danalcaide.es/" target="_blank" :aria-label="$t('aria.timelineLink')">{{ $t('yo.timeline.27.linkText') }}</a>.</li>
-          <li>{{ $t('yo.timeline.33.text') }} <a href="https://youtu.be/2jf7FmNt4Tg" target="_blank" :aria-label="$t('aria.timelineLink')">{{ $t('yo.timeline.33.linkText') }}</a> {{ $t('yo.timeline.33.text2') }}.</li>
-        </ul>
+  <div class="home">
+    <section ref="aboutRef" class="about container">
+      <div class="prose-lg md:prose-xl prose-h1:mb-0 prose-li:m-0 prose-li:p-0 prose-ul:pl-0 leading-relaxed mt-12 mb-[26rem] sm:mb-[22rem] lg:mb-[23rem] xl:mb-[21rem] 3xl:mb-[21rem] text-balance">
+        <h1 ref="titleRef" class="text-5xl sm:text-6xl md:text-7xl 2xl:text-8xl font-alternateGothic2 uppercase text-pretty" v-html="$t('yo.title')"></h1>
+        <div class="lg:w-[60%]">
+          <p>{{ $t('yo.text1') }}</p>
+          <p>{{ $t('yo.text2') }}</p>
+          <p>{{ $t('yo.text3') }}</p>
+          <i18n-t keypath="yo.text4" tag="p">
+            <a href="https://www.awwwards.com/sites/skizophonic" target="_blank" :aria-label="$t('aria.awwwardsLink')">Awwwards</a>
+            <a href="https://www.skizophonic.com" target="_blank" :aria-label="$t('aria.skizophonicLink')">Skizophonic</a>
+          </i18n-t>
+          <ul>
+            <li>{{ $t('yo.timeline.13.text') }} <a href="https://youtu.be/VrUvnLQ5-h4" target="_blank" :aria-label="$t('aria.timelineLink')">{{ $t('yo.timeline.13.linkText') }}</a>.</li>
+            <li>{{ $t('yo.timeline.16.text') }} <a href="https://youtu.be/qFfnlYbFEiE" target="_blank" :aria-label="$t('aria.timelineLink')">{{ $t('yo.timeline.16.linkText') }}</a>.</li>
+            <li>{{ $t('yo.timeline.18.text') }} <a href="https://en.wikipedia.org/wiki/File:Attempted_restoration_of_Ecce_Homo.jpg#/media/File:Attempted_restoration_of_Ecce_Homo.jpg" target="_blank" :aria-label="$t('aria.timelineLink')">{{ $t('yo.timeline.18.linkText') }}</a>.</li>
+            <li>{{ $t('yo.timeline.21.text') }} <a href="https://youtu.be/gkLqopaEHpU" target="_blank" :aria-label="$t('aria.timelineLink')">{{ $t('yo.timeline.21.linkText') }}</a>.</li>
+            <li>{{ $t('yo.timeline.23.text') }}</li>
+            <li>{{ $t('yo.timeline.27.text') }} <a href="https://web.archive.org/web/20081005040052/http://www.danalcaide.es/" target="_blank" :aria-label="$t('aria.timelineLink')">{{ $t('yo.timeline.27.linkText') }}</a>.</li>
+            <li>{{ $t('yo.timeline.33.text') }} <a href="https://youtu.be/2jf7FmNt4Tg" target="_blank" :aria-label="$t('aria.timelineLink')">{{ $t('yo.timeline.33.linkText') }}</a> {{ $t('yo.timeline.33.text2') }}.</li>
+          </ul>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-[clamp(3rem,10vw,5.2rem)] prose-h2:my-8 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:font-normal prose-h2:tracking-wider prose-ul:pl-0">
-    <Garden>
-      <Projects />
-      <Skills />
-    </Garden>
-  </section>
+    <section class="prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-[clamp(3rem,10vw,5.2rem)] prose-h2:my-8 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:font-normal prose-h2:tracking-wider prose-ul:pl-0">
+      <Garden>
+        <Projects />
+        <Skills />
+      </Garden>
+    </section>
+  </div>
 </template>
 
 <script setup>
@@ -61,7 +63,7 @@
         stagger: 0.05,
         duration: .5,
         ease: 'power4.out',
-        delay: 2.6
+        delay: 2.4
       });
     });
 
