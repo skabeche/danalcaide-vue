@@ -1,8 +1,8 @@
 <template>
   <div ref="overlayRef" class="overlay absolute z-40 inset-0 w-full h-[105dvh] pt-20 pb-[5dvh] flex flex-col justify-center bg-black text-white">
-    <div class="container">
+    <div class="container flex flex-col justify-end">
       <slot />
-      <span ref="loaderRef" class="loader absolute -mt-1.5 text-sm" role="status">
+      <span ref="loaderRef" class="loader -mt-1 text-sm" role="status">
         {{ $t('preloader.loading') }}...
       </span>
     </div>
@@ -41,7 +41,6 @@
       const tl = gsap.timeline({
         paused: true,
         onComplete: () => {
-          console.log('Complete')
           // Unlock scroll after the loading animation ends.
           html.classList.remove("scroll-lock")
           body.classList.remove("scroll-lock")
@@ -50,14 +49,12 @@
 
       tl
         .to(loaderRef.value, {
-          opacity: 0,
+          autoAlpha: 0,
           y: 8,
           duration: 0.3,
         })
-        .set(loaderRef.value, { display: "none" })
         .to(logo, {
           y: 30,
-          // delay: 0.4,
           duration: 0.7,
           ease: "power4.inOut",
         }, '0.4')
@@ -81,7 +78,7 @@
           y: 0,
           stagger: {
             each: 0.025,
-            from: "edges"
+            from: "center"
           },
           duration: 0.3,
           ease: "power4.in",

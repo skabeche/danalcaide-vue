@@ -15,23 +15,9 @@
 
   /* Page loaded */
   html[data-page-loaded="true"] {
-    animation: anim-init-scroll 500ms 1900ms forwards;
-  }
-
-  @keyframes anim-init-scroll {
-    0% {
-      overflow: hidden;
-    }
-
-    100% {
-      overflow: auto;
-    }
-  }
-
-  html[data-page-loaded="true"] {
     main {
       opacity: 0;
-      animation: anim-init-main 500ms 1900ms forwards;
+      animation: anim-init-main 500ms 1700ms forwards;
     }
   }
 

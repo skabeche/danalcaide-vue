@@ -1,11 +1,9 @@
 <template>
   <header>
-    <div class="container">
-      <Preloader>
-        <Logo />
-        <NavLang />
-      </Preloader>
-    </div>
+    <Preloader>
+      <Logo />
+      <NavLang />
+    </Preloader>
   </header>
 </template>
 

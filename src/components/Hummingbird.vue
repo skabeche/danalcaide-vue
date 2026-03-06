@@ -5,7 +5,6 @@
 <style scoped>
   .colibri {
     animation: anim-colibri-wings 160ms steps(4) infinite;
-    transform-style: preserve-3d;
     background-size: 300px 60px;
   }
 

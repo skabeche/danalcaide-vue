@@ -15,22 +15,6 @@
 
   /* Page loaded */
   html[data-page-loaded="true"] {
-    overflow: hidden;
-    animation: anim-init-scroll 500ms 1900ms forwards;
-
-  }
-
-  @keyframes anim-init-scroll {
-    0% {
-      overflow: hidden;
-    }
-
-    100% {
-      overflow: auto;
-    }
-  }
-
-  html[data-page-loaded="true"] {
     main {
       opacity: 0;
       animation: anim-init-main 500ms 1700ms forwards;
@@ -42,14 +26,12 @@
       opacity: 0;
       /* margin-top: 4vh; */
       transform: translateY(4vh);
-      background-size: auto 90%;
     }
 
     100% {
       opacity: 1;
       /* margin-top: 0; */
       transform: translateY(0);
-      background-size: auto 95%;
     }
   }
 </style>
