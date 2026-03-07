@@ -1,5 +1,5 @@
 <template>
-  <div ref="overlayRef" class="overlay absolute z-40 inset-0 w-full h-[105dvh] pt-20 pb-[5dvh] flex flex-col justify-center bg-black text-white">
+  <div ref="overlayRef" class="overlay absolute z-40 inset-0 w-full h-[105dvh] pt-20 pb-[5dvh] flex flex-col justify-center bg-black text-white will-change-[height]">
     <div class="container flex flex-col justify-end">
       <slot />
       <span ref="loaderRef" class="loader -mt-1 text-sm" role="status">
@@ -21,7 +21,6 @@
   const overlayRef = useTemplateRef("overlayRef");
   const loaderRef = useTemplateRef("loaderRef");
 
-  document.documentElement.dataset.pageLoaded = isLoaded.value;
   ScrollTrigger.clearScrollMemory("manual");
 
   onMounted(() => {
@@ -30,11 +29,31 @@
     const logo = overlayRef.value.querySelector('.logo');
     const svgPaths = overlayRef.value.querySelectorAll('.logo svg path');
 
+    html.dataset.pageLoaded = isLoaded.value;
     // Lock scroll during page loading.
     html.classList.add("scroll-lock");
     body.classList.add("scroll-lock");
 
-    window.addEventListener("load", () => {
+    gsap.from(svgPaths, {
+      y: 200,
+      stagger: 0.06,
+      duration: .8,
+      delay: 0.3,
+      ease: "power4.out",
+      onComplete: () => {
+        loaderAnimation();
+      }
+    })
+
+    function loaderAnimation() {
+      if (document.readyState === "complete") {
+        startLoaderAnimation();
+      } else {
+        window.addEventListener("load", startLoaderAnimation);
+      }
+    }
+
+    function startLoaderAnimation() {
       isLoaded.value = true;
       document.documentElement.dataset.pageLoaded = isLoaded.value;
 
@@ -59,7 +78,7 @@
           ease: "power4.inOut",
         }, '0.4')
         .to(svgPaths, {
-          y: 10,
+          y: 12,
           stagger: {
             each: 0.02,
             from: "center"
@@ -89,7 +108,7 @@
           ease: "power4.out",
         })
         .play();
-    })
+    }
   })
 </script>
 
