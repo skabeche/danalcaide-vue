@@ -1,6 +1,6 @@
 <template>
   <Header />
-  <main class="h-dvh relative overflow-hidden before:absolute before:-z-10 before:top-0 before:left-0 before:w-full before:h-full before:bg-gray-50 before:[clip-path:polygon(0_63%,100%_15%,100%_100%,0%_100%)]">
+  <main class="h-dvh relative overflow-hidden before:absolute before:-z-10 before:top-0 before:left-0 before:w-full before:h-full before:bg-gray-50 before:[clip-path:polygon(0_43%,100%_15%,100%_100%,0%_100%)] lg:before:[clip-path:polygon(0_63%,100%_15%,100%_100%,0%_100%)]">
     <RouterView />
     <Garden />
   </main>

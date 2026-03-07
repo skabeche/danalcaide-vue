@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <section ref="aboutRef" class="about container">
-      <div class="prose-lg md:prose-xl prose-h1:mb-0 prose-li:m-0 prose-li:p-0 prose-ul:pl-0 leading-relaxed mt-12 mb-[26rem] sm:mb-[22rem] lg:mb-[23rem] xl:mb-[21rem] 3xl:mb-[21rem] text-balance">
-        <h1 ref="titleRef" class="text-5xl sm:text-6xl md:text-7xl 2xl:text-8xl font-alternateGothic2 uppercase text-pretty" v-html="$t('yo.title')"></h1>
+      <div class="prose-lg md:prose-xl prose-h1:text-[clamp(3.6rem,8vw,5.6rem)] prose-h1:mb-0 prose-li:m-0 prose-li:p-0 prose-ul:pl-0 leading-relaxed mt-12 mb-[26rem] sm:mb-[22rem] lg:mb-[23rem] xl:mb-[21rem] 3xl:mb-[21rem] text-balance">
+        <h1 ref="titleRef" class="font-alternateGothic2 uppercase text-pretty" v-html="$t('yo.title')"></h1>
         <div class="lg:w-[60%]">
           <p>{{ $t('yo.text1') }}</p>
           <p>{{ $t('yo.text2') }}</p>
