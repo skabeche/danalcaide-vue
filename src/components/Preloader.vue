@@ -29,21 +29,50 @@
     const logo = overlayRef.value.querySelector('.logo');
     const svgPaths = overlayRef.value.querySelectorAll('.logo svg path');
 
+    svgPaths.forEach(path => {
+      const length = path.getTotalLength()
+      gsap.set(path, {
+        strokeDasharray: length,
+        strokeDashoffset: -length
+      })
+    })
+
     html.dataset.pageLoaded = isLoaded.value;
     // Lock scroll during page loading.
     html.classList.add("scroll-lock");
     body.classList.add("scroll-lock");
 
-    gsap.from(svgPaths, {
-      y: 200,
-      stagger: 0.06,
-      duration: .8,
-      delay: 0.3,
-      ease: "power4.out",
+    const tl = gsap.timeline({
       onComplete: () => {
         loaderAnimation();
       }
     })
+
+    tl
+      .to(svgPaths, {
+        strokeDashoffset: 0,
+        duration: 1.2,
+        stagger: {
+          each: 0.06,
+          from: "random"
+        },
+      })
+      .to(svgPaths, {
+        strokeDashoffset: (i, el) => -el.getTotalLength(),
+        duration: 1,
+        stagger: {
+          each: 0.05,
+          from: "random"
+        },
+      })
+      .to(svgPaths, {
+        fill: '#fff',
+        duration: .5,
+        stagger: {
+          each: 0.05,
+          from: "start"
+        },
+      }, '<')
 
     function loaderAnimation() {
       if (document.readyState === "complete") {
@@ -94,10 +123,15 @@
           ease: "power4.in",
         })
         .to(svgPaths, {
+          fill: '#000000',
+          duration: 0.6,
+          ease: "power4.in",
+        }, '<')
+        .to(svgPaths, {
           y: 0,
           stagger: {
             each: 0.025,
-            from: "center"
+            from: "edges"
           },
           duration: 0.3,
           ease: "power4.in",
