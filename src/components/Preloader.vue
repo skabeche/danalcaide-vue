@@ -43,6 +43,7 @@
     body.classList.add("scroll-lock");
 
     const tl = gsap.timeline({
+      delay: .3,
       onComplete: () => {
         loaderAnimation();
       }
