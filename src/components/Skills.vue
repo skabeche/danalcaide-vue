@@ -26,7 +26,7 @@
       </svg>
 
       <svg width="3360" height="700" viewBox="0 0 3360 700" fill="none" class="absolute z-10 bottom-0 left-0 w-full" aria-hidden="true" role="img">
-        <path d="M0,350 Q560,200 1120,350 T2240,350 T3360,350" stroke="#b2f73c" stroke-width="400" stroke-miterlimit="3.8637" stroke-linecap="round" />
+        <path d="M0,350 Q560,200 1120,350 T2240,350 T3360,350" stroke="#880088" stroke-width="400" stroke-miterlimit="3.8637" stroke-linecap="round" />
       </svg>
 
       <svg width="3360" height="700" viewBox="0 0 3360 700" fill="none" class="absolute z-10 bottom-70 left-0 w-full" aria-hidden="true" role="img">
