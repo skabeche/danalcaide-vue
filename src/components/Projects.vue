@@ -9,7 +9,9 @@
     <div class="container">
       <div class="flex flex-col justify-start md:justify-evenly xl:w-[75vw] h-full ml-auto">
         <div class="clients-projects lg:grid grid-cols-2 gap-8">
-          <h2>{{ translatedHeading }}</h2>
+          <h2 :key="locale" ref="headingRef">
+            {{ t('projects.title') }}
+          </h2>
           <div>
             <ul class="clients flex sm:flex-row flex-wrap gap-x-4">
               <li v-for="client in clients" :key="client" class="relative not-last:after:content-['·'] after:absolute after:ml-1.5 last:not">
@@ -29,7 +31,7 @@
 </template>
 
 <script setup>
-  import { onMounted, useTemplateRef, watch, computed, nextTick } from "vue";
+  import { onMounted, useTemplateRef, watch, nextTick } from "vue";
 
   import clients from "@/data/clients"
   import projects from "@/data/projects"
@@ -44,15 +46,12 @@
   const { t, locale } = useI18n();
   const videoRef = useTemplateRef('videoRef')
   const infoRef = useTemplateRef('infoRef')
-
-  // Dynamic translation, ensure text is reactive and localized to trigger split animation.
-  const translatedHeading = computed(() => t('projects.title'))
+  const headingRef = useTemplateRef('headingRef')
 
   const animateSplitHeading = () => {
-    // const infoh2 = SplitText.create('.projects-info h2', { type: 'words' })
-    const infoh2 = SplitText.create(infoRef.value.querySelectorAll('h2'), { type: 'words' })
+    const splitHeading = SplitText.create(headingRef.value, { type: "words" })
 
-    return gsap.from(infoh2.words, {
+    return gsap.from(splitHeading.words, {
       x: 60,
       opacity: 0,
       filter: "blur(6px)",
@@ -117,13 +116,13 @@
           ease: 'none',
         },
       )
-    .add(animateSplitHeading(), '<')
-    .from(infoRef.value.querySelectorAll('ul'), {
-      x: 60,
-      opacity: 0,
-      filter: "blur(6px)",
-      stagger: 0.5,
-    }, '<')
+      .add(animateSplitHeading(), '<')
+      .from(infoRef.value.querySelectorAll('ul'), {
+        x: 60,
+        opacity: 0,
+        filter: "blur(6px)",
+        stagger: 0.5,
+      }, '<')
     // Add an empty tween to extend the timeline duration to overlap with next animation.
     tlInfo.to(infoRef.value, {
       duration: window.matchMedia('(min-width: 768px)').matches ? 10 : 0,
