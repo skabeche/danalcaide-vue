@@ -24,7 +24,7 @@
       </div>
     </section>
 
-    <section class="prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-li:m-0 prose-li:p-0 prose-h2:text-[clamp(3rem,10vw,5.2rem)] prose-h2:my-8 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:font-normal prose-h2:tracking-wider prose-ul:pl-0">
+    <section class="prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-ul:mt-1 prose-li:m-0 prose-li:p-0 prose-h2:text-[clamp(3rem,10vw,5.2rem)] prose-h2:my-1 prose-h2:lg:my-3 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:font-normal prose-h2:tracking-wider prose-ul:pl-0">
       <Garden>
         <Projects />
         <Skills />

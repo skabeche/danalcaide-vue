@@ -1,5 +1,5 @@
 <template>
-  <div ref="infoRef" class="projects-info relative min-h-dvh py-8 md:py-40 [text-shadow:0_1px_0_rgb(0_0_0/40%)]">
+  <div ref="infoRef" class="projects-info relative flex items-center min-h-dvh py-4 [text-shadow:0_1px_0_rgb(0_0_0/40%)]">
     <video ref="videoRef" class="video hidden sm:block absolute top-0 left-0 w-full lg:w-3/4 4xl:w-[85%] h-auto opacity-20 mix-blend-hard-light" preload="auto" disableRemotePlayback playsinline muted>
       <source src="/videos/flowers_large.mp4" type="video/mp4" media="(min-width: 1536px)">
       <source src="/videos/flowers_medium.mp4" type="video/mp4" media="(min-width: 1024px)">
@@ -7,9 +7,9 @@
       <source src="" type="video/mp4">
     </video>
     <div class="container">
-      <div class="flex flex-col justify-start md:justify-evenly xl:w-[75vw] h-full ml-auto">
-        <div class="clients-projects lg:grid grid-cols-2 gap-8">
-          <h2 :key="locale" ref="headingRef">
+      <div class="xl:w-[80vw] h-full ml-auto">
+        <div class="clients-projects lg:grid grid-cols-2 lg:justify-items-end gap-x-20">
+          <h2 :key="locale" ref="headingRef" class="lg:text-right">
             {{ t('projects.title') }}
           </h2>
           <div>
