@@ -15,7 +15,15 @@
         <p>{{ $t('footer.text') }} <a :href="$t('footer.linkText')" target="_blank" aria-label="Read more about hummingbirds on Wikipedia">Wikipedia</a>.</p>
         <p>
           &copy;{{ currentYear }} Dan Alcaide ·
-          <a href="https://github.com/skabeche/danalcaide-vue">{{ $t('footer.code') }}</a> · {{ $t('footer.ingredients') }}
+          <a href="https://github.com/skabeche/danalcaide-vue">{{ $t('footer.code') }}</a> ·
+          <Dialog :linkText="$t('privacy.linkText')">
+            <h1>{{ $t('privacy.title') }}</h1>
+            <p>{{ $t('privacy.p1') }}</p>
+            <p>{{ $t('privacy.p2') }}</p>
+            <p>{{ $t('privacy.p3') }}</p>
+            <p>{{ $t('privacy.p4') }}</p>
+          </Dialog> ·
+          {{ $t('footer.ingredients') }}
           <span class="inline-flex gap-x-2 [&_svg]:inline-block">
             <a href="https://youtu.be/pDIDo4kJIsU" target="_blank" aria-label="I like music">
               <Music :size="20" :stroke-width="1.75" />
@@ -43,6 +51,7 @@
   import { Music, Coffee, Popcorn } from 'lucide-vue-next';
   import Roots from "@/components/Roots.vue";
   import Grass from "@/components/Grass.vue";
+  import Dialog from "@/components/Dialog.vue";
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
 
