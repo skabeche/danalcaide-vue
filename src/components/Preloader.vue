@@ -1,11 +1,14 @@
 <template>
-  <div ref="overlayRef" class="overlay absolute z-40 inset-0 w-full h-[105dvh] pt-20 pb-[5dvh] flex flex-col justify-center bg-black text-white will-change-[height]">
-    <div class="container flex flex-col justify-end">
+  <div class="overlay relative z-40 pt-20 pb-[5dvh] text-white">
+    <div ref="overlayContentRef" class="overlay-content container absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-dvh flex flex-col justify-end">
       <slot />
       <span ref="loaderRef" class="loader -mt-1 text-sm" role="status">
         {{ $t('preloader.loading') }}...
       </span>
     </div>
+    <svg class="overlay-svg absolute -z-10 top-0 left-0 w-full h-[105dvh] pointer-events-none" viewBox="0 0 200 200" preserveAspectRatio="none" aria-hidden="true" role="img">
+      <path ref="overlaySvgPath" class="overlay-svg-path" vector-effect="non-scaling-stroke" :d="paths.filled" />
+    </svg>
   </div>
 </template>
 
@@ -17,19 +20,24 @@
   gsap.registerPlugin(ScrollTrigger);
 
   const isLoaded = ref(false);
-
-  const overlayRef = useTemplateRef("overlayRef");
+  const overlayContentRef = useTemplateRef("overlayContentRef");
+  const overlaySvgPath = useTemplateRef("overlaySvgPath");
   const loaderRef = useTemplateRef("loaderRef");
+  const paths = {
+    filled: "M0 0H200V200C130 200 75 200 0 200V0",
+    curves: "M0 0H200V60C90 20 75 200 0 100V0",
+    unfilled: "M0 0H200V0C90 0 75 0 0 0V0"
+  };
 
   ScrollTrigger.clearScrollMemory("manual");
 
   onMounted(() => {
     const html = document.documentElement;
     const body = document.body;
-    const logo = overlayRef.value.querySelector('.logo');
-    const svgPaths = overlayRef.value.querySelectorAll('.logo svg path');
+    const logo = overlayContentRef.value.querySelector('.logo');
+    const logoSvgPaths = overlayContentRef.value.querySelectorAll('.logo svg path');
 
-    svgPaths.forEach(path => {
+    logoSvgPaths.forEach(path => {
       const length = path.getTotalLength()
       gsap.set(path, {
         strokeDasharray: length,
@@ -50,15 +58,15 @@
     })
 
     tl
-      .to(svgPaths, {
+      .to(logoSvgPaths, {
         strokeDashoffset: 0,
-        duration: 1.2,
+        duration: 1.1,
         stagger: {
           each: 0.06,
           from: "random"
         },
       })
-      .to(svgPaths, {
+      .to(logoSvgPaths, {
         strokeDashoffset: (i, el) => -el.getTotalLength(),
         duration: 1,
         stagger: {
@@ -66,7 +74,7 @@
           from: "random"
         },
       })
-      .to(svgPaths, {
+      .to(logoSvgPaths, {
         fill: '#fff',
         duration: .5,
         stagger: {
@@ -107,7 +115,7 @@
           duration: 0.7,
           ease: "power4.inOut",
         }, '0.4')
-        .to(svgPaths, {
+        .to(logoSvgPaths, {
           y: 12,
           stagger: {
             each: 0.02,
@@ -116,19 +124,17 @@
           duration: 0.3,
           ease: "power4.in",
         }, '<')
-        .to(overlayRef.value, {
-          height: 0,
-          color: '#000000',
-          backgroundColor: "transparent",
+        .to(overlaySvgPath.value, {
           duration: 0.6,
-          ease: "power4.in",
+          ease: 'power3.in',
+          attr: { d: paths.curves }
         })
-        .to(svgPaths, {
-          fill: '#000000',
+        .to(overlayContentRef.value, {
+          yPercent: -93,
           duration: 0.6,
-          ease: "power4.in",
+          ease: "power3.in",
         }, '<')
-        .to(svgPaths, {
+        .to(logoSvgPaths, {
           y: 0,
           stagger: {
             each: 0.025,
@@ -137,11 +143,26 @@
           duration: 0.3,
           ease: "power4.in",
         }, '<')
+        .to(overlaySvgPath.value, {
+          duration: 0.3,
+          ease: 'power1',
+          attr: { d: paths.unfilled }
+        })
+        .to(overlayContentRef.value, {
+          color: '#000000',
+          duration: 0.3,
+          ease: "power4.in",
+        }, '<-0.2')
+        .to(logoSvgPaths, {
+          fill: '#000000',
+          duration: 0.3,
+          ease: "power4.in",
+        }, '<')
         .to(logo, {
           y: 0,
           duration: 0.1,
           ease: "power4.out",
-        })
+        }, '<')
         .play();
     }
   })
