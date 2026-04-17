@@ -1,13 +1,13 @@
 <template>
-  <div class="overlay relative z-40 pt-20 pb-[5dvh] text-white">
-    <div ref="overlayContentRef" class="overlay-content container absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-dvh flex flex-col justify-end">
+  <div class="overlay relative z-100 text-white">
+    <div ref="overlayContentRef" class="overlay-content container absolute z-20 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-dvh mt-15 lg:mt-13 4xl:mt-10 flex flex-col justify-end">
       <slot />
       <span ref="loaderRef" class="loader -mt-1 text-sm" role="status">
         {{ $t('preloader.loading') }}...
       </span>
     </div>
-    <svg class="overlay-svg absolute -z-10 top-0 left-0 w-full h-[105dvh] pointer-events-none" viewBox="0 0 200 200" preserveAspectRatio="none" aria-hidden="true" role="img">
-      <path ref="overlaySvgPath" class="overlay-svg-path" vector-effect="non-scaling-stroke" :d="paths.filled" />
+    <svg ref="overlaySvgRef" class="overlay-svg absolute z-10 top-0 left-0 w-full h-[105dvh]" viewBox="0 0 200 200" preserveAspectRatio="none" aria-hidden="true" role="img">
+      <path ref="overlaySvgPathRef" class="overlay-svg-path" vector-effect="non-scaling-stroke" :d="paths.filled" />
     </svg>
   </div>
 </template>
@@ -21,7 +21,8 @@
 
   const isLoaded = ref(false);
   const overlayContentRef = useTemplateRef("overlayContentRef");
-  const overlaySvgPath = useTemplateRef("overlaySvgPath");
+  const overlaySvgRef = useTemplateRef("overlaySvgRef");
+  const overlaySvgPathRef = useTemplateRef("overlaySvgPathRef");
   const loaderRef = useTemplateRef("loaderRef");
   const paths = {
     filled: "M0 0H200V200C130 200 75 200 0 200V0",
@@ -124,7 +125,7 @@
           duration: 0.3,
           ease: "power4.in",
         }, '<')
-        .to(overlaySvgPath.value, {
+        .to(overlaySvgPathRef.value, {
           duration: 0.6,
           ease: 'power3.in',
           attr: { d: paths.curves }
@@ -143,7 +144,7 @@
           duration: 0.3,
           ease: "power4.in",
         }, '<')
-        .to(overlaySvgPath.value, {
+        .to(overlaySvgPathRef.value, {
           duration: 0.3,
           ease: 'power1',
           attr: { d: paths.unfilled }
@@ -163,6 +164,10 @@
           duration: 0.1,
           ease: "power4.out",
         }, '<')
+        .set(overlaySvgRef.value, {
+          height: 0,
+          pointerEvents: 'none'
+        })
         .play();
     }
   })
