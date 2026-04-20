@@ -1,6 +1,6 @@
 <template>
   <Header class="h-28" />
-  <main class="bg-horizon bg-position-[46%_50%] 4xl:bg-top bg-no-repeat  overflow-hidden">
+  <main class="bg-horizon bg-position-[46%_50%] 4xl:bg-top bg-no-repeat overflow-hidden">
     <RouterView />
   </main>
   <Footer />

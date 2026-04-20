@@ -1,10 +1,8 @@
 <template>
-  <div class="grass relative">
-    <div class="absolute bottom-0 w-full sm:h-[30px] bg-black">
-      <div class="grass1 absolute bottom-0 h-[85px] w-full bg-grass bg-position-[-2rem_bottom] bg-repeat-x bg-cover lg:bg-auto"></div>
-      <div class="grass2 absolute bottom-0 h-[85px] w-full bg-grass bg-position-[2rem_bottom] bg-repeat-x bg-cover lg:bg-auto"></div>
-      <div class="grass3 absolute bottom-0 h-[85px] w-full bg-grass bg-position-[4rem_105%] bg-repeat-x bg-cover lg:bg-auto"></div>
-    </div>
+  <div class="grass relative bottom-0 w-full sm:h-[30px] bg-black">
+    <div class="grass1 absolute bottom-0 left-0 h-[85px] w-full bg-grass bg-position-[-2rem_bottom] bg-repeat-x bg-cover lg:bg-auto"></div>
+    <div class="grass2 absolute bottom-0 left-0 h-[85px] w-full bg-grass bg-position-[2rem_bottom] bg-repeat-x bg-cover lg:bg-auto"></div>
+    <div class="grass3 absolute bottom-0 left-0 h-[85px] w-full bg-grass bg-position-[4rem_105%] bg-repeat-x bg-cover lg:bg-auto"></div>
   </div>
 </template>
 

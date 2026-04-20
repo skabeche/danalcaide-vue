@@ -5,12 +5,12 @@
       <Roots />
     </div>
 
-    <div class="absolute top-0 z-10 w-full rotate-180">
+    <div class="absolute top-0 w-full rotate-180">
       <Grass />
     </div>
 
     <div class="container">
-      <div class="relative z-10 lg:w-1/2 py-20 lg:py-40">
+      <div class="relative lg:w-1/2 py-20 lg:py-40">
         <p>{{ $t('footer.social') }} <a href="mailto:info@danalcaide.com" aria-label="Say hi via email">info@danalcaide.com</a> · <a href="https://github.com/skabeche" aria-label="Check my Github profile">Github</a> · <a href="https://www.linkedin.com/in/danalc" aria-label="Check my Linkedin profile">Linkedin</a></p>
         <p>{{ $t('footer.text') }} <a :href="$t('footer.linkText')" target="_blank" aria-label="Read more about hummingbirds on Wikipedia">Wikipedia</a>.</p>
         <p>

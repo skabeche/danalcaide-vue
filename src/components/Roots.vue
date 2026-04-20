@@ -1,6 +1,6 @@
 <template>
   <div class="roots relative w-[50vw]">
-    <div class="grass absolute z-10 top-[-20px] w-full h-[120px] bg-bottom bg-no-repeat rotate-180">
+    <div class="grass absolute top-[-20px] w-full h-[120px] bg-bottom bg-no-repeat rotate-180">
       <div class="grass-roots absolute right-0 bottom-0 bg-grass-tree w-full h-full bg-bottom bg-no-repeat"></div>
       <div class="grass-roots absolute right-0 bottom-0 bg-grass-tree w-full h-[105px] bg-bottom bg-no-repeat"></div>
     </div>

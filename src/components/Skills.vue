@@ -1,5 +1,5 @@
 <template>
-  <div ref="skillsRef" class="skills relative z-10 min-h-lvh flex flex-col justify-center overflow-hidden">
+  <div ref="skillsRef" class="skills relative z-50 min-h-lvh flex flex-col justify-center overflow-hidden">
     <div ref="svgRowsRef" class="svg-rows absolute top-0 -left-[70vh] sm:-left-[20vw] w-[170vh] sm:w-[140vw] h-lvh overflow-hidden pointer-events-none rotate-270 sm:rotate-0 [&_svg]:-mt-1">
       <svg width="3360" height="600" viewBox="0 0 3360 600" fill="none" class="absolute z-10 -top-20 left-0 w-full" aria-hidden="true" role="img">
         <path d="M0,300 Q560,150 1120,300 T2240,300 T3360,300" stroke="#fff" stroke-width="300" stroke-miterlimit="3.8637" stroke-linecap="round" fill="none" />

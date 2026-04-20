@@ -30,6 +30,9 @@
         <Skills />
       </Garden>
     </section>
+
+    <IconSwipe />
+
   </div>
 </template>
 
@@ -38,6 +41,7 @@
   import Garden from "@/components/Garden.vue";
   import Projects from '@/components/Projects.vue'
   import Skills from '@/components/Skills.vue'
+  import IconSwipe from "@/components/IconSwipe.vue";
 
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"
