@@ -16,13 +16,13 @@
         <p>
           &copy;{{ currentYear }} Dan Alcaide ·
           <a href="https://github.com/skabeche/danalcaide-vue">{{ $t('footer.code') }}</a> ·
-          <!-- <Dialog :linkText="$t('privacy.linkText')">
+          <Dialog :linkText="$t('privacy.linkText')">
             <h1>{{ $t('privacy.title') }}</h1>
             <p>{{ $t('privacy.p1') }}</p>
             <p>{{ $t('privacy.p2') }}</p>
             <p>{{ $t('privacy.p3') }}</p>
             <p>{{ $t('privacy.p4') }}</p>
-          </Dialog> · -->
+          </Dialog> ·
           {{ $t('footer.ingredients') }}
           <span class="inline-flex gap-x-2 [&_svg]:inline-block">
             <a href="https://youtu.be/pDIDo4kJIsU" target="_blank" aria-label="I like music">
