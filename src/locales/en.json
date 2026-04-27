@@ -14,7 +14,8 @@
     "timelineLink": "See more about this timeline point"
   },
   "preloader": {
-    "loading": "loading"
+    "loading": "loading",
+    "loaded": "loaded"
   },
   "yo": {
     "title": "Full-Stack Developer<br> who loves music & cinema.",

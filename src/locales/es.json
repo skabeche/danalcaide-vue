@@ -14,7 +14,8 @@
     "timelineLink": "Ver más sobre este punto de la linea de tiempo"
   },
   "preloader": {
-    "loading": "cargando"
+    "loading": "cargando",
+    "loaded": "cargado"
   },
   "yo": {
     "title": "Desarrollador Full-Stack<br> fascinado por la música y el cine.",
@@ -77,10 +78,10 @@
   },
   "privacy": {
     "title": "Política de privacidad y cookies",
-      "p1": "Me importa tu privacidad (y la mía). Por eso no utilizo cookies en mi portfolio, ni tengo intención de hacerlo. No me interesa rastrear a los visitantes ni recopilar datos sobre ti, simplemente no quiero hacerlo.",
-      "p2": "Mi único propósito es compartir mi trabajo contigo. Nada más, nada menos.",
-      "p3": "Dicho esto, mi sitio web está alojado por un proveedor externo y puede que ellos utilicen sus propias cookies para cosas como la seguridad o el rendimiento básico del sitio. Esa parte está fuera de mi control pero por mi parte mantengo todo lo más libre de cookies posible.",
-      "p4": "Tampoco vendo comida pero mi consejo es que comas más verduras para mantenerte sano. También te animo a que apoyes los productos españoles; nuestro jamón ibérico y aceite de oliva forman parte de las maravillas del mundo.",
+    "p1": "Me importa tu privacidad (y la mía). Por eso no utilizo cookies en mi portfolio, ni tengo intención de hacerlo. No me interesa rastrear a los visitantes ni recopilar datos sobre ti, simplemente no quiero hacerlo.",
+    "p2": "Mi único propósito es compartir mi trabajo contigo. Nada más, nada menos.",
+    "p3": "Dicho esto, mi sitio web está alojado por un proveedor externo y puede que ellos utilicen sus propias cookies para cosas como la seguridad o el rendimiento básico del sitio. Esa parte está fuera de mi control pero por mi parte mantengo todo lo más libre de cookies posible.",
+    "p4": "Tampoco vendo comida pero mi consejo es que comas más verduras para mantenerte sano. También te animo a que apoyes los productos españoles; nuestro jamón ibérico y aceite de oliva forman parte de las maravillas del mundo.",
     "linkText": "Política de privacidad"
   },
   "components": {

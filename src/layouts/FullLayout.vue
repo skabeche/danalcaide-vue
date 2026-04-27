@@ -17,7 +17,7 @@
   html[data-page-loaded="true"] {
     main {
       opacity: 0;
-      animation: anim-init-main 500ms 1700ms forwards;
+      animation: anim-init-main 500ms 2400ms forwards;
     }
   }
 

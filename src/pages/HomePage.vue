@@ -67,7 +67,7 @@
         stagger: 0.05,
         duration: .5,
         ease: 'power4.out',
-        delay: 5.1
+        delay: 5.8
       });
     });
 

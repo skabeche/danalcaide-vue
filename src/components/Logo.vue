@@ -35,8 +35,8 @@
   html[data-page-loaded="true"] {
     .colibri-logo {
       animation:
-        anim-init-colibri-logo 500ms 2000ms forwards,
-        anim-colibri-fly 5000ms 2500ms infinite;
+        anim-init-colibri-logo 500ms 2700ms forwards,
+        anim-colibri-fly 5000ms 3200ms infinite;
       opacity: 0;
     }
   }

@@ -14,16 +14,19 @@
 
 <script setup>
   import { ref, onMounted, useTemplateRef } from "vue";
+  import { useI18n } from "vue-i18n";
   import { gsap } from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
+  import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
-  gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(ScrollTrigger, ScrambleTextPlugin);
 
   const isLoaded = ref(false);
   const overlayContentRef = useTemplateRef("overlayContentRef");
   const overlaySvgRef = useTemplateRef("overlaySvgRef");
   const overlaySvgPathRef = useTemplateRef("overlaySvgPathRef");
   const loaderRef = useTemplateRef("loaderRef");
+  const { t } = useI18n();
   const paths = {
     filled: "M0 0H200V200C130 200 75 200 0 200V0",
     curves: "M0 0H200V60C90 20 75 200 0 100V0",
@@ -59,6 +62,11 @@
     })
 
     tl
+      .from(loaderRef.value, {
+        autoAlpha: 0,
+        duration: 0.3,
+        filter: "blur(3px)",
+      }, '<')
       .to(logoSvgPaths, {
         strokeDashoffset: 0,
         duration: 1.1,
@@ -107,15 +115,26 @@
 
       tl
         .to(loaderRef.value, {
-          autoAlpha: 0,
-          y: 8,
-          duration: 0.3,
+          ease: "none",
+          scrambleText: {
+            // chars: "ΩΨΣΞΘΔ",
+            // chars: "█▓▒░▉",
+            chars: "▌■▪▐▬",
+            text: t('preloader.loaded'),
+          },
+          duration: 0.4
         })
+        .to(loaderRef.value, {
+          y: 8,
+          autoAlpha: 0,
+          filter: "blur(3px)",
+          duration: 0.3,
+        }, '+=0.3')
         .to(logo, {
           y: 30,
           duration: 0.7,
           ease: "power4.inOut",
-        }, '0.4')
+        })
         .to(logoSvgPaths, {
           y: 12,
           stagger: {
@@ -153,7 +172,7 @@
           color: '#000000',
           duration: 0.3,
           ease: "power4.in",
-        }, '<-0.2')
+        }, '<-=0.1')
         .to(logoSvgPaths, {
           fill: '#000000',
           duration: 0.3,
@@ -175,6 +194,10 @@
 
 <style scoped>
 
+  .loader {
+    font-family: sans-serif;
+  }
+
   /* Page loading */
   html[data-page-loaded="false"] {
     .loader {
@@ -192,7 +215,7 @@
     }
 
     40% {
-      font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", sans-serif;
+      font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", "Open Sans", sans-serif;
     }
 
     60% {

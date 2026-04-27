@@ -20,7 +20,7 @@
   /* Page loaded */
   html[data-page-loaded="true"] {
     nav {
-      animation: anim-init-nav 500ms 1700ms forwards;
+      animation: anim-init-nav 500ms 2400ms forwards;
     }
   }
 
