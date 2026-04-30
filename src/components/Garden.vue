@@ -32,6 +32,7 @@
   const colibri = useTemplateRef('refColibri');
   const lastCoordinatesAxis = { x: null, y: null };
   const currentCoordinatesAxis = { x: null, y: null };
+  const tlBounce = gsap.timeline({ paused: true });
   let hoveredElement;
 
   onMounted(() => {
@@ -43,8 +44,7 @@
       { passive: true }
     );
 
-    let tlHummingbird = gsap.timeline();
-    tlHummingbird.to(colibri.value, {
+    tlBounce.to(colibri.value, {
       yPercent: 10,
       duration: 1,
       repeat: -1,
@@ -105,9 +105,13 @@
       ease: "power3",
       onStart: () => showHummingbird.value = true
     });
+
+    tlBounce.play();
   }
 
   const gardenOut = (e) => {
+    tlBounce.pause();
+
     gsap.to(colibri.value, {
       opacity: 0,
       filter: "blur(8px)",

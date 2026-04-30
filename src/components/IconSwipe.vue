@@ -20,16 +20,18 @@
 
   onMounted(() => {
     const isReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const isLargeDevice = window.matchMedia("(min-width: 640px)").matches;
 
     gsap.set(iconSwipeRef.value, { autoAlpha: 0 });
 
-    gsap.to(iconSwipeRef.value, {
+    const tlBounce = gsap.timeline({ paused: true });
+    tlBounce.to(iconSwipeRef.value, {
       yPercent: 10,
       duration: 1,
       repeat: -1,
       yoyo: true,
       ease: 'sine.inOut',
-      paused: isReducedMotion,
+      paused: isReducedMotion || isLargeDevice
     });
 
     gsap.to(iconSwipeRef.value, {
@@ -40,6 +42,10 @@
         end: "bottom top",
         toggleActions: "play reverse play reverse",
         // markers: true,
+        onEnter: () => tlBounce.play(),
+        onLeaveBack: () => tlBounce.pause(),
+        onEnterBack: () => tlBounce.play(),
+        onLeave: () => tlBounce.pause(),
       }
     });
   })
