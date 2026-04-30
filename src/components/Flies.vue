@@ -1,6 +1,6 @@
 <template>
-  <div class="flies absolute -z-10 left-0 bottom-0 w-full before:absolute before:w-full before:h-full before:bg-gray-50 before:mask-[linear-gradient(black,transparent_30%)]">
-    <vue-particles class="w-full h-[330px] lg:h-[230px]" id="tsparticles" @particles-loaded="particlesLoaded" :options="options" />
+  <div class="flies absolute left-0 bottom-0 w-full mask-[linear-gradient(to_bottom,transparent,black_30%)]">
+    <vue-particles class="w-full h-[330px] lg:h-[260px]" id="tsparticles" @particles-loaded="particlesLoaded" :options="options" />
   </div>
 </template>
 

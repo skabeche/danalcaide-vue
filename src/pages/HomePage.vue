@@ -1,7 +1,11 @@
 <template>
   <div class="home">
-    <section ref="aboutRef" class="about container">
-      <div class="prose-lg md:prose-xl prose-h1:text-[clamp(3.6rem,8vw,5.6rem)] prose-h1:mb-0 prose-li:m-0 prose-li:p-0 prose-ul:pl-0 leading-relaxed mt-12 mb-[26rem] sm:mb-[22rem] lg:mb-[23rem] xl:mb-[21rem] 3xl:mb-[21rem] text-balance">
+    <section ref="aboutRef" class="about relative h-full flex flex-col">
+      <div class="hidden lg:block absolute -z-10 bottom-0 left-0 w-full">
+        <Clouds />
+      </div>
+
+      <div class="container prose-lg md:prose-xl prose-h1:text-[clamp(3.6rem,8vw,5.6rem)] prose-h1:mb-0 prose-li:m-0 prose-li:p-0 prose-ul:pl-0 leading-relaxed mt-12 mb-[26rem] sm:mb-[22rem] lg:mb-[23rem] xl:mb-[21rem] 3xl:mb-[21rem] text-balance">
         <h1 ref="titleRef" class="font-alternateGothic2 uppercase text-pretty" v-html="$t('yo.title')"></h1>
         <div class="lg:w-[60%]">
           <p>{{ $t('yo.text1') }}</p>
@@ -24,7 +28,7 @@
       </div>
     </section>
 
-    <section class="prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-ul:mt-1 prose-li:m-0 prose-li:p-0 prose-h2:text-[clamp(3rem,10vw,5.2rem)] prose-h2:my-1 prose-h2:lg:my-3 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:font-normal prose-h2:tracking-wider prose-ul:pl-0">
+    <section class="relative prose-lg md:prose-xl prose-a:text-gray-400 prose-a:after:bg-gray-400 prose-ul:mt-1 prose-li:m-0 prose-li:p-0 prose-h2:text-[clamp(3rem,10vw,5.2rem)] prose-h2:my-1 prose-h2:lg:my-3 prose-h2:font-alternateGothic2 prose-h2:uppercase prose-h2:font-normal prose-h2:tracking-wider prose-ul:pl-0">
       <Garden>
         <Projects />
         <Skills />
@@ -42,6 +46,7 @@
   import Projects from '@/components/Projects.vue'
   import Skills from '@/components/Skills.vue'
   import IconSwipe from "@/components/IconSwipe.vue";
+  import Clouds from "@/components/Clouds.vue";
 
   import { gsap } from "gsap"
   import { ScrollTrigger } from "gsap/ScrollTrigger"

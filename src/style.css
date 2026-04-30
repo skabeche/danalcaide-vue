@@ -40,6 +40,9 @@
   --background-image-grass-tree: url("/images/grass-tree.svg");
 
   --ease-out-back: cubic-bezier(0.87, -0.41, 0.19, 1.44);
+
+  /* Initial delay for animations after page load */
+  --init-anim-delay: 2600ms;
 }
 
 /* Touch-only devices: coarse pointer and no hover (primary input or any) */
