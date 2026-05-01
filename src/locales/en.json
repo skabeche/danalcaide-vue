@@ -19,7 +19,7 @@
   },
   "yo": {
     "title": "Full-Stack Developer<br> who loves music & cinema.",
-    "text1": "Web Developer who has worked as a Web and Graphic Designer on several projects being a freelance or part of a multidisciplinary team.",
+    "text1": "Web Developer who has worked as a Web and Graphic Designer on several projects being a freelancer or part of a multidisciplinary team.",
     "text2": "Knowledge and supervision of the usability, accessibility, aesthetic, interactivity and communication in the design process.",
     "text3": "A musician who loves music and has been making noise with a guitar for over 25 years.",
     "text4": "Received an Honorable Mention on {0} for the {1} website.",
@@ -73,12 +73,12 @@
   },
   "404": {
     "title": "404 · Page not found",
-    "text": "Oops! The page you are looking for does not exist and it's getting dark",
+    "text": "Oops! The page you are looking for doesn't exist and it's getting dark",
     "linkText": "Go back home"
   },
   "privacy": {
     "title": "Privacy policy & cookies",
-    "p1": "I care about your (and my) privacy. That’s why I don’t use cookies on my portfolio, and I’m not planning to. I’m not interested in tracking visitors or collecting data about you, that’s just not what I do.",
+    "p1": "I care about your (and my) privacy. That's why I don't use cookies on my portfolio, and I'm not planning to. I'm not interested in tracking visitors or collecting data about you, that's just not what I do.",
     "p2": "My only goal is to share my work with you. Nothing more, nothing less.",
     "p3": "That said, my website is hosted by a third-party provider, and they might use their own cookies for things like security or basic site performance. That part is outside of my control, but from my side, I keep things as cookie-free as possible.",
     "p4": "I don't sell food either, but my advice is to eat more vegetables to stay healthy. I also encourage you to support Spanish products; our Ibérico ham and olive oil are among the wonders of the world.",
