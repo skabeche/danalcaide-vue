@@ -9,14 +9,12 @@ import { loadSlim } from "@tsparticles/slim"
 import LenisVue from 'lenis/vue'
 
 const head = createHead();
-router.beforeEach((to, from, next) => {
+router.beforeEach((to, from) => {
   const lang = to.params.lang;
 
   if (i18n.global.availableLocales.includes(lang)) {
     i18n.global.locale.value = lang;
   }
-
-  return next();
 })
 
 createApp(App)
