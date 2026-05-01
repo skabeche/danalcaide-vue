@@ -119,9 +119,9 @@
       scrollTrigger: {
         trigger: skillsRef.value,
         start: "top top",
-        end: "+=400%",
+        end: "+=500%",
         pin: true,
-        scrub: true,
+        scrub: 1.2,
         toggleActions: "play none none reverse",
         // markers: true,
       },
